@@ -63,6 +63,8 @@ class Rogue {
 }
 
 class Fighter {
+    baseModifiers = [3, 3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
+    featAt4Modifiers = [3, 3, 3, 3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
     _damage = new Map([
         ['snb', {base: Dice.d8, crit: 2*Dice.d8, extra: 2}],
         ['gs', {base: 2*Dice.d6, crit: 4*Dice.d6, extra:1.33}],
@@ -79,7 +81,10 @@ class Fighter {
         let params = this._damage.get(type);
         if (!params) {throw new Error(`Type ${type} not implemented`);}
         let index = level - 1;
-        let modifier =  modifiers[index];
+        let modifier =  this.baseModifiers[index];
+        if (type == 'gwm_pam') {
+            modifier = this.featAt4Modifiers[index];
+        }
         let accuracyMod = modifier;
         let bonusDamage = 0;
         let extraPerHit = params.extra;
