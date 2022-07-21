@@ -20,7 +20,8 @@ class Util {
                         min: 0,
                         grace: 1
                     }
-                }
+                },
+                spanGaps: false
             }
         });
     }

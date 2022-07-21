@@ -30,6 +30,9 @@
         label {
             display: block;
         }
+        textarea {
+            min-width: 450px;
+        }
         .form-container {
             display: flex;
             flex-flow: row;
@@ -62,6 +65,10 @@
                 <option value="accuracy">Hit Chance (%)</option>
             </select>
         </div>
+        <div class="hidden form-element">
+            <label for="custom-damage">Custom Damage [number, number, ...], 20 elements</label>
+            <textarea id="custom-damage" name="custom-damage"></textarea>
+        </div>
     </div>
     
     
@@ -75,6 +82,7 @@
         const table = document.getElementById('output-table');
         const selector = document.getElementById('preset-selector');
         const tableMode = document.getElementById('table-mode');
+        const customEntry = document.getElementById('custom-damage');
         let allPresets;
         let chart;
         document.addEventListener('DOMContentLoaded', function(event) {
@@ -94,18 +102,27 @@
             let datasets = [];
             let tableData = [];
             let selectedTableMode = tableMode.value;
+            let customData = customEntry.value ? JSON.parse(customEntry.value) : new Array(20).fill(0);
             for (let preset of presets) {
                 let redData = [];
                 let rawData = [];
                 let accuracyData = [];
                 let name = getPresetName(preset);
                 for (let level=1; level <= 20; level++) {
-                    let {red, raw, accuracy} = calculator.calculate(preset, level, accuracyMode);
-                    redData.push(red);
-                    rawData.push(raw);
-                    accuracyData.push(accuracy*100);
+                    if (preset == 'custom') {
+                        let {red, raw, accuracy} = calculator.calculate('red_baseline', level, accuracyMode);
+                        let custom = customData[level - 1];
+                        let customRed = custom ? custom/raw : null;
+                        redData.push(customRed);
+                        rawData.push(custom);
+                        accuracyData.push(accuracy);
+                    } else {
+                        let {red, raw, accuracy} = calculator.calculate(preset, level, accuracyMode);
+                        redData.push(red);
+                        rawData.push(raw);
+                        accuracyData.push(accuracy*100);
+                    }
                 }
-                
                 let average;
                 let data;
                 switch (selectedTableMode) {
@@ -152,6 +169,7 @@
             return new Map([
                 ['red_baseline', {name: 'Baseline Rogue', obj: _rogue, type:'red', resources: null}],
                 ['rogue_twf', {name: 'TWF rogue', obj: _rogue, type:'twf', resources: null}],
+                ['custom', {name: 'Custom Data', obj: null, type: null, resources: null, options: null}],
                 ['rogue_advantage', {name: 'RED with constant advantage', obj: _rogue, type:'red', resources: null, options:{advantage:1, disadvantage:0}}],
                 ['champion_snb_nr', {name: 'SnB Champion Fighter (No Action Surge)', obj: _fighter, type:'snb', resources: null}],
                 ['champion_snb_3', {name: 'SnB Champion Fighter (1 SR / 3 rounds)', obj: _fighter, type:'snb', resources: {rounds: 3, rests: 0}}],
