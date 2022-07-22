@@ -3,6 +3,11 @@ import AccuracyProvider from "./utility/accuracy";
 import Util from "./utility/util"
 import PresetCalculator from "./classes/presets";
 import Rogue from "./classes/rogue";
+import Fighter from "./classes/fighter";
+import Warlock from "./classes/warlock";
+import Cleric from "./classes/cleric";
+import Monk from "./classes/monk";
+import Druid from "./classes/druid";
 
 function createChart(ctx, datasets) {
 	return new Chart(ctx, {
@@ -92,11 +97,11 @@ function getPresetName(preset) {
 
 function getPresets() {
 	let _rogue = new Rogue();
-	let _fighter = null//new classes.Fighter();
-	let _warlock = null//new classes.Warlock();
-	let _cleric = null//new classes.Cleric();
-	let _monk = null//new classes.Monk();
-	let _druid = null//new classes.Druid();
+	let _fighter = new Fighter();
+	let _warlock = new Warlock();
+	let _cleric = new Cleric();
+	let _monk = new Monk();
+	let _druid = new Druid();
 	return new Map([
 			['red_baseline', {name: 'Baseline Rogue', obj: _rogue, type:'red', resources: null}],
 			['rogue_twf', {name: 'TWF rogue', obj: _rogue, type:'twf', resources: null}],

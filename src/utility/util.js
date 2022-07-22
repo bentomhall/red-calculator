@@ -19,3 +19,5 @@ class Util {
 			return attacks*(damagePerCrit*critChance + damagePerHit*hitChance);
 	}
 }
+
+export default Util;
