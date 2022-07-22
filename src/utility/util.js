@@ -1,8 +1,4 @@
 class Util {
-    static doCleanup(chart, table) {
-        chart?.destroy();
-        table.innerHTML = '';
-    }
     static average(data) {
         return data.reduce((p,c)=>p+c,0)/data.length;
     }

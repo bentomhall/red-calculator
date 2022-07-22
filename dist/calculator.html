@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RED calculator</title>
-		<script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="form-container">
         <div class="form-element">
             <label for="preset-selector">Preset</label>
-            <select name="preset-selector" id="preset-selector" multiple size=10 onchange="doCleanup(chart, table);calculate();"></select>
+            <select name="preset-selector" id="preset-selector" multiple size=10 ></select>
         </div>
         <div class="form-element">
             <label for="accuracy-mode">Accuracy Mode</label>
-            <select name="accuracy-mode" id="accuracy-mode" onchange="doCleanup(chart, table);calculate();">
+            <select name="accuracy-mode" id="accuracy-mode" >
                 <option value="ignore-dmg">90% hit, 5% base crit, 5% miss</option>
                 <option value="boss-dmg">Calculate against CR = level + 3, DMG AC</option>
                 <option value="half-dmg">Calculate against CR = level / 2 (round down), DMG AC</option>
@@ -24,7 +24,7 @@
         </div>
         <div class="form-element">
             <label for="table-mode">Table Mode</label>
-            <select name="table-mode" id="table-mode" onchange="doCleanup(chart, table);calculate();">
+            <select name="table-mode" id="table-mode">
                 <option value="red">Damage, RED</option>
                 <option value="dpr">Damage, raw</option>
                 <option value="accuracy">Hit Chance (%)</option>
@@ -42,5 +42,7 @@
         <table id="output-table">
         </table>
     </div>
+
+    <script src="main.js"></script>
 </body>
 </html>

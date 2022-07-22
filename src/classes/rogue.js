@@ -38,7 +38,7 @@ class Rogue {
 
 	calculateTWF(level, provider, mode) {
 			let index = level - 1;
-			let {hit, crit} = provider.vsAC(level, mode, modifiers[index], 0, 'flat');
+			let {hit, crit} = provider.vsAC(level, mode, this.modifiers[index], 0, 'flat');
 			let damage = this.mainHand(index, hit, crit) + Util.getDamageWithCrits(1, Dice.d6, 2*Dice.d6, hit, crit);
 			return {damage, accuracy: hit};
 	}

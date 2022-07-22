@@ -1,4 +1,3 @@
-import { Chart } from "chart.js";
 import AccuracyProvider from "./utility/accuracy";
 import Util from "./utility/util"
 import PresetCalculator from "./classes/presets";
@@ -8,6 +7,7 @@ import Warlock from "./classes/warlock";
 import Cleric from "./classes/cleric";
 import Monk from "./classes/monk";
 import Druid from "./classes/druid";
+import './css/main.css';
 
 function createChart(ctx, datasets) {
 	return new Chart(ctx, {
@@ -175,6 +175,15 @@ function getPresetOptions(presets, parent) {
 			parent.appendChild(option);
 	})
 }
+function doCleanup(chart, table) {
+	chart?.destroy();
+	table.innerHTML = '';
+}
+
+function onSelectorChanged(event) {
+	doCleanup(chart, table);
+	calculate();
+}
 
 let ctx; 
 let table; 
@@ -195,4 +204,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
 	getPresetOptions(optionNames, selector);
 	selector.value = optionNames[0][0];
 	calculate();
+
+	selector.addEventListener('change', onSelectorChanged);
+	tableMode.addEventListener('change', onSelectorChanged);
+	document.getElementById('accuracy-mode').addEventListener('change', onSelectorChanged);
 });
+
