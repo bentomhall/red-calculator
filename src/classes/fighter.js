@@ -50,7 +50,7 @@ class Fighter {
 	attacks(level) {
 			if (level < 5) { return 1;}
 			else if (level < 11) { return 2;}
-			else if (level < 19) { return 3;}
+			else if (level < 20) { return 3;}
 			return 4;
 	}
 	extraCrit(level) {
