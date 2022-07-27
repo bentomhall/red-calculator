@@ -1,0 +1,30 @@
+.container {
+	margin-top: 16px;
+}
+#output-table{
+	border: 1px solid black;
+	border-collapse: collapse;
+	margin-left: 16px;
+}
+td, th {
+	border: 1px solid black;
+	text-align: center;
+	padding: 4px;
+}
+#chart {
+	max-width: 800px;
+	max-height: 400px;
+}
+label {
+	display: block;
+}
+textarea {
+	min-width: 450px;
+}
+.form-container {
+	display: flex;
+	flex-flow: row;
+}
+.form-element {
+	margin-right: 16px;
+}

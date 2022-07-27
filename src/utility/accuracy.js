@@ -117,3 +117,5 @@ class Disadvantage {
         return Math.pow(21-x,2)/400;
     }
 }
+
+export default AccuracyProvider
