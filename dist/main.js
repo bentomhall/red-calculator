@@ -932,31 +932,42 @@ class Rogue {
 					let advantage = provider.vsAC(level, mode, mod, 0, 'advantage');
 					let disadvantage = provider.vsAC(level, mode, mod, 0, 'disadvantage');
 					let flat = provider.vsAC(level, mode, mod, 0, 'flat');
-					let aDamage = options.advantage*this.mainHand(index, advantage.hit, advantage.crit, 0, 0);
-					let dDamage = options.disadvantage*this.mainHand(index, disadvantage.hit, disadvantage.crit, 0, 0, false);
-					let fDamage = (1 - options.advantage - options.disadvantage) * this.mainHand(index, flat.hit, flat.crit, 0, 0);
+					let aDamage = options.advantage*this.mainHand(index, advantage.hit, advantage.crit, 0, 0) + this.sneakAttackWithAccuracy(index, advantage.hit, advantage.crit, 1);
+					let dDamage = options.disadvantage*this.mainHand(index, disadvantage.hit, disadvantage.crit, 0, 0);
+					let fDamage = (1 - options.advantage - options.disadvantage) * this.mainHand(index, flat.hit, flat.crit, 0, 0) + this.sneakAttackWithAccuracy(index, flat.hit, flat.crit, 1);
 					let averageAccuracy = options.advantage * advantage.hit + options.disadvantage * disadvantage.hit + (1 - options.advantage - options.disadvantage) * flat.hit;
 					return {damage: aDamage + dDamage + fDamage, accuracy: averageAccuracy};
 			} else {
 					let {hit, crit} = provider.vsAC(level, mode, this.modifiers[index], 0, 'flat');
-					let damage = this.mainHand(index, hit, crit, 0, 0, true, _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d6);
+					let damage = this.mainHand(index, hit, crit, 0, 0, true, _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d6) + this.sneakAttackWithAccuracy(index, hit, crit, 1);
 					return {damage, accuracy: hit};
 			}
 	}
 
 	calculateTWF(level, provider, mode) {
 			let index = level - 1;
-			let {hit, crit} = provider.vsAC(level, mode, this.modifiers[index], 0, 'flat');
-			let damage = this.mainHand(index, hit, crit) + _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(1, _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d6, 2*_utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d6, hit, crit);
+			let modifier = this.modifiers[index];
+			let {hit, crit} = provider.vsAC(level, mode, modifier, 0, 'flat');
+			let damage = this.mainHand(index, hit, crit) + this.mainHand(index, hit, crit, -1*modifier, 0) + this.sneakAttackWithAccuracy(index, hit, crit, 2);
 			return {damage, accuracy: hit};
 	}
 
-	mainHand(index, hit, crit, extraStatic = 0, extraDice = 0, useSneakAttack=true, dieSize = _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d6) {
+	mainHand(index, hit, crit, extraStatic = 0, extraDice = 0, dieSize = _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d6) {
 			let modifier = this.modifiers[index];
-			let dice = useSneakAttack ? this.sneakAttack[index] : 0;
-			let damagePerHit = dice*_utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d6 + dieSize + modifier + extraDice + extraStatic;
-			let damagePerCrit = 2 * damagePerHit - modifier - extraStatic;
+			let damagePerHit = dieSize + modifier + extraDice + extraStatic;
+			let damagePerCrit = 2 * dieSize + modifier + extraDice + extraStatic;
 			return _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(1, damagePerHit, damagePerCrit, hit, crit);
+	}
+
+	sneakAttackWithAccuracy(index, hit, crit, attacks) {
+		let dice = this.sneakAttack[index]*_utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d6;
+		if (attacks == 1) {
+			return hit*dice + 2*crit*dice;
+		}
+		//only 2 attacks possible here
+		let chance = 2 - hit - crit;
+		return dice * (hit*chance + 2*crit*chance);
+		
 	}
 }
 
