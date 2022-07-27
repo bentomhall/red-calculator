@@ -10,6 +10,22 @@
 			"name": "Launch Chrome against localhost",
 			"url": "http://localhost:8080",
 			"webRoot": "${workspaceFolder}"
-		}
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Build",
+			"cwd": "${workspaceFolder}",
+			"runtimeExecutable": "npm",
+			"runtimeArgs": ["run-script", "build"]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Deploy",
+			"cwd": "${workspaceFolder}",
+			"runtimeExecutable": "npm",
+			"runtimeArgs": ["run-script", "deploy"]
+		},
 	]
 }
