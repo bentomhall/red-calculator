@@ -97,12 +97,12 @@ class Monk{
 	handOfHarm(level, uses, rounds) {
 			if (level < 3) { return 0;}
 			let die = this.martialArtsDie(level);
-			return (die + modifiers[level - 1])*Math.min(uses, rounds)/rounds;
+			return (die + this.modifiers[level - 1])*Math.min(uses, rounds)/rounds;
 	}
 
 	astralArms(level, provider, mode, flurryRounds, rounds, targets = 1) {
 			if (level < 3) { return 0;}
-			let modifier = modifiers[level - 1];
+			let modifier = this.modifiers[level - 1];
 			let die = this.martialArtsDie(level);
 			let {fail} = provider.vsDex(level, mode, modifier, 'flat');
 			let {hit, crit} = provider.vsAC(level, mode, modifier, 0, 'flat');

@@ -1,4 +1,5 @@
 import Util from "../utility/util";
+import Dice from "../utility/dice";
 
 class Warlock {
 	modifiers = [3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
