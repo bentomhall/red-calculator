@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".container {\r\n\tmargin-top: 16px;\r\n}\r\n#output-table{\r\n\tborder: 1px solid black;\r\n\tborder-collapse: collapse;\r\n\tmargin-left: 16px;\r\n}\r\ntd, th {\r\n\tborder: 1px solid black;\r\n\ttext-align: center;\r\n\tpadding: 4px;\r\n}\r\n#chart {\r\n\tmax-width: 800px;\r\n\tmax-height: 400px;\r\n}\r\nlabel {\r\n\tdisplay: block;\r\n}\r\ntextarea {\r\n\tmin-width: 450px;\r\n}\r\n.form-container {\r\n\tdisplay: flex;\r\n\tflex-flow: row;\r\n}\r\n.form-element {\r\n\tmargin-right: 16px;\r\n}", "",{"version":3,"sources":["webpack://./src/css/main.css"],"names":[],"mappings":"AAAA;CACC,gBAAgB;AACjB;AACA;CACC,uBAAuB;CACvB,yBAAyB;CACzB,iBAAiB;AAClB;AACA;CACC,uBAAuB;CACvB,kBAAkB;CAClB,YAAY;AACb;AACA;CACC,gBAAgB;CAChB,iBAAiB;AAClB;AACA;CACC,cAAc;AACf;AACA;CACC,gBAAgB;AACjB;AACA;CACC,aAAa;CACb,cAAc;AACf;AACA;CACC,kBAAkB;AACnB","sourcesContent":[".container {\r\n\tmargin-top: 16px;\r\n}\r\n#output-table{\r\n\tborder: 1px solid black;\r\n\tborder-collapse: collapse;\r\n\tmargin-left: 16px;\r\n}\r\ntd, th {\r\n\tborder: 1px solid black;\r\n\ttext-align: center;\r\n\tpadding: 4px;\r\n}\r\n#chart {\r\n\tmax-width: 800px;\r\n\tmax-height: 400px;\r\n}\r\nlabel {\r\n\tdisplay: block;\r\n}\r\ntextarea {\r\n\tmin-width: 450px;\r\n}\r\n.form-container {\r\n\tdisplay: flex;\r\n\tflex-flow: row;\r\n}\r\n.form-element {\r\n\tmargin-right: 16px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".container {\n\tmargin-top: 16px;\n}\n#output-table{\n\tborder: 1px solid black;\n\tborder-collapse: collapse;\n\tmargin-left: 16px;\n}\ntd, th {\n\tborder: 1px solid black;\n\ttext-align: center;\n\tpadding: 4px;\n}\n#chart {\n\tmax-width: 800px;\n\tmax-height: 400px;\n}\nlabel {\n\tdisplay: block;\n}\ntextarea {\n\tmin-width: 450px;\n}\n.form-container {\n\tdisplay: flex;\n\tflex-flow: row;\n}\n.form-element {\n\tmargin-right: 16px;\n}", "",{"version":3,"sources":["webpack://./src/css/main.css"],"names":[],"mappings":"AAAA;CACC,gBAAgB;AACjB;AACA;CACC,uBAAuB;CACvB,yBAAyB;CACzB,iBAAiB;AAClB;AACA;CACC,uBAAuB;CACvB,kBAAkB;CAClB,YAAY;AACb;AACA;CACC,gBAAgB;CAChB,iBAAiB;AAClB;AACA;CACC,cAAc;AACf;AACA;CACC,gBAAgB;AACjB;AACA;CACC,aAAa;CACb,cAAc;AACf;AACA;CACC,kBAAkB;AACnB","sourcesContent":[".container {\n\tmargin-top: 16px;\n}\n#output-table{\n\tborder: 1px solid black;\n\tborder-collapse: collapse;\n\tmargin-left: 16px;\n}\ntd, th {\n\tborder: 1px solid black;\n\ttext-align: center;\n\tpadding: 4px;\n}\n#chart {\n\tmax-width: 800px;\n\tmax-height: 400px;\n}\nlabel {\n\tdisplay: block;\n}\ntextarea {\n\tmin-width: 450px;\n}\n.form-container {\n\tdisplay: flex;\n\tflex-flow: row;\n}\n.form-element {\n\tmargin-right: 16px;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -13606,6 +13606,89 @@ module.exports = function (item) {
 
 /***/ }),
 
+/***/ "./src/classes/barbarian.js":
+/*!**********************************!*\
+  !*** ./src/classes/barbarian.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Barbarian": () => (/* binding */ Barbarian)
+/* harmony export */ });
+/* harmony import */ var _utility_dice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utility/dice */ "./src/utility/dice.js");
+/* harmony import */ var _utility_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utility/util */ "./src/utility/util.js");
+
+
+class Barbarian {
+    presets() {
+        return [
+            ['barbarian_no_rage', { name: 'Barbarian (no rage or reckless)', obj: this, resources: { useRage: false, roundsPerLR: 1, recklessPercent: 0 }, type: 'no-rage', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12, gWMProcRate: 0 } }]
+        ];
+    }
+    calculate(type, level, accuracyProvider, accuracyMode, resources, options) {
+        let modifier = this.modifiers[level - 1];
+        let { hit, crit } = accuracyProvider.vsAC(level, accuracyMode, modifier, 0, 'flat');
+        let hitDamage = (options?.weaponDieSize ?? _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12) + modifier + (resources.useRage ? this.rageBonus(level) : 0);
+        let critDamage = this.critDamage(level, options?.weaponDieSize ?? _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12, options?.weaponDieNumber ?? 1) + modifier + (resources.useRage ? this.rageBonus(level) : 0);
+        let total = _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(this.attacks(level), hitDamage, critDamage, hit, crit);
+        return { damage: total, accuracy: hit };
+    }
+    modifiers = [3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 7];
+    attacks(level) {
+        if (level < 5) {
+            return 1;
+        }
+        return 2;
+    }
+    rageBonus(level) {
+        if (level < 9) {
+            return 2;
+        }
+        else if (level < 16) {
+            return 3;
+        }
+        return 4;
+    }
+    ragesPerDay(level) {
+        if (level < 3) {
+            return 2;
+        }
+        else if (level < 6) {
+            return 3;
+        }
+        else if (level < 12) {
+            return 4;
+        }
+        else if (level < 17) {
+            return 5;
+        }
+        else if (level < 20) {
+            return 6;
+        }
+        return 1000000000; //technically unlimited, but....
+    }
+    critDamage(level, die, numberOfDice) {
+        let extra = 0;
+        if (level < 9) {
+            extra = 0;
+        }
+        else if (level < 13) {
+            extra = 1;
+        }
+        else if (level < 17) {
+            extra = 2;
+        }
+        else {
+            extra = 3;
+        }
+        return die * (2 * numberOfDice + extra);
+    }
+}
+
+
+/***/ }),
+
 /***/ "./src/classes/cleric.js":
 /*!*******************************!*\
   !*** ./src/classes/cleric.js ***!
@@ -14852,6 +14935,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _classes_druid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./classes/druid */ "./src/classes/druid.js");
 /* harmony import */ var _css_main_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./css/main.css */ "./src/css/main.css");
 /* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/chart.esm.js");
+/* harmony import */ var _classes_barbarian__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./classes/barbarian */ "./src/classes/barbarian.js");
 
 
 
@@ -14864,6 +14948,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 chart_js__WEBPACK_IMPORTED_MODULE_10__.Chart.register(chart_js__WEBPACK_IMPORTED_MODULE_10__.ArcElement, chart_js__WEBPACK_IMPORTED_MODULE_10__.LineElement, chart_js__WEBPACK_IMPORTED_MODULE_10__.BarElement, chart_js__WEBPACK_IMPORTED_MODULE_10__.PointElement, chart_js__WEBPACK_IMPORTED_MODULE_10__.BarController, chart_js__WEBPACK_IMPORTED_MODULE_10__.BubbleController, chart_js__WEBPACK_IMPORTED_MODULE_10__.DoughnutController, chart_js__WEBPACK_IMPORTED_MODULE_10__.LineController, chart_js__WEBPACK_IMPORTED_MODULE_10__.PieController, chart_js__WEBPACK_IMPORTED_MODULE_10__.PolarAreaController, chart_js__WEBPACK_IMPORTED_MODULE_10__.RadarController, chart_js__WEBPACK_IMPORTED_MODULE_10__.ScatterController, chart_js__WEBPACK_IMPORTED_MODULE_10__.CategoryScale, chart_js__WEBPACK_IMPORTED_MODULE_10__.LinearScale, chart_js__WEBPACK_IMPORTED_MODULE_10__.LogarithmicScale, chart_js__WEBPACK_IMPORTED_MODULE_10__.RadialLinearScale, chart_js__WEBPACK_IMPORTED_MODULE_10__.TimeScale, chart_js__WEBPACK_IMPORTED_MODULE_10__.TimeSeriesScale, chart_js__WEBPACK_IMPORTED_MODULE_10__.Decimation, chart_js__WEBPACK_IMPORTED_MODULE_10__.Filler, chart_js__WEBPACK_IMPORTED_MODULE_10__.Legend, chart_js__WEBPACK_IMPORTED_MODULE_10__.Title, chart_js__WEBPACK_IMPORTED_MODULE_10__.Tooltip, chart_js__WEBPACK_IMPORTED_MODULE_10__.SubTitle);
+
 function createChart(ctx, datasets) {
     return new chart_js__WEBPACK_IMPORTED_MODULE_10__.Chart(ctx, {
         type: 'line',
@@ -14929,7 +15014,7 @@ function getPresetName(preset) {
     return allPresets.get(preset)?.name ?? 'Not Supported';
 }
 function getPresets() {
-    let classes = [new _classes_rogue__WEBPACK_IMPORTED_MODULE_3__["default"](), new _classes_fighter__WEBPACK_IMPORTED_MODULE_4__["default"](), new _classes_warlock__WEBPACK_IMPORTED_MODULE_5__["default"](), new _classes_cleric__WEBPACK_IMPORTED_MODULE_6__["default"](), new _classes_monk__WEBPACK_IMPORTED_MODULE_7__["default"](), new _classes_druid__WEBPACK_IMPORTED_MODULE_8__["default"]()];
+    let classes = [new _classes_rogue__WEBPACK_IMPORTED_MODULE_3__["default"](), new _classes_fighter__WEBPACK_IMPORTED_MODULE_4__["default"](), new _classes_warlock__WEBPACK_IMPORTED_MODULE_5__["default"](), new _classes_cleric__WEBPACK_IMPORTED_MODULE_6__["default"](), new _classes_monk__WEBPACK_IMPORTED_MODULE_7__["default"](), new _classes_druid__WEBPACK_IMPORTED_MODULE_8__["default"](), new _classes_barbarian__WEBPACK_IMPORTED_MODULE_11__.Barbarian()];
     let presetEntries = [];
     for (let cls of classes) {
         presetEntries.push(...cls.presets());
