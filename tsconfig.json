@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "outDir": "./src",
+        "allowJs": true,
+        "target": "ESNext",
+        "moduleResolution": "node"
+    },
+    "include": ["./src/**/*"],
+    "exclude": ["./src/**/*.js"]
+}
