@@ -94,25 +94,8 @@ function calculate() {
 	let selectedTableMode = tableMode.value;
 	let customData = customEntry.value ? JSON.parse(customEntry.value) : new Array(20).fill(0);
 	for (let preset of presets) {
-		let redData = [];
-		let rawData = [];
-		let accuracyData = [];
+		let {redData, rawData, accuracyData} = calculator.calculateAllLevels(preset, accuracyMode, customData)
 		let name = getPresetName(preset);
-		for (let level = 1; level <= 20; level++) {
-			if (preset == 'custom') {
-				let { red, raw, accuracy } = calculator.calculate('red_baseline', level, accuracyMode);
-				let custom = customData[level - 1];
-				let customRed = custom ? custom / raw : null;
-				redData.push(customRed);
-				rawData.push(custom);
-				accuracyData.push(accuracy);
-			} else {
-				let { red, raw, accuracy } = calculator.calculate(preset, level, accuracyMode);
-				redData.push(red);
-				rawData.push(raw);
-				accuracyData.push(accuracy * 100);
-			}
-		}
 		let average: number;
 		let data: number[];
 		switch (selectedTableMode) {
@@ -151,15 +134,13 @@ function getPresetName(preset: string) {
 }
 
 function getPresets(): Map<string, Preset> {
-	let _rogue = new Rogue();
-	let _fighter = new Fighter();
-	let _warlock = new Warlock();
-	let _cleric = new Cleric();
-	let _monk = new Monk();
-	let _druid = new Druid();
-	let map = new Map([..._rogue.presets(), ..._fighter.presets(), ..._warlock.presets(), ..._cleric.presets(), ..._monk.presets(), ..._druid.presets()]);
-	map.set('custom', {name: "Custom Data", obj: _rogue, type: "", resources: null, options: null})
-	return map;
+	let classes = [new Rogue(), new Fighter(), new Warlock(), new Cleric(), new Monk(), new Druid()];
+	let presetEntries: [string, Preset][] = [];
+	for (let cls of classes) {
+		presetEntries.push(...cls.presets());
+	}
+	presetEntries.push(['custom', {name: "Custom Data", obj: new Rogue(), type: "", resources: null, options: null}])
+	return new Map(presetEntries);
 }
 
 function fillTable(table: HTMLTableElement, rowData: string[][]) {

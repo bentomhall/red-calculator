@@ -11,7 +11,7 @@ class PresetCalculator {
         this._rogue = this._map.get('red_baseline').obj;
     }
 
-    calculate(preset: string, level: number, accuracyMode: AccuracyMode) {
+    private calculate(preset: string, level: number, accuracyMode: AccuracyMode) {
         let {obj, type, resources, options} = this._map.get(preset);
         if (!obj) {
             let msg = `Preset ${preset} not supported`;
@@ -21,6 +21,28 @@ class PresetCalculator {
         let raw = obj.calculate(type, level, this._accuracyProvider, accuracyMode, resources, options);
         let red = this._rogue.calculateRED(level, this._accuracyProvider, accuracyMode, 0).damage;
         return {red: raw.damage/red, raw: raw.damage, accuracy: raw.accuracy};
+    }
+
+    calculateAllLevels(preset: string, accuracyMode: AccuracyMode, customData?: (number|null)[]) : {rawData: number[], redData: number[], accuracyData: number[]} {
+        let redData: number[] = [];
+        let rawData: number[] = [];
+        let accuracyData: number[] = [];
+        for (let level=1; level <= 20; level++) {
+            if (preset == 'custom') {
+				let { red, raw, accuracy } = this.calculate('red_baseline', level, accuracyMode);
+				let custom = customData[level - 1];
+				let customRed = custom ? custom / raw : null;
+				redData.push(customRed);
+				rawData.push(custom);
+				accuracyData.push(accuracy);
+			} else {
+				let { red, raw, accuracy } = this.calculate(preset, level, accuracyMode);
+				redData.push(red);
+				rawData.push(raw);
+				accuracyData.push(accuracy * 100);
+			}
+        }
+        return {rawData, redData, accuracyData};
     }
 }
 

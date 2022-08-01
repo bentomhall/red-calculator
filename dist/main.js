@@ -14046,6 +14046,28 @@ class PresetCalculator {
         let red = this._rogue.calculateRED(level, this._accuracyProvider, accuracyMode, 0).damage;
         return { red: raw.damage / red, raw: raw.damage, accuracy: raw.accuracy };
     }
+    calculateAllLevels(preset, accuracyMode, customData) {
+        let redData = [];
+        let rawData = [];
+        let accuracyData = [];
+        for (let level = 1; level <= 20; level++) {
+            if (preset == 'custom') {
+                let { red, raw, accuracy } = this.calculate('red_baseline', level, accuracyMode);
+                let custom = customData[level - 1];
+                let customRed = custom ? custom / raw : null;
+                redData.push(customRed);
+                rawData.push(custom);
+                accuracyData.push(accuracy);
+            }
+            else {
+                let { red, raw, accuracy } = this.calculate(preset, level, accuracyMode);
+                redData.push(red);
+                rawData.push(raw);
+                accuracyData.push(accuracy * 100);
+            }
+        }
+        return { rawData, redData, accuracyData };
+    }
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PresetCalculator);
 
@@ -14871,26 +14893,8 @@ function calculate() {
     let selectedTableMode = tableMode.value;
     let customData = customEntry.value ? JSON.parse(customEntry.value) : new Array(20).fill(0);
     for (let preset of presets) {
-        let redData = [];
-        let rawData = [];
-        let accuracyData = [];
+        let { redData, rawData, accuracyData } = calculator.calculateAllLevels(preset, accuracyMode, customData);
         let name = getPresetName(preset);
-        for (let level = 1; level <= 20; level++) {
-            if (preset == 'custom') {
-                let { red, raw, accuracy } = calculator.calculate('red_baseline', level, accuracyMode);
-                let custom = customData[level - 1];
-                let customRed = custom ? custom / raw : null;
-                redData.push(customRed);
-                rawData.push(custom);
-                accuracyData.push(accuracy);
-            }
-            else {
-                let { red, raw, accuracy } = calculator.calculate(preset, level, accuracyMode);
-                redData.push(red);
-                rawData.push(raw);
-                accuracyData.push(accuracy * 100);
-            }
-        }
         let average;
         let data;
         switch (selectedTableMode) {
@@ -14925,15 +14929,13 @@ function getPresetName(preset) {
     return allPresets.get(preset)?.name ?? 'Not Supported';
 }
 function getPresets() {
-    let _rogue = new _classes_rogue__WEBPACK_IMPORTED_MODULE_3__["default"]();
-    let _fighter = new _classes_fighter__WEBPACK_IMPORTED_MODULE_4__["default"]();
-    let _warlock = new _classes_warlock__WEBPACK_IMPORTED_MODULE_5__["default"]();
-    let _cleric = new _classes_cleric__WEBPACK_IMPORTED_MODULE_6__["default"]();
-    let _monk = new _classes_monk__WEBPACK_IMPORTED_MODULE_7__["default"]();
-    let _druid = new _classes_druid__WEBPACK_IMPORTED_MODULE_8__["default"]();
-    let map = new Map([..._rogue.presets(), ..._fighter.presets(), ..._warlock.presets(), ..._cleric.presets(), ..._monk.presets(), ..._druid.presets()]);
-    map.set('custom', { name: "Custom Data", obj: _rogue, type: "", resources: null, options: null });
-    return map;
+    let classes = [new _classes_rogue__WEBPACK_IMPORTED_MODULE_3__["default"](), new _classes_fighter__WEBPACK_IMPORTED_MODULE_4__["default"](), new _classes_warlock__WEBPACK_IMPORTED_MODULE_5__["default"](), new _classes_cleric__WEBPACK_IMPORTED_MODULE_6__["default"](), new _classes_monk__WEBPACK_IMPORTED_MODULE_7__["default"](), new _classes_druid__WEBPACK_IMPORTED_MODULE_8__["default"]()];
+    let presetEntries = [];
+    for (let cls of classes) {
+        presetEntries.push(...cls.presets());
+    }
+    presetEntries.push(['custom', { name: "Custom Data", obj: new _classes_rogue__WEBPACK_IMPORTED_MODULE_3__["default"](), type: "", resources: null, options: null }]);
+    return new Map(presetEntries);
 }
 function fillTable(table, rowData) {
     let headers = ['Preset', "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", 'Average'];
