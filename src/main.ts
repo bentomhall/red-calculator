@@ -34,9 +34,9 @@ import {
 	Title,
 	Tooltip,
 	SubTitle
-  } from 'chart.js';
-  
-  Chart.register(
+} from 'chart.js';
+
+Chart.register(
 	ArcElement,
 	LineElement,
 	BarElement,
@@ -61,7 +61,7 @@ import {
 	Title,
 	Tooltip,
 	SubTitle
-  );
+);
 import { AccuracyMode, Preset } from "./utility/types";
 
 function createChart(ctx, datasets) {
