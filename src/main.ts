@@ -8,7 +8,60 @@ import Cleric from "./classes/cleric";
 import Monk from "./classes/monk";
 import Druid from "./classes/druid";
 import './css/main.css';
-import { Chart } from "../node_modules/chart.js/types/index.esm";
+import {
+	Chart,
+	ArcElement,
+	LineElement,
+	BarElement,
+	PointElement,
+	BarController,
+	BubbleController,
+	DoughnutController,
+	LineController,
+	PieController,
+	PolarAreaController,
+	RadarController,
+	ScatterController,
+	CategoryScale,
+	LinearScale,
+	LogarithmicScale,
+	RadialLinearScale,
+	TimeScale,
+	TimeSeriesScale,
+	Decimation,
+	Filler,
+	Legend,
+	Title,
+	Tooltip,
+	SubTitle
+  } from 'chart.js';
+  
+  Chart.register(
+	ArcElement,
+	LineElement,
+	BarElement,
+	PointElement,
+	BarController,
+	BubbleController,
+	DoughnutController,
+	LineController,
+	PieController,
+	PolarAreaController,
+	RadarController,
+	ScatterController,
+	CategoryScale,
+	LinearScale,
+	LogarithmicScale,
+	RadialLinearScale,
+	TimeScale,
+	TimeSeriesScale,
+	Decimation,
+	Filler,
+	Legend,
+	Title,
+	Tooltip,
+	SubTitle
+  );
 import { AccuracyMode, Preset } from "./utility/types";
 
 function createChart(ctx, datasets) {
