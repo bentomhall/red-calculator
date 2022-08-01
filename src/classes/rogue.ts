@@ -4,8 +4,8 @@ import Util from "../utility/util";
 
 class Rogue implements PresetProvider, BaselineProvider {
 	private attacks: number = 1;
-	private sneakAttack: number[];
-	private modifiers: number[];
+	private sneakAttack: number[] = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
+	private modifiers: number[] = [3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
 
 	public presets() {
 		return [

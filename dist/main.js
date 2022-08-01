@@ -14068,8 +14068,8 @@ __webpack_require__.r(__webpack_exports__);
 
 class Rogue {
     attacks = 1;
-    sneakAttack;
-    modifiers;
+    sneakAttack = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
+    modifiers = [3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
     presets() {
         return [
             ['red_baseline', { name: 'Baseline Rogue', obj: this, type: 'red', resources: null, options: null }],
@@ -14932,6 +14932,7 @@ function getPresets() {
     let _monk = new _classes_monk__WEBPACK_IMPORTED_MODULE_7__["default"]();
     let _druid = new _classes_druid__WEBPACK_IMPORTED_MODULE_8__["default"]();
     let map = new Map([..._rogue.presets(), ..._fighter.presets(), ..._warlock.presets(), ..._cleric.presets(), ..._monk.presets(), ..._druid.presets()]);
+    map.set('custom', { name: "Custom Data", obj: _rogue, type: "", resources: null, options: null });
     return map;
 }
 function fillTable(table, rowData) {

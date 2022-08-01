@@ -158,6 +158,7 @@ function getPresets(): Map<string, Preset> {
 	let _monk = new Monk();
 	let _druid = new Druid();
 	let map = new Map([..._rogue.presets(), ..._fighter.presets(), ..._warlock.presets(), ..._cleric.presets(), ..._monk.presets(), ..._druid.presets()]);
+	map.set('custom', {name: "Custom Data", obj: _rogue, type: "", resources: null, options: null})
 	return map;
 }
 

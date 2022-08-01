@@ -6,7 +6,7 @@ class Monk implements PresetProvider {
 	presets() {
 		return [
 			['monk_unarmed_nr', { name: 'Monk (Unarmed, no ki)', obj: this, type: 'unarmed', resources: null }],
-		['monk_qs_nr', { name: 'Monk (quarterstaff, no ki)', obj: this, type: 'qs', resources: null }],
+			['monk_qs_nr', { name: 'Monk (quarterstaff, no ki)', obj: this, type: 'qs', resources: null }],
 			['monk_qs_flurry30', { name: 'Monk (quarterstaff, flurry, 1 SR/3 rounds)', obj: this, type: "qs", resources: { rounds: 3, rests: 1 } }],
 			['monk_qs_flurry40', { name: 'Monk (quarterstaff, flurry, 1 SR/4 rounds)', obj: this, type: "qs", resources: { rounds: 4, rests: 1 } }],
 			['monk_qs_flurry60', { name: 'Monk (quarterstaff, flurry, 1 SR/6 rounds)', obj: this, type: 'qs', resources: { rounds: 6, rests: 1 } }],

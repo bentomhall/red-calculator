@@ -17,6 +17,7 @@
 			"name": "Build",
 			"cwd": "${workspaceFolder}",
 			"runtimeExecutable": "npm",
+			"preLaunchTask": "tsc-build",
 			"runtimeArgs": ["run-script", "build"]
 		},
 		{
@@ -25,6 +26,7 @@
 			"name": "Deploy",
 			"cwd": "${workspaceFolder}",
 			"runtimeExecutable": "npm",
+			
 			"runtimeArgs": ["run-script", "deploy"]
 		},
 	]
