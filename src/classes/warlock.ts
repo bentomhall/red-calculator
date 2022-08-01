@@ -1,8 +1,18 @@
 import Util from "../utility/util";
 import Dice from "../utility/dice";
+import { Preset, PresetProvider } from "../utility/types";
 
-class Warlock {
+class Warlock implements PresetProvider {
+
 	modifiers = [3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
+	presets() {
+		return [
+			['warlock_ab_nr', { name: 'Warlock (EB/AB, no hex)', obj: this, type: true, resources: null }],
+			['warlock_no_ab_nr', { name: 'Warlock (EB, no AB, no hex)', obj: this, type: false, resources: null }],
+			['warlock_ab_hex', { name: 'Warlock (EB/AB, unlimited hex)', obj: this, type: true, resources: { rounds: 1, duration: 100 } }],
+		] as [string, Preset][]
+	}
+	
 	calculate(hasAB, level, provider, mode, resources, options) {
 			let {slots, spellLevel} = this.getSlots(level);
 			let modifier = this.modifiers[level - 1];

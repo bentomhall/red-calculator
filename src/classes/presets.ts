@@ -1,11 +1,17 @@
+import { AccuracyMode, AccuracyProvider, BaselineProvider, Preset } from "../utility/types";
+
 class PresetCalculator {
-    constructor(accuracyProvider, presets) {
+    private _accuracyProvider: AccuracyProvider;
+    private _map: Map<string, Preset>;
+    private _rogue: BaselineProvider;
+    
+    constructor(accuracyProvider: AccuracyProvider, presets: Map<string, Preset>) {
         this._accuracyProvider = accuracyProvider;
         this._map = presets;
         this._rogue = this._map.get('red_baseline').obj;
     }
 
-    calculate(preset, level, accuracyMode) {
+    calculate(preset: string, level: number, accuracyMode: AccuracyMode) {
         let {obj, type, resources, options} = this._map.get(preset);
         if (!obj) {
             let msg = `Preset ${preset} not supported`;
