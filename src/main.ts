@@ -62,8 +62,9 @@ Chart.register(
 	Tooltip,
 	SubTitle
 );
-import { AccuracyMode, Preset } from "./utility/types";
+import { AccuracyMode, Preset, PresetProvider } from "./utility/types";
 import { Barbarian } from "./classes/barbarian";
+import { CustomData } from "./classes/custom";
 
 function createChart(ctx, datasets) {
 	return new Chart(ctx, {
@@ -86,7 +87,7 @@ function createChart(ctx, datasets) {
 }
 
 function calculate() {
-	const presets = [...selector.options].filter(x => x.selected).map(x => x.value);
+	const presets = selectedPresets;//[...selector.children].filter(x => (x.firstChild as HTMLInputElement)?.checked).map(x => x.id);
 	const [accuracyMode, armorSource]: [AccuracyMode, string] = ((document.getElementById('accuracy-mode') as HTMLInputElement | null)?.value ?? 'ignore-dmg').split('-') as [AccuracyMode, string];
 	const accuracyProvider = new D20AccuracyProvider(armorSource);
 	const calculator = new PresetCalculator(accuracyProvider, allPresets);
@@ -134,14 +135,10 @@ function getPresetName(preset: string) {
 	return allPresets.get(preset)?.name ?? 'Not Supported';
 }
 
-function getPresets(): Map<string, Preset> {
-	let classes = [new Rogue(), new Fighter(), new Warlock(), new Cleric(), new Monk(), new Druid(), new Barbarian()];
-	let presetEntries: [string, Preset][] = [];
-	for (let cls of classes) {
-		presetEntries.push(...cls.presets());
-	}
-	presetEntries.push(['custom', {name: "Custom Data", obj: new Rogue(), type: "", resources: null, options: null}])
-	return new Map(presetEntries);
+function getPresets(entry: PresetProvider): [string, Preset][] {
+	let presetEntries: [string, Preset][] = entry.presets();
+	//presetEntries.push(['custom', {name: "Custom Data", obj: new Rogue(), type: "", resources: null, options: null}])
+	return presetEntries;
 }
 
 function fillTable(table: HTMLTableElement, rowData: string[][]) {
@@ -172,31 +169,55 @@ function fillTable(table: HTMLTableElement, rowData: string[][]) {
 	table.appendChild(head);
 	table.appendChild(body);
 }
-function getPresetOptions(presets: string[][], parent: HTMLElement) {
-	presets.forEach(v => {
-		let option = document.createElement('option');
-		option.value = v[0];
-		option.innerText = v[1];
-		parent.appendChild(option);
-	})
+
+function getPresetOptionsForGroup(groupName: string, presets: [string, Preset][]): HTMLElement {
+	let container = document.createElement('div');
+	let title = document.createElement('dt');
+	title.innerHTML = groupName;
+	container.appendChild(title);
+	for (let [id, preset] of presets) {
+		let dd = document.createElement('dd');
+		let input = document.createElement('input');
+		input.setAttribute('type', 'checkbox');
+		input.setAttribute('id', id);
+		input.addEventListener('click', onSelectorChanged);
+		dd.appendChild(input);
+		let label = document.createElement('label');
+		label.setAttribute('for', id);
+		label.innerText = preset.name;
+		dd.appendChild(label);
+		container.appendChild(dd);
+	}
+	return container;
 }
 function doCleanup(chart: Chart | null, table: HTMLTableElement) {
 	chart?.destroy();
 	table.innerHTML = '';
 }
 
-function onSelectorChanged(event) {
+function onSelectorChanged(event: Event) {
+	let id = this.id;
+	let element = document.getElementById(id) as HTMLInputElement;
+	if (element.checked) {
+		selectedPresets.push(id);
+	} else {
+		let index = selectedPresets.findIndex(x => x == id);
+		if (index > -1) {
+			selectedPresets.splice(index, 1);
+		}
+	}
 	doCleanup(chart, table);
 	calculate();
 }
 
 let ctx: CanvasRenderingContext2D;
 let table: HTMLTableElement;
-let selector: HTMLSelectElement;
+let selector: HTMLElement;
 let tableMode: HTMLInputElement;
 let customEntry: HTMLInputElement;
 let allPresets: Map<string, any>;
 let chart: Chart;
+let selectedPresets: string[] = [];
 document.addEventListener('DOMContentLoaded', function (event) {
 	ctx = (document.getElementById('chart') as HTMLCanvasElement).getContext("2d");
 	table = document.getElementById('output-table') as HTMLTableElement;
@@ -204,13 +225,16 @@ document.addEventListener('DOMContentLoaded', function (event) {
 	tableMode = document.getElementById('table-mode') as HTMLInputElement;
 	customEntry = document.getElementById('custom-damage') as HTMLInputElement;
 	doCleanup(chart, table);
-	allPresets = getPresets();
-	let optionNames = Array.from(allPresets.entries()).map(x => [x[0], x[1].name]);
-	getPresetOptions(optionNames, selector);
-	selector.value = optionNames[0][0];
-	calculate();
-
-	selector.addEventListener('change', onSelectorChanged);
+	let classes = [new Rogue(), new Fighter(), new Warlock(), new Cleric(), new Monk(), new Druid(), new Barbarian(), new CustomData()];
+	let allPresetInterior = [];
+	for (let cls of classes) {
+		let presets = cls.presets();
+		allPresetInterior.push(...presets);
+		let name = cls.name;
+		let element = getPresetOptionsForGroup(name, presets);
+		selector.appendChild(element);
+	}
+	allPresets = new Map(allPresetInterior);
 	tableMode.addEventListener('change', onSelectorChanged);
 	document.getElementById('accuracy-mode').addEventListener('change', onSelectorChanged);
 });

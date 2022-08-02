@@ -3,7 +3,7 @@ import { AccuracyProvider, Preset, PresetProvider } from "../utility/types";
 import Util from "../utility/util";
 
 export class Barbarian implements PresetProvider{
-	
+	public readonly name: string = 'Barbarian';
 	presets(): [string, Preset][] {
 		return [
 			['barbarian_no_rage', {name: 'Barbarian (no rage or reckless)', obj: this, resources: {useRage: false, roundsPerLR: 1, recklessPercent: 0, combats: 1}, type: 'no-sub', options: {weaponDieSize: Dice.d12, gWMProcRate: 0}}],

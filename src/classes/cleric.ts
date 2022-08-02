@@ -3,6 +3,7 @@ import Dice from "../utility/dice";
 import {AccuracyMode, AccuracyProvider, Preset, PresetProvider} from "../utility/types"
 
 class Cleric implements PresetProvider {
+	public readonly name = 'Cleric';
 	private wisModifiers = [3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
 	presets() {
 		return [			

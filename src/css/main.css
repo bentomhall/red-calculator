@@ -28,3 +28,15 @@ textarea {
 .form-element {
 	margin-right: 16px;
 }
+.full-width {
+	display: flex;
+	flex-flow: column wrap;
+	max-height: 400px;
+	border: 1px solid black;
+}
+dd {
+	display: flex;
+}
+dt {
+	font-weight: bold;
+}

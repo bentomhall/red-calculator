@@ -2,6 +2,7 @@ import Util from "../utility/util";
 import Dice from "../utility/dice";
 import { AccuracyMode, AccuracyProvider, Preset, PresetProvider } from "../utility/types";
 class Druid implements PresetProvider{
+	public readonly name = 'Druid';
 	private modifiers = [3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
 	presets() {
 		return [

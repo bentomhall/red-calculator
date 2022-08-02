@@ -3,7 +3,7 @@ import Dice from "../utility/dice";
 import { Preset, PresetProvider } from "../utility/types";
 
 class Warlock implements PresetProvider {
-
+	public readonly name = 'Warlock';
 	modifiers = [3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
 	presets() {
 		return [

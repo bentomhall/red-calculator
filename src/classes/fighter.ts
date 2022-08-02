@@ -3,6 +3,7 @@ import Dice from "../utility/dice";
 import { AccuracyMode, AccuracyProvider, Preset, PresetProvider } from "../utility/types";
 
 class Fighter implements PresetProvider {
+	public readonly name = 'Fighter';
 	private baseModifiers = [3, 3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
 	private featAt4Modifiers = [3, 3, 3, 3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
 	private _damage = new Map([

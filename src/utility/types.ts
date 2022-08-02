@@ -9,6 +9,7 @@ export type Preset = {
 export interface PresetProvider {
     calculate(type: string, level: number, accuracyProvider: AccuracyProvider, accuracyMode: string, resources: any, options?: any): {damage: number, accuracy: number}
     presets(): [string, Preset][]
+		name: string;
 }
 
 export interface BaselineProvider {

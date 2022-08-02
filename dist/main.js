@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".container {\n\tmargin-top: 16px;\n}\n#output-table{\n\tborder: 1px solid black;\n\tborder-collapse: collapse;\n\tmargin-left: 16px;\n}\ntd, th {\n\tborder: 1px solid black;\n\ttext-align: center;\n\tpadding: 4px;\n}\n#chart {\n\tmax-width: 800px;\n\tmax-height: 400px;\n}\nlabel {\n\tdisplay: block;\n}\ntextarea {\n\tmin-width: 450px;\n}\n.form-container {\n\tdisplay: flex;\n\tflex-flow: row;\n}\n.form-element {\n\tmargin-right: 16px;\n}", "",{"version":3,"sources":["webpack://./src/css/main.css"],"names":[],"mappings":"AAAA;CACC,gBAAgB;AACjB;AACA;CACC,uBAAuB;CACvB,yBAAyB;CACzB,iBAAiB;AAClB;AACA;CACC,uBAAuB;CACvB,kBAAkB;CAClB,YAAY;AACb;AACA;CACC,gBAAgB;CAChB,iBAAiB;AAClB;AACA;CACC,cAAc;AACf;AACA;CACC,gBAAgB;AACjB;AACA;CACC,aAAa;CACb,cAAc;AACf;AACA;CACC,kBAAkB;AACnB","sourcesContent":[".container {\n\tmargin-top: 16px;\n}\n#output-table{\n\tborder: 1px solid black;\n\tborder-collapse: collapse;\n\tmargin-left: 16px;\n}\ntd, th {\n\tborder: 1px solid black;\n\ttext-align: center;\n\tpadding: 4px;\n}\n#chart {\n\tmax-width: 800px;\n\tmax-height: 400px;\n}\nlabel {\n\tdisplay: block;\n}\ntextarea {\n\tmin-width: 450px;\n}\n.form-container {\n\tdisplay: flex;\n\tflex-flow: row;\n}\n.form-element {\n\tmargin-right: 16px;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".container {\n\tmargin-top: 16px;\n}\n#output-table{\n\tborder: 1px solid black;\n\tborder-collapse: collapse;\n\tmargin-left: 16px;\n}\ntd, th {\n\tborder: 1px solid black;\n\ttext-align: center;\n\tpadding: 4px;\n}\n#chart {\n\tmax-width: 800px;\n\tmax-height: 400px;\n}\nlabel {\n\tdisplay: block;\n}\ntextarea {\n\tmin-width: 450px;\n}\n.form-container {\n\tdisplay: flex;\n\tflex-flow: row;\n}\n.form-element {\n\tmargin-right: 16px;\n}\n.full-width {\n\tdisplay: flex;\n\tflex-flow: column wrap;\n\tmax-height: 400px;\n\tborder: 1px solid black;\n}\ndd {\n\tdisplay: flex;\n}\ndt {\n\tfont-weight: bold;\n}", "",{"version":3,"sources":["webpack://./src/css/main.css"],"names":[],"mappings":"AAAA;CACC,gBAAgB;AACjB;AACA;CACC,uBAAuB;CACvB,yBAAyB;CACzB,iBAAiB;AAClB;AACA;CACC,uBAAuB;CACvB,kBAAkB;CAClB,YAAY;AACb;AACA;CACC,gBAAgB;CAChB,iBAAiB;AAClB;AACA;CACC,cAAc;AACf;AACA;CACC,gBAAgB;AACjB;AACA;CACC,aAAa;CACb,cAAc;AACf;AACA;CACC,kBAAkB;AACnB;AACA;CACC,aAAa;CACb,sBAAsB;CACtB,iBAAiB;CACjB,uBAAuB;AACxB;AACA;CACC,aAAa;AACd;AACA;CACC,iBAAiB;AAClB","sourcesContent":[".container {\n\tmargin-top: 16px;\n}\n#output-table{\n\tborder: 1px solid black;\n\tborder-collapse: collapse;\n\tmargin-left: 16px;\n}\ntd, th {\n\tborder: 1px solid black;\n\ttext-align: center;\n\tpadding: 4px;\n}\n#chart {\n\tmax-width: 800px;\n\tmax-height: 400px;\n}\nlabel {\n\tdisplay: block;\n}\ntextarea {\n\tmin-width: 450px;\n}\n.form-container {\n\tdisplay: flex;\n\tflex-flow: row;\n}\n.form-element {\n\tmargin-right: 16px;\n}\n.full-width {\n\tdisplay: flex;\n\tflex-flow: column wrap;\n\tmax-height: 400px;\n\tborder: 1px solid black;\n}\ndd {\n\tdisplay: flex;\n}\ndt {\n\tfont-weight: bold;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -13621,6 +13621,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class Barbarian {
+    name = 'Barbarian';
     presets() {
         return [
             ['barbarian_no_rage', { name: 'Barbarian (no rage or reckless)', obj: this, resources: { useRage: false, roundsPerLR: 1, recklessPercent: 0, combats: 1 }, type: 'no-sub', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12, gWMProcRate: 0 } }],
@@ -13737,6 +13738,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class Cleric {
+    name = 'Cleric';
     wisModifiers = [3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
     presets() {
         return [
@@ -13796,6 +13798,29 @@ class Cleric {
 
 /***/ }),
 
+/***/ "./src/classes/custom.js":
+/*!*******************************!*\
+  !*** ./src/classes/custom.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "CustomData": () => (/* binding */ CustomData)
+/* harmony export */ });
+class CustomData {
+    name = 'Custom';
+    calculate(type, level, accuracyProvider, accuracyMode, resources, options) {
+        return { damage: null, accuracy: null };
+    }
+    presets() {
+        return [['custom', { name: "Custom Data", obj: this, type: "", resources: null, options: null }]];
+    }
+}
+
+
+/***/ }),
+
 /***/ "./src/classes/druid.js":
 /*!******************************!*\
   !*** ./src/classes/druid.js ***!
@@ -13811,6 +13836,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class Druid {
+    name = 'Druid';
     modifiers = [3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
     presets() {
         return [
@@ -13865,6 +13891,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class Fighter {
+    name = 'Fighter';
     baseModifiers = [3, 3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
     featAt4Modifiers = [3, 3, 3, 3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
     _damage = new Map([
@@ -13981,6 +14008,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class Monk {
+    name = 'Monk';
     modifiers = [3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
     presets() {
         return [
@@ -14205,6 +14233,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class Rogue {
+    name = 'Rogue';
     attacks = 1;
     sneakAttack = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
     modifiers = [3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
@@ -14284,6 +14313,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class Warlock {
+    name = 'Warlock';
     modifiers = [3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
     presets() {
         return [
@@ -14969,6 +14999,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_main_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./css/main.css */ "./src/css/main.css");
 /* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/chart.esm.js");
 /* harmony import */ var _classes_barbarian__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./classes/barbarian */ "./src/classes/barbarian.js");
+/* harmony import */ var _classes_custom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./classes/custom */ "./src/classes/custom.js");
 
 
 
@@ -14981,6 +15012,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 chart_js__WEBPACK_IMPORTED_MODULE_10__.Chart.register(chart_js__WEBPACK_IMPORTED_MODULE_10__.ArcElement, chart_js__WEBPACK_IMPORTED_MODULE_10__.LineElement, chart_js__WEBPACK_IMPORTED_MODULE_10__.BarElement, chart_js__WEBPACK_IMPORTED_MODULE_10__.PointElement, chart_js__WEBPACK_IMPORTED_MODULE_10__.BarController, chart_js__WEBPACK_IMPORTED_MODULE_10__.BubbleController, chart_js__WEBPACK_IMPORTED_MODULE_10__.DoughnutController, chart_js__WEBPACK_IMPORTED_MODULE_10__.LineController, chart_js__WEBPACK_IMPORTED_MODULE_10__.PieController, chart_js__WEBPACK_IMPORTED_MODULE_10__.PolarAreaController, chart_js__WEBPACK_IMPORTED_MODULE_10__.RadarController, chart_js__WEBPACK_IMPORTED_MODULE_10__.ScatterController, chart_js__WEBPACK_IMPORTED_MODULE_10__.CategoryScale, chart_js__WEBPACK_IMPORTED_MODULE_10__.LinearScale, chart_js__WEBPACK_IMPORTED_MODULE_10__.LogarithmicScale, chart_js__WEBPACK_IMPORTED_MODULE_10__.RadialLinearScale, chart_js__WEBPACK_IMPORTED_MODULE_10__.TimeScale, chart_js__WEBPACK_IMPORTED_MODULE_10__.TimeSeriesScale, chart_js__WEBPACK_IMPORTED_MODULE_10__.Decimation, chart_js__WEBPACK_IMPORTED_MODULE_10__.Filler, chart_js__WEBPACK_IMPORTED_MODULE_10__.Legend, chart_js__WEBPACK_IMPORTED_MODULE_10__.Title, chart_js__WEBPACK_IMPORTED_MODULE_10__.Tooltip, chart_js__WEBPACK_IMPORTED_MODULE_10__.SubTitle);
+
 
 function createChart(ctx, datasets) {
     return new chart_js__WEBPACK_IMPORTED_MODULE_10__.Chart(ctx, {
@@ -15002,7 +15034,7 @@ function createChart(ctx, datasets) {
     });
 }
 function calculate() {
-    const presets = [...selector.options].filter(x => x.selected).map(x => x.value);
+    const presets = selectedPresets; //[...selector.children].filter(x => (x.firstChild as HTMLInputElement)?.checked).map(x => x.id);
     const [accuracyMode, armorSource] = (document.getElementById('accuracy-mode')?.value ?? 'ignore-dmg').split('-');
     const accuracyProvider = new _utility_accuracy__WEBPACK_IMPORTED_MODULE_0__["default"](armorSource);
     const calculator = new _classes_presets__WEBPACK_IMPORTED_MODULE_2__["default"](accuracyProvider, allPresets);
@@ -15046,14 +15078,10 @@ function calculate() {
 function getPresetName(preset) {
     return allPresets.get(preset)?.name ?? 'Not Supported';
 }
-function getPresets() {
-    let classes = [new _classes_rogue__WEBPACK_IMPORTED_MODULE_3__["default"](), new _classes_fighter__WEBPACK_IMPORTED_MODULE_4__["default"](), new _classes_warlock__WEBPACK_IMPORTED_MODULE_5__["default"](), new _classes_cleric__WEBPACK_IMPORTED_MODULE_6__["default"](), new _classes_monk__WEBPACK_IMPORTED_MODULE_7__["default"](), new _classes_druid__WEBPACK_IMPORTED_MODULE_8__["default"](), new _classes_barbarian__WEBPACK_IMPORTED_MODULE_11__.Barbarian()];
-    let presetEntries = [];
-    for (let cls of classes) {
-        presetEntries.push(...cls.presets());
-    }
-    presetEntries.push(['custom', { name: "Custom Data", obj: new _classes_rogue__WEBPACK_IMPORTED_MODULE_3__["default"](), type: "", resources: null, options: null }]);
-    return new Map(presetEntries);
+function getPresets(entry) {
+    let presetEntries = entry.presets();
+    //presetEntries.push(['custom', {name: "Custom Data", obj: new Rogue(), type: "", resources: null, options: null}])
+    return presetEntries;
 }
 function fillTable(table, rowData) {
     let headers = ['Preset', "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", 'Average'];
@@ -15082,19 +15110,42 @@ function fillTable(table, rowData) {
     table.appendChild(head);
     table.appendChild(body);
 }
-function getPresetOptions(presets, parent) {
-    presets.forEach(v => {
-        let option = document.createElement('option');
-        option.value = v[0];
-        option.innerText = v[1];
-        parent.appendChild(option);
-    });
+function getPresetOptionsForGroup(groupName, presets) {
+    let container = document.createElement('div');
+    let title = document.createElement('dt');
+    title.innerHTML = groupName;
+    container.appendChild(title);
+    for (let [id, preset] of presets) {
+        let dd = document.createElement('dd');
+        let input = document.createElement('input');
+        input.setAttribute('type', 'checkbox');
+        input.setAttribute('id', id);
+        input.addEventListener('click', onSelectorChanged);
+        dd.appendChild(input);
+        let label = document.createElement('label');
+        label.setAttribute('for', id);
+        label.innerText = preset.name;
+        dd.appendChild(label);
+        container.appendChild(dd);
+    }
+    return container;
 }
 function doCleanup(chart, table) {
     chart?.destroy();
     table.innerHTML = '';
 }
 function onSelectorChanged(event) {
+    let id = this.id;
+    let element = document.getElementById(id);
+    if (element.checked) {
+        selectedPresets.push(id);
+    }
+    else {
+        let index = selectedPresets.findIndex(x => x == id);
+        if (index > -1) {
+            selectedPresets.splice(index, 1);
+        }
+    }
     doCleanup(chart, table);
     calculate();
 }
@@ -15105,6 +15156,7 @@ let tableMode;
 let customEntry;
 let allPresets;
 let chart;
+let selectedPresets = [];
 document.addEventListener('DOMContentLoaded', function (event) {
     ctx = document.getElementById('chart').getContext("2d");
     table = document.getElementById('output-table');
@@ -15112,12 +15164,16 @@ document.addEventListener('DOMContentLoaded', function (event) {
     tableMode = document.getElementById('table-mode');
     customEntry = document.getElementById('custom-damage');
     doCleanup(chart, table);
-    allPresets = getPresets();
-    let optionNames = Array.from(allPresets.entries()).map(x => [x[0], x[1].name]);
-    getPresetOptions(optionNames, selector);
-    selector.value = optionNames[0][0];
-    calculate();
-    selector.addEventListener('change', onSelectorChanged);
+    let classes = [new _classes_rogue__WEBPACK_IMPORTED_MODULE_3__["default"](), new _classes_fighter__WEBPACK_IMPORTED_MODULE_4__["default"](), new _classes_warlock__WEBPACK_IMPORTED_MODULE_5__["default"](), new _classes_cleric__WEBPACK_IMPORTED_MODULE_6__["default"](), new _classes_monk__WEBPACK_IMPORTED_MODULE_7__["default"](), new _classes_druid__WEBPACK_IMPORTED_MODULE_8__["default"](), new _classes_barbarian__WEBPACK_IMPORTED_MODULE_11__.Barbarian(), new _classes_custom__WEBPACK_IMPORTED_MODULE_12__.CustomData()];
+    let allPresetInterior = [];
+    for (let cls of classes) {
+        let presets = cls.presets();
+        allPresetInterior.push(...presets);
+        let name = cls.name;
+        let element = getPresetOptionsForGroup(name, presets);
+        selector.appendChild(element);
+    }
+    allPresets = new Map(allPresetInterior);
     tableMode.addEventListener('change', onSelectorChanged);
     document.getElementById('accuracy-mode').addEventListener('change', onSelectorChanged);
 });
