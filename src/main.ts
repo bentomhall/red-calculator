@@ -63,6 +63,7 @@ Chart.register(
 	SubTitle
 );
 import { AccuracyMode, Preset } from "./utility/types";
+import { Barbarian } from "./classes/barbarian";
 
 function createChart(ctx, datasets) {
 	return new Chart(ctx, {
@@ -134,7 +135,7 @@ function getPresetName(preset: string) {
 }
 
 function getPresets(): Map<string, Preset> {
-	let classes = [new Rogue(), new Fighter(), new Warlock(), new Cleric(), new Monk(), new Druid()];
+	let classes = [new Rogue(), new Fighter(), new Warlock(), new Cleric(), new Monk(), new Druid(), new Barbarian()];
 	let presetEntries: [string, Preset][] = [];
 	for (let cls of classes) {
 		presetEntries.push(...cls.presets());
