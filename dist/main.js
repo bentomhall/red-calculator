@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".container {\n\tmargin-top: 16px;\n}\n#output-table{\n\tborder: 1px solid black;\n\tborder-collapse: collapse;\n\tmargin-left: 16px;\n}\ntd, th {\n\tborder: 1px solid black;\n\ttext-align: center;\n\tpadding: 4px;\n}\n#chart {\n\tmax-width: 800px;\n\tmax-height: 400px;\n}\nlabel {\n\tdisplay: block;\n}\ntextarea {\n\tmin-width: 450px;\n}\n.form-container {\n\tdisplay: flex;\n\tflex-flow: row;\n}\n.form-element {\n\tmargin-right: 16px;\n}", "",{"version":3,"sources":["webpack://./src/css/main.css"],"names":[],"mappings":"AAAA;CACC,gBAAgB;AACjB;AACA;CACC,uBAAuB;CACvB,yBAAyB;CACzB,iBAAiB;AAClB;AACA;CACC,uBAAuB;CACvB,kBAAkB;CAClB,YAAY;AACb;AACA;CACC,gBAAgB;CAChB,iBAAiB;AAClB;AACA;CACC,cAAc;AACf;AACA;CACC,gBAAgB;AACjB;AACA;CACC,aAAa;CACb,cAAc;AACf;AACA;CACC,kBAAkB;AACnB","sourcesContent":[".container {\n\tmargin-top: 16px;\n}\n#output-table{\n\tborder: 1px solid black;\n\tborder-collapse: collapse;\n\tmargin-left: 16px;\n}\ntd, th {\n\tborder: 1px solid black;\n\ttext-align: center;\n\tpadding: 4px;\n}\n#chart {\n\tmax-width: 800px;\n\tmax-height: 400px;\n}\nlabel {\n\tdisplay: block;\n}\ntextarea {\n\tmin-width: 450px;\n}\n.form-container {\n\tdisplay: flex;\n\tflex-flow: row;\n}\n.form-element {\n\tmargin-right: 16px;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".container {\r\n\tmargin-top: 16px;\r\n}\r\n#output-table{\r\n\tborder: 1px solid black;\r\n\tborder-collapse: collapse;\r\n\tmargin-left: 16px;\r\n}\r\ntd, th {\r\n\tborder: 1px solid black;\r\n\ttext-align: center;\r\n\tpadding: 4px;\r\n}\r\n#chart {\r\n\tmax-width: 800px;\r\n\tmax-height: 400px;\r\n}\r\nlabel {\r\n\tdisplay: block;\r\n}\r\ntextarea {\r\n\tmin-width: 450px;\r\n}\r\n.form-container {\r\n\tdisplay: flex;\r\n\tflex-flow: row;\r\n}\r\n.form-element {\r\n\tmargin-right: 16px;\r\n}", "",{"version":3,"sources":["webpack://./src/css/main.css"],"names":[],"mappings":"AAAA;CACC,gBAAgB;AACjB;AACA;CACC,uBAAuB;CACvB,yBAAyB;CACzB,iBAAiB;AAClB;AACA;CACC,uBAAuB;CACvB,kBAAkB;CAClB,YAAY;AACb;AACA;CACC,gBAAgB;CAChB,iBAAiB;AAClB;AACA;CACC,cAAc;AACf;AACA;CACC,gBAAgB;AACjB;AACA;CACC,aAAa;CACb,cAAc;AACf;AACA;CACC,kBAAkB;AACnB","sourcesContent":[".container {\r\n\tmargin-top: 16px;\r\n}\r\n#output-table{\r\n\tborder: 1px solid black;\r\n\tborder-collapse: collapse;\r\n\tmargin-left: 16px;\r\n}\r\ntd, th {\r\n\tborder: 1px solid black;\r\n\ttext-align: center;\r\n\tpadding: 4px;\r\n}\r\n#chart {\r\n\tmax-width: 800px;\r\n\tmax-height: 400px;\r\n}\r\nlabel {\r\n\tdisplay: block;\r\n}\r\ntextarea {\r\n\tmin-width: 450px;\r\n}\r\n.form-container {\r\n\tdisplay: flex;\r\n\tflex-flow: row;\r\n}\r\n.form-element {\r\n\tmargin-right: 16px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -13623,15 +13623,35 @@ __webpack_require__.r(__webpack_exports__);
 class Barbarian {
     presets() {
         return [
-            ['barbarian_no_rage', { name: 'Barbarian (no rage or reckless)', obj: this, resources: { useRage: false, roundsPerLR: 1, recklessPercent: 0 }, type: 'no-rage', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12, gWMProcRate: 0 } }]
+            ['barbarian_no_rage', { name: 'Barbarian (no rage or reckless)', obj: this, resources: { useRage: false, roundsPerLR: 1, recklessPercent: 0, combats: 1 }, type: 'no-sub', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12, gWMProcRate: 0 } }],
+            ['barbarian_100_rage', { name: 'Barbarian (100% rage)', obj: this, resources: { useRage: true, roundsPerLR: 1, recklessPercent: 0, combats: 1 }, type: 'no-sub', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12, gWMProcRate: 0 } }],
+            ['barbarian_100_rage_reckless', { name: 'Barbarian (100% rage and reckless)', obj: this, resources: { useRage: true, roundsPerLR: 1, recklessPercent: 1, combats: 1 }, type: 'no-sub', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12, gWMProcRate: 0 } }],
+            ['barbarian_rage_5_lr', { name: 'Barbarian (no reckless, 5 fights per day)', obj: this, resources: { useRage: false, roundsPerLR: 15, recklessPercent: 0, combats: 5 }, type: 'no-sub', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12, gWMProcRate: 0, weaponDieNumber: 1 } }],
+            ['barbarian_frenzy_5_lr', { name: 'Barbarian (frenzy 1/day, no reckless, 5 fights per day)', obj: this, resources: { useRage: true, roundsPerLR: 15, recklessPercent: 0, combats: 5 }, type: 'frenzy', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12, gWMProcRate: 0, weaponDieNumber: 1 } }],
         ];
     }
     calculate(type, level, accuracyProvider, accuracyMode, resources, options) {
         let modifier = this.modifiers[level - 1];
         let { hit, crit } = accuracyProvider.vsAC(level, accuracyMode, modifier, 0, 'flat');
-        let hitDamage = (options?.weaponDieSize ?? _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12) + modifier + (resources.useRage ? this.rageBonus(level) : 0);
-        let critDamage = this.critDamage(level, options?.weaponDieSize ?? _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12, options?.weaponDieNumber ?? 1) + modifier + (resources.useRage ? this.rageBonus(level) : 0);
-        let total = _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(this.attacks(level), hitDamage, critDamage, hit, crit);
+        let advantage = accuracyProvider.vsAC(level, accuracyMode, modifier, 0, 'advantage');
+        let fractionRaging = resources.useRage ? this.percentRaging(level, resources.combats) : 0;
+        console.log(`raging ${fractionRaging} of the time`);
+        let weaponDice = (options?.weaponDieSize ?? _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12);
+        let numberOfDice = options?.weaponDieNumber ?? 1;
+        let hitDamage = numberOfDice * weaponDice + modifier + fractionRaging * this.rageBonus(level);
+        let critDamage = this.critDamage(level, weaponDice, numberOfDice) + modifier + fractionRaging * this.rageBonus(level);
+        let total = 0;
+        if (type == 'frenzy' && level >= 3) {
+            let roundsFrenzied = Math.floor(resources.roundsPerLR / resources.combats) - 1;
+            let regular = resources.roundsPerLR - roundsFrenzied;
+            let regularDamage = (1 - resources.recklessPercent) * _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(this.attacks(level), hitDamage, critDamage, hit, crit) + resources.recklessPercent * _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(this.attacks(level), hitDamage, critDamage, advantage.hit, advantage.crit);
+            let frenziedDamage = (1 - resources.recklessPercent) * _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(this.attacks(level) + 1, hitDamage, critDamage, hit, crit) + resources.recklessPercent * _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(this.attacks(level) + 1, hitDamage, critDamage, advantage.hit, advantage.crit);
+            console.log(`level ${level}, frenzying ${roundsFrenzied} out of ${resources.roundsPerLR}`);
+            total = (regular * regularDamage + frenziedDamage * roundsFrenzied) / resources.roundsPerLR;
+        }
+        else {
+            total = (1 - resources.recklessPercent) * _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(this.attacks(level), hitDamage, critDamage, hit, crit) + resources.recklessPercent * _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(this.attacks(level), hitDamage, critDamage, advantage.hit, advantage.crit);
+        }
         return { damage: total, accuracy: hit };
     }
     modifiers = [3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 7];
@@ -13667,6 +13687,13 @@ class Barbarian {
             return 6;
         }
         return 1000000000; //technically unlimited, but....
+    }
+    percentRaging(level, combats) {
+        let rages = this.ragesPerDay(level);
+        if (combats > rages) {
+            return rages / combats;
+        }
+        return 1;
     }
     critDamage(level, die, numberOfDice) {
         let extra = 0;
