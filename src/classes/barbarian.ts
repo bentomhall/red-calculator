@@ -23,23 +23,24 @@ export class Barbarian implements PresetProvider{
 		let fractionRaging = resources.useRage ? this.percentRaging(level, resources.combats) : 0
 		let weaponDice = (options?.weaponDieSize ?? Dice.d12);
 		let numberOfDice = options?.weaponDieNumber ?? 1;
+		let reckless = level > 1 ? resources.recklessPercent : 0;
 		let hitDamage = numberOfDice*weaponDice + modifier + fractionRaging*this.rageBonus(level);
 		let critDamage = this.critDamage(level, weaponDice, numberOfDice) + modifier + fractionRaging*this.rageBonus(level);
 		let total = 0;
 		if (type == 'frenzy' && level >= 3) {
 			let roundsFrenzied = Math.floor(resources.roundsPerLR/resources.combats) - 1;
 			let regular = resources.roundsPerLR - roundsFrenzied;
-			let regularDamage = (1-resources.recklessPercent)*Util.getDamageWithCrits(this.attacks(level), hitDamage, critDamage, hit, crit)+resources.recklessPercent*Util.getDamageWithCrits(this.attacks(level), hitDamage, critDamage, advantage.hit, advantage.crit);
-			let frenziedDamage = (1-resources.recklessPercent)*Util.getDamageWithCrits(this.attacks(level) + 1, hitDamage, critDamage, hit, crit)+resources.recklessPercent*Util.getDamageWithCrits(this.attacks(level) + 1, hitDamage, critDamage, advantage.hit, advantage.crit);
+			let regularDamage = (1-reckless)*Util.getDamageWithCrits(this.attacks(level), hitDamage, critDamage, hit, crit)+reckless*Util.getDamageWithCrits(this.attacks(level), hitDamage, critDamage, advantage.hit, advantage.crit);
+			let frenziedDamage = (1-reckless)*Util.getDamageWithCrits(this.attacks(level) + 1, hitDamage, critDamage, hit, crit)+reckless*Util.getDamageWithCrits(this.attacks(level) + 1, hitDamage, critDamage, advantage.hit, advantage.crit);
 			total = (regular*regularDamage + frenziedDamage*roundsFrenzied)/resources.roundsPerLR;
 		} else if (type == 'gwm') {
 			let adjustedFlat = accuracyProvider.vsAC(level, accuracyMode, modifier - 5, 0, 'flat');
 			let adjustedAdvantage = accuracyProvider.vsAC(level, accuracyMode, modifier - 5, 0, 'advantage');
 			hitDamage += 10;
 			critDamage += 10;
-			total = (1-resources.recklessPercent)*Util.getDamageWithCrits(this.attacks(level), hitDamage, critDamage, adjustedFlat.hit, adjustedFlat.crit)+resources.recklessPercent*Util.getDamageWithCrits(this.attacks(level), hitDamage, critDamage, adjustedAdvantage.hit, adjustedAdvantage.crit);
+			total = (1-reckless)*Util.getDamageWithCrits(this.attacks(level), hitDamage, critDamage, adjustedFlat.hit, adjustedFlat.crit)+reckless*Util.getDamageWithCrits(this.attacks(level), hitDamage, critDamage, adjustedAdvantage.hit, adjustedAdvantage.crit);
 		} else {
-			total = (1-resources.recklessPercent)*Util.getDamageWithCrits(this.attacks(level), hitDamage, critDamage, hit, crit)+resources.recklessPercent*Util.getDamageWithCrits(this.attacks(level), hitDamage, critDamage, advantage.hit, advantage.crit);
+			total = (1-reckless)*Util.getDamageWithCrits(this.attacks(level), hitDamage, critDamage, hit, crit)+reckless*Util.getDamageWithCrits(this.attacks(level), hitDamage, critDamage, advantage.hit, advantage.crit);
 		}
 		return {damage: total, accuracy: hit}
 	}
