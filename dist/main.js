@@ -13630,6 +13630,7 @@ class Barbarian {
             ['barbarian_rage_5_lr', { name: 'Barbarian (no reckless, 5 fights per day)', obj: this, resources: { useRage: false, roundsPerLR: 15, recklessPercent: 0, combats: 5 }, type: 'no-sub', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12, gWMProcRate: 0, weaponDieNumber: 1 } }],
             ['barbarian_frenzy_5_lr', { name: 'Barbarian (frenzy 1/day, no reckless, 5 fights per day)', obj: this, resources: { useRage: true, roundsPerLR: 15, recklessPercent: 0, combats: 5 }, type: 'frenzy', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12, gWMProcRate: 0, weaponDieNumber: 1 } }],
             ['barbarian_gwm_rage_reckless', { name: 'Barbarian w/GWM (100% rage and reckless)', obj: this, resources: { useRage: true, roundsPerLR: 1, recklessPercent: 1, combats: 1 }, type: 'gwm', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12, gWMProcRate: 0.1, weaponDieNumber: 1 } }],
+            ['barbarian_100_reckless', { name: 'Barbarian (100% reckless, no rage)', obj: this, resources: { useRage: false, roundsPerLR: 1, recklessPercent: 1, combats: 1 }, type: 'no-sub', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12, gWMProcRate: 0 } }],
         ];
     }
     calculate(type, level, accuracyProvider, accuracyMode, resources, options) {
