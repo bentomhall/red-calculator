@@ -33,6 +33,7 @@ textarea {
 	flex-flow: column wrap;
 	max-height: 400px;
 	border: 1px solid black;
+	padding: 4px;
 }
 dd {
 	display: flex;

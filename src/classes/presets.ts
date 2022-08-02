@@ -11,6 +11,10 @@ class PresetCalculator {
         this._rogue = this._map.get('red_baseline').obj;
     }
 
+		public set AccuracyProvider(value: AccuracyProvider) {
+			this._accuracyProvider = value;
+		}
+
     private calculate(preset: string, level: number, accuracyMode: AccuracyMode) {
         let {obj, type, resources, options} = this._map.get(preset);
         if (!obj) {

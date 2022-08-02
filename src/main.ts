@@ -87,14 +87,19 @@ function createChart(ctx, datasets) {
 }
 
 function calculate() {
-	const presets = selectedPresets;//[...selector.children].filter(x => (x.firstChild as HTMLInputElement)?.checked).map(x => x.id);
-	const [accuracyMode, armorSource]: [AccuracyMode, string] = ((document.getElementById('accuracy-mode') as HTMLInputElement | null)?.value ?? 'ignore-dmg').split('-') as [AccuracyMode, string];
+	const presets = selectedPresets;
+	const [accuracyMode, armorSource]: [AccuracyMode, string] = ((document.getElementById('accuracy-mode') as HTMLInputElement | null)?.value ?? 'boss-dmg').split('-') as [AccuracyMode, string];
 	const accuracyProvider = new D20AccuracyProvider(armorSource);
-	const calculator = new PresetCalculator(accuracyProvider, allPresets);
+	if (calculator == null) {
+		calculator = new PresetCalculator(accuracyProvider, allPresets);
+	} else {
+		calculator.AccuracyProvider = accuracyProvider;
+	}
 	let datasets = [];
 	let tableData = [];
 	let selectedTableMode = tableMode.value;
 	let customData = customEntry.value ? JSON.parse(customEntry.value) : new Array(20).fill(0);
+	let colors: string[] = [];
 	for (let preset of presets) {
 		let {redData, rawData, accuracyData} = calculator.calculateAllLevels(preset, accuracyMode, customData)
 		let name = getPresetName(preset);
@@ -119,11 +124,16 @@ function calculate() {
 			default:
 				break;
 		}
+		let color = Util.getRandomColor();
+		if (colors.includes(color)) {
+			color = Util.getRandomColor()
+		}
+		colors.push(color);
 		datasets.push(
 			{
 				label: name,
 				data: structuredClone(data),
-				borderColor: Util.getRandomColor()
+				borderColor: color
 			}
 		);
 	}
@@ -133,12 +143,6 @@ function calculate() {
 
 function getPresetName(preset: string) {
 	return allPresets.get(preset)?.name ?? 'Not Supported';
-}
-
-function getPresets(entry: PresetProvider): [string, Preset][] {
-	let presetEntries: [string, Preset][] = entry.presets();
-	//presetEntries.push(['custom', {name: "Custom Data", obj: new Rogue(), type: "", resources: null, options: null}])
-	return presetEntries;
 }
 
 function fillTable(table: HTMLTableElement, rowData: string[][]) {
@@ -218,6 +222,7 @@ let customEntry: HTMLInputElement;
 let allPresets: Map<string, any>;
 let chart: Chart;
 let selectedPresets: string[] = [];
+let calculator: PresetCalculator;
 document.addEventListener('DOMContentLoaded', function (event) {
 	ctx = (document.getElementById('chart') as HTMLCanvasElement).getContext("2d");
 	table = document.getElementById('output-table') as HTMLTableElement;

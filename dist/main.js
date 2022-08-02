@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".container {\n\tmargin-top: 16px;\n}\n#output-table{\n\tborder: 1px solid black;\n\tborder-collapse: collapse;\n\tmargin-left: 16px;\n}\ntd, th {\n\tborder: 1px solid black;\n\ttext-align: center;\n\tpadding: 4px;\n}\n#chart {\n\tmax-width: 800px;\n\tmax-height: 400px;\n}\nlabel {\n\tdisplay: block;\n}\ntextarea {\n\tmin-width: 450px;\n}\n.form-container {\n\tdisplay: flex;\n\tflex-flow: row;\n}\n.form-element {\n\tmargin-right: 16px;\n}\n.full-width {\n\tdisplay: flex;\n\tflex-flow: column wrap;\n\tmax-height: 400px;\n\tborder: 1px solid black;\n}\ndd {\n\tdisplay: flex;\n}\ndt {\n\tfont-weight: bold;\n}", "",{"version":3,"sources":["webpack://./src/css/main.css"],"names":[],"mappings":"AAAA;CACC,gBAAgB;AACjB;AACA;CACC,uBAAuB;CACvB,yBAAyB;CACzB,iBAAiB;AAClB;AACA;CACC,uBAAuB;CACvB,kBAAkB;CAClB,YAAY;AACb;AACA;CACC,gBAAgB;CAChB,iBAAiB;AAClB;AACA;CACC,cAAc;AACf;AACA;CACC,gBAAgB;AACjB;AACA;CACC,aAAa;CACb,cAAc;AACf;AACA;CACC,kBAAkB;AACnB;AACA;CACC,aAAa;CACb,sBAAsB;CACtB,iBAAiB;CACjB,uBAAuB;AACxB;AACA;CACC,aAAa;AACd;AACA;CACC,iBAAiB;AAClB","sourcesContent":[".container {\n\tmargin-top: 16px;\n}\n#output-table{\n\tborder: 1px solid black;\n\tborder-collapse: collapse;\n\tmargin-left: 16px;\n}\ntd, th {\n\tborder: 1px solid black;\n\ttext-align: center;\n\tpadding: 4px;\n}\n#chart {\n\tmax-width: 800px;\n\tmax-height: 400px;\n}\nlabel {\n\tdisplay: block;\n}\ntextarea {\n\tmin-width: 450px;\n}\n.form-container {\n\tdisplay: flex;\n\tflex-flow: row;\n}\n.form-element {\n\tmargin-right: 16px;\n}\n.full-width {\n\tdisplay: flex;\n\tflex-flow: column wrap;\n\tmax-height: 400px;\n\tborder: 1px solid black;\n}\ndd {\n\tdisplay: flex;\n}\ndt {\n\tfont-weight: bold;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".container {\n\tmargin-top: 16px;\n}\n#output-table{\n\tborder: 1px solid black;\n\tborder-collapse: collapse;\n\tmargin-left: 16px;\n}\ntd, th {\n\tborder: 1px solid black;\n\ttext-align: center;\n\tpadding: 4px;\n}\n#chart {\n\tmax-width: 800px;\n\tmax-height: 400px;\n}\nlabel {\n\tdisplay: block;\n}\ntextarea {\n\tmin-width: 450px;\n}\n.form-container {\n\tdisplay: flex;\n\tflex-flow: row;\n}\n.form-element {\n\tmargin-right: 16px;\n}\n.full-width {\n\tdisplay: flex;\n\tflex-flow: column wrap;\n\tmax-height: 400px;\n\tborder: 1px solid black;\n\tpadding: 4px;\n}\ndd {\n\tdisplay: flex;\n}\ndt {\n\tfont-weight: bold;\n}", "",{"version":3,"sources":["webpack://./src/css/main.css"],"names":[],"mappings":"AAAA;CACC,gBAAgB;AACjB;AACA;CACC,uBAAuB;CACvB,yBAAyB;CACzB,iBAAiB;AAClB;AACA;CACC,uBAAuB;CACvB,kBAAkB;CAClB,YAAY;AACb;AACA;CACC,gBAAgB;CAChB,iBAAiB;AAClB;AACA;CACC,cAAc;AACf;AACA;CACC,gBAAgB;AACjB;AACA;CACC,aAAa;CACb,cAAc;AACf;AACA;CACC,kBAAkB;AACnB;AACA;CACC,aAAa;CACb,sBAAsB;CACtB,iBAAiB;CACjB,uBAAuB;CACvB,YAAY;AACb;AACA;CACC,aAAa;AACd;AACA;CACC,iBAAiB;AAClB","sourcesContent":[".container {\n\tmargin-top: 16px;\n}\n#output-table{\n\tborder: 1px solid black;\n\tborder-collapse: collapse;\n\tmargin-left: 16px;\n}\ntd, th {\n\tborder: 1px solid black;\n\ttext-align: center;\n\tpadding: 4px;\n}\n#chart {\n\tmax-width: 800px;\n\tmax-height: 400px;\n}\nlabel {\n\tdisplay: block;\n}\ntextarea {\n\tmin-width: 450px;\n}\n.form-container {\n\tdisplay: flex;\n\tflex-flow: row;\n}\n.form-element {\n\tmargin-right: 16px;\n}\n.full-width {\n\tdisplay: flex;\n\tflex-flow: column wrap;\n\tmax-height: 400px;\n\tborder: 1px solid black;\n\tpadding: 4px;\n}\ndd {\n\tdisplay: flex;\n}\ndt {\n\tfont-weight: bold;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -14179,6 +14179,9 @@ class PresetCalculator {
         this._map = presets;
         this._rogue = this._map.get('red_baseline').obj;
     }
+    set AccuracyProvider(value) {
+        this._accuracyProvider = value;
+    }
     calculate(preset, level, accuracyMode) {
         let { obj, type, resources, options } = this._map.get(preset);
         if (!obj) {
@@ -15034,14 +15037,20 @@ function createChart(ctx, datasets) {
     });
 }
 function calculate() {
-    const presets = selectedPresets; //[...selector.children].filter(x => (x.firstChild as HTMLInputElement)?.checked).map(x => x.id);
-    const [accuracyMode, armorSource] = (document.getElementById('accuracy-mode')?.value ?? 'ignore-dmg').split('-');
+    const presets = selectedPresets;
+    const [accuracyMode, armorSource] = (document.getElementById('accuracy-mode')?.value ?? 'boss-dmg').split('-');
     const accuracyProvider = new _utility_accuracy__WEBPACK_IMPORTED_MODULE_0__["default"](armorSource);
-    const calculator = new _classes_presets__WEBPACK_IMPORTED_MODULE_2__["default"](accuracyProvider, allPresets);
+    if (calculator == null) {
+        calculator = new _classes_presets__WEBPACK_IMPORTED_MODULE_2__["default"](accuracyProvider, allPresets);
+    }
+    else {
+        calculator.AccuracyProvider = accuracyProvider;
+    }
     let datasets = [];
     let tableData = [];
     let selectedTableMode = tableMode.value;
     let customData = customEntry.value ? JSON.parse(customEntry.value) : new Array(20).fill(0);
+    let colors = [];
     for (let preset of presets) {
         let { redData, rawData, accuracyData } = calculator.calculateAllLevels(preset, accuracyMode, customData);
         let name = getPresetName(preset);
@@ -15066,10 +15075,15 @@ function calculate() {
             default:
                 break;
         }
+        let color = _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getRandomColor();
+        if (colors.includes(color)) {
+            color = _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getRandomColor();
+        }
+        colors.push(color);
         datasets.push({
             label: name,
             data: structuredClone(data),
-            borderColor: _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getRandomColor()
+            borderColor: color
         });
     }
     fillTable(table, tableData);
@@ -15077,11 +15091,6 @@ function calculate() {
 }
 function getPresetName(preset) {
     return allPresets.get(preset)?.name ?? 'Not Supported';
-}
-function getPresets(entry) {
-    let presetEntries = entry.presets();
-    //presetEntries.push(['custom', {name: "Custom Data", obj: new Rogue(), type: "", resources: null, options: null}])
-    return presetEntries;
 }
 function fillTable(table, rowData) {
     let headers = ['Preset', "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", 'Average'];
@@ -15157,6 +15166,7 @@ let customEntry;
 let allPresets;
 let chart;
 let selectedPresets = [];
+let calculator;
 document.addEventListener('DOMContentLoaded', function (event) {
     ctx = document.getElementById('chart').getContext("2d");
     table = document.getElementById('output-table');
