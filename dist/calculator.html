@@ -8,11 +8,12 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-	<dl class="full-width grid" id="preset-selector">
-				
-	</dl>
+	<div class="sidebar">
+		<h2>What is RED?</h2>
+		<p>RED stands for Rogue Equivalent Damage. Specifically, the baseline (defined to be 1.0 RED) is a shortbow-using rogue who never has advantage and always gets sneak attack. Their modifiers are +3 at 1st level, +4 at 4th level, and +5 at 8th level. AC numbers are drawn (for now) from the DMG tables; DEX save bonuses are drawn from an analysis of all monsters from the MM, VGtM, and MToF, as there aren't any stock numbers for that.</p>
+	</div>
+	<dl class="full-width grid" id="preset-selector"></dl>
     <div class="form-container">
-			
         <div class="form-element">
             <label for="accuracy-mode">Accuracy Mode</label>
             <select name="accuracy-mode" id="accuracy-mode" >
@@ -35,14 +36,11 @@
             <textarea id="custom-damage" name="custom-damage"></textarea>
         </div>
     </div>
-    
-    
     <div class="container">
         <canvas id="chart"></canvas>
         <table id="output-table">
         </table>
     </div>
-
     <script src="main.js"></script>
 </body>
 </html>

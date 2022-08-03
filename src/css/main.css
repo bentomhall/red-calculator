@@ -41,3 +41,6 @@ dd {
 dt {
 	font-weight: bold;
 }
+.sidebar {
+	width: 800px;
+}
