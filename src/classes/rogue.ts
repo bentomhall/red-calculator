@@ -11,7 +11,8 @@ class Rogue implements PresetProvider, BaselineProvider {
 	public presets() {
 		return [
 			['red_baseline', { name: 'Baseline Rogue', obj: this, type: 'red', resources: null, options: null }],
-			['rogue_twf', { name: 'TWF rogue', obj: this, type: 'twf', resources: null, options: null }]
+			['rogue_twf', { name: 'TWF rogue', obj: this, type: 'twf', resources: null, options: null }],
+			['rogue_advantage', {name: 'Shortbow Rogue with constant advantage', obj: this, type: 'red', resources: null, options: {advantage: 1, disadvantage: 0}}]
 		] as [string, Preset][]
 	} 
 
