@@ -13742,21 +13742,60 @@ __webpack_require__.r(__webpack_exports__);
 class Cleric {
     name = 'Cleric';
     wisModifiers = [3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
+    strModifiers = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5];
     presets() {
         return [
             ['cleric_sf_nr', { name: 'Cleric (Sacred Flame only, Blessed Strikes)', obj: this, type: 'bs', resources: null }],
-            ['cleric_sf_sw100', { name: 'Cleric (BS, Sacred Flame + Sacred Weapon, 100% uptime)', obj: this, type: 'bs', resources: { uptime: 1.0 } }],
+            ['cleric_sf_sw100', { name: 'Cleric (BS, Sacred Flame + Sacred Weapon, 100% uptime)', obj: this, type: 'bs', resources: { uptime: 1.0, proc: 0 } }],
             ['cleric_sfps_nr', { name: 'Cleric (Sacred Flame only, Potent Spellcasting)', obj: this, type: 'ps', resources: null }],
-            ['cleric_sfps_sw100', { name: 'Cleric (PS, Sacred Flame + Sacred Weapon, 100% uptime)', obj: this, type: 'ps', resources: { uptime: 1.0 } }],
+            ['cleric_sfps_sw100', { name: 'Cleric (PS, Sacred Flame + Sacred Weapon, 100% uptime)', obj: this, type: 'ps', resources: { uptime: 1.0, proc: 0 } }],
+            ['cleric_bbps_50proc', { name: 'Cleric (PS, BB, 50% proc)', obj: this, type: 'ps-bb', resources: { uptime: 0.0, proc: 0.5 } }],
         ];
     }
     calculate(type, level, provider, mode, resources, options) {
-        let sfDamage = this.sacredFlame(type, level, provider, mode);
+        let sfDamage = { damage: 0, accuracy: 0 };
+        if (type == 'ps-bb') {
+            sfDamage = this.boomingBlade(level, provider, mode, resources?.proc ?? 0);
+        }
+        else {
+            sfDamage = this.sacredFlame(type, level, provider, mode);
+        }
         if (resources) {
             let swDamage = this.sacredWeapon(resources.uptime, level, provider, mode);
             return { damage: sfDamage.damage + (swDamage?.damage ?? 0), accuracy: (swDamage?.accuracy ?? sfDamage.accuracy + sfDamage.accuracy) / 2 };
         }
         return sfDamage;
+    }
+    boomingBlade(level, provider, mode, procRate) {
+        let modifier = this.wisModifiers[level - 1];
+        let dmg = _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8 + modifier;
+        let { hit, crit } = provider.vsAC(level, mode, modifier, 0, 'flat');
+        let extraNormal;
+        let extraCrit;
+        if (level < 5) {
+            extraNormal = procRate * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8;
+            extraCrit = 0;
+        }
+        else if (level < 9) {
+            extraNormal = _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8 + procRate * 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8;
+            extraCrit = 2 * extraNormal - procRate * 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8;
+        }
+        else if (level < 11) {
+            extraNormal = 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8 + procRate * 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8;
+            extraCrit = 2 * extraNormal - procRate * 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8;
+        }
+        else if (level < 17) {
+            extraNormal = 3 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8 + procRate * 3 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8;
+            extraCrit = 2 * extraNormal - procRate * 3 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8;
+        }
+        else {
+            extraNormal = 4 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8 + procRate * 4 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8;
+            extraCrit = 2 * extraNormal - procRate * 4 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8;
+        }
+        let hitDamate = dmg + extraNormal;
+        let critDamage = 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8 + modifier + 2 * extraCrit;
+        let output = _utility_util__WEBPACK_IMPORTED_MODULE_0__["default"].getDamageWithCrits(1, hitDamate, critDamage, hit, crit);
+        return { damage: output, accuracy: hit };
     }
     sacredFlame(type, level, provider, mode) {
         let modifier = this.wisModifiers[level - 1];
