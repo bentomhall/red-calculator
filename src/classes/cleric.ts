@@ -1,6 +1,6 @@
 import Util from "../utility/util";
 import Dice from "../utility/dice";
-import {AccuracyMode, AccuracyProvider, Preset, PresetProvider} from "../utility/types"
+import {AccuracyMode, AccuracyProvider, Preset, PresetProvider, SaveType} from "../utility/types"
 
 class Cleric implements PresetProvider {
 	public readonly name = 'Cleric';
@@ -8,21 +8,21 @@ class Cleric implements PresetProvider {
 	private strModifiers = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5];
 	presets() {
 		return [			
-			['cleric_sf_nr', { name: 'Cleric (Sacred Flame only, Blessed Strikes)', obj: this, type: 'bs', resources: null }],
-			['cleric_sf_sw100', { name: 'Cleric (BS, Sacred Flame + Sacred Weapon, 100% uptime)', obj: this, type: 'bs', resources: { uptime: 1.0, proc: 0 } }],
-			['cleric_sfps_nr', { name: 'Cleric (Sacred Flame only, Potent Spellcasting)', obj: this, type: 'ps', resources: null }],
-			['cleric_sfps_sw100', { name: 'Cleric (PS, Sacred Flame + Sacred Weapon, 100% uptime)', obj: this, type: 'ps', resources: { uptime: 1.0, proc: 0 } }],
-			['cleric_bbps_50proc', { name: 'Cleric (PS, BB, 50% proc)', obj: this, type: 'ps-bb', resources: { uptime: 0.0, proc: 0.5 } }],
+			['cleric_sf_nr', { name: 'Cleric (Sacred Flame only, Blessed Strikes)', obj: this, type: 'bs', resources: null, options: {cantripDie: Dice.d8, cantripSave: 'DEX'} }],
+			['cleric_sf_sw100', { name: 'Cleric (BS, Sacred Flame + Sacred Weapon, 100% uptime)', obj: this, type: 'bs', resources: { uptime: 1.0, proc: 0 }, options: {cantripDie: Dice.d8, cantripSave: 'DEX'} }],
+			['cleric_sfps_nr', { name: 'Cleric (Sacred Flame only, Potent Spellcasting)', obj: this, type: 'ps', resources: null, options: {cantripDie: Dice.d8, cantripSave: 'DEX'} }],
+			['cleric_sfps_sw100', { name: 'Cleric (PS, Sacred Flame + Sacred Weapon, 100% uptime)', obj: this, type: 'ps', resources: { uptime: 1.0, proc: 0 }, options: {cantripDie: Dice.d8, cantripSave: 'DEX'} }],
+			['cleric_bbps_50proc', { name: 'Cleric (PS, BB, 50% proc)', obj: this, type: 'ps-bb', resources: { uptime: 0.0, proc: 0.5 }, options: {cantripDie: Dice.d8, cantripSave: 'AC'} }],
+			['cleric_ttdps_nr', { name: 'Cleric (TTD only, Potent Spellcasting)', obj: this, type: 'ps', resources: null, options: {cantripDie: Dice.d12, cantripSave: 'WIS'} }],
 		] as [string, Preset][]
 	}
-	calculate(type: string, level: number, provider: AccuracyProvider, mode: AccuracyMode, resources: {uptime: number, proc: number} | null, options?: any) {
+	calculate(type: string, level: number, provider: AccuracyProvider, mode: AccuracyMode, resources: {uptime: number, proc: number} | null, options?: ClericOptions) {
 		let sfDamage = {damage: 0, accuracy: 0};
 		if (type == 'ps-bb') {
 			sfDamage = this.boomingBlade(level, provider, mode, resources?.proc ?? 0)
 		} else {
-			sfDamage = this.sacredFlame(type, level, provider, mode);
+			sfDamage = this.regularCantrip(type, level, provider, mode, options?.cantripDie, options?.cantripSave);
 		}
-		
 		if (resources) {
 			let swDamage = this.sacredWeapon(resources.uptime, level, provider, mode);
 			return {damage: sfDamage.damage + (swDamage?.damage ?? 0), accuracy: (swDamage?.accuracy ?? sfDamage.accuracy + sfDamage.accuracy)/2};
@@ -30,8 +30,8 @@ class Cleric implements PresetProvider {
 		return sfDamage;
 	}
 
-	private boomingBlade(level: number, provider: AccuracyProvider, mode: AccuracyMode, procRate: number) : {damage: number, accuracy: number} {
-		let modifier = this.wisModifiers[level - 1];
+	private boomingBlade(level: number, provider: AccuracyProvider, mode: AccuracyMode, procRate: number, useStr: boolean = true) : {damage: number, accuracy: number} {
+		let modifier = useStr ? this.strModifiers[level -1] : this.wisModifiers[level - 1];
 		let dmg = Dice.d8 + modifier;
 		let {hit, crit} = provider.vsAC(level, mode, modifier, 0, 'flat');
 		let extraNormal: number;
@@ -62,14 +62,14 @@ class Cleric implements PresetProvider {
 		return {damage: output, accuracy: hit};
 	}
 
-	private sacredFlame(type: string, level: number, provider: AccuracyProvider, mode: AccuracyMode) {
+	private regularCantrip(type: string, level: number, provider: AccuracyProvider, mode: AccuracyMode, die: number, targeting: SaveType) {
 		let modifier = this.wisModifiers[level - 1];
 		let extra = 0;
 		if (type == 'bs' && level > 8) { extra = Dice.d8; }
 		else if (type == 'ps' && level > 8) { extra = modifier; }
-		let {fail} = provider.vsDex(level, mode, modifier, 'flat');
+		let {fail} = provider.vsSave(level, mode, modifier, 'flat', targeting );
 		let dice = this.cantripDice(level);
-		let baseDamage = dice*Dice.d8 + extra;
+		let baseDamage = dice*die + extra;
 		return {damage: fail*baseDamage, accuracy: fail};
 	}
 
@@ -91,3 +91,8 @@ class Cleric implements PresetProvider {
 }
 
 export default Cleric;
+
+type ClericOptions = {
+	cantripSave: SaveType;
+	cantripDie: number
+}

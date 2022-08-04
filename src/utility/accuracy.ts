@@ -1,4 +1,4 @@
-import { AccuracyMode, AccuracyProvider, ArmorProvider, RollType } from "./types";
+import { AccuracyMode, AccuracyProvider, ArmorProvider, RollType, SaveType } from "./types";
 
 const proficiency = [2, 2, 2, 2, 3, 3, 3 ,3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6];
 class DMG implements ArmorProvider {
@@ -11,6 +11,11 @@ class DMG implements ArmorProvider {
         boss: [2, 2, 2, 3, 2, 2, 3, 4, 2, 3, 4, 3, 6, 5, 5, 5, 6, 7, 6, 8],
         halfLevel: [1, 2, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 2, 2, 2, 2, 3],
         onLevel: [2, 1, 2, 2, 2, 2, 3, 2, 2, 3, 4, 2, 3, 4, 3, 6, 5, 5, 5, 6]
+    }
+    _wisSave = {
+        boss: [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 5, 7, 9, 6, 8, 8, 11, 11, 12],
+        halfLevel: [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4],
+        onLevel: [0, 1, 1, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 5, 7, 9, 6, 8, 8]
     }
     armorForLevel(level: number, mode: AccuracyMode) {
         switch (mode) {
@@ -26,14 +31,16 @@ class DMG implements ArmorProvider {
                 throw new Error('invalid mode: ' + mode);
         }
     }
-    saveForLevel(level: number, mode: AccuracyMode) {
+    saveForLevel(level: number, mode: AccuracyMode, save: SaveType) {
+        let source = save == 'DEX' ? this._dexSave : this._wisSave;
+        
         switch (mode) {
             case 'boss':
-                return this._dexSave.boss[level - 1];
+                return source.boss[level - 1];
             case 'half':
-                return this._dexSave.halfLevel[level - 1];
+                return source.halfLevel[level - 1];
             case 'equal':
-                return this._dexSave.onLevel[level - 1];
+                return source.onLevel[level - 1];
             case 'ignore':
                 return -10000;
             default:
@@ -93,9 +100,9 @@ class D20AccuracyProvider implements AccuracyProvider {
         }
     }
 
-    vsDex(level: number, mode: AccuracyMode, modifier: number, rollType: RollType) {
+    vsSave(level: number, mode: AccuracyMode, modifier: number, rollType: RollType, save: SaveType = 'DEX') {
         let dc = 8 + modifier + proficiency[level - 1];
-        let saveBonus = this._armorSource.saveForLevel(level, mode);
+        let saveBonus = this._armorSource.saveForLevel(level, mode, save);
         let success = 0;
         if (mode == "ignore") {}
         else if (rollType == 'flat') {

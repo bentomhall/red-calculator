@@ -118,7 +118,7 @@ class Monk implements PresetProvider {
 		if (level < 3) { return 0; }
 		let modifier = this.modifiers[level - 1];
 		let die = this.martialArtsDie(level);
-		let { fail } = provider.vsDex(level, mode, modifier, 'flat');
+		let { fail } = provider.vsSave(level, mode, modifier, 'flat', 'DEX');
 		let { hit, crit } = provider.vsAC(level, mode, modifier, 0, 'flat');
 		let armsDamage = targets * fail * 2 * die;
 		if (level < 11) {

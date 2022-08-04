@@ -18,13 +18,14 @@ export interface BaselineProvider {
 
 export interface AccuracyProvider {
     vsAC(level: number, mode: string, modifier: number, extraCritRange: number, rollType: string): {hit: number, crit: number}
-    vsDex(level: number, mode: string, modifier: number, rollType: string): {fail: number}
+    vsSave(level: number, mode: string, modifier: number, rollType: string, save: SaveType): {fail: number}
 }
 
 export interface ArmorProvider {
     armorForLevel(level: number, mode: AccuracyMode): number
-    saveForLevel(level: number, mode: AccuracyMode): number
+    saveForLevel(level: number, mode: AccuracyMode, save: SaveType): number
 }
 
 export type AccuracyMode = "equal" | "half" | "boss" | "ignore";
 export type RollType = "flat" | "advantage" | "disadvantage" | "flat-unproficient";
+export type SaveType = 'DEX' | 'WIS';

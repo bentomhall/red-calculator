@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".container {\n\tmargin-top: 16px;\n}\n#output-table{\n\tborder: 1px solid black;\n\tborder-collapse: collapse;\n\tmargin-left: 16px;\n}\ntd, th {\n\tborder: 1px solid black;\n\ttext-align: center;\n\tpadding: 4px;\n}\n#chart {\n\tmax-width: 800px;\n\tmax-height: 400px;\n}\nlabel {\n\tdisplay: block;\n}\ntextarea {\n\tmin-width: 450px;\n}\n.form-container {\n\tdisplay: flex;\n\tflex-flow: row;\n}\n.form-element {\n\tmargin-right: 16px;\n}\n.full-width {\n\tdisplay: flex;\n\tflex-flow: column wrap;\n\tmax-height: 400px;\n\tborder: 1px solid black;\n\tpadding: 4px;\n}\ndd {\n\tdisplay: flex;\n}\ndt {\n\tfont-weight: bold;\n}\n.sidebar {\n\twidth: 800px;\n}", "",{"version":3,"sources":["webpack://./src/css/main.css"],"names":[],"mappings":"AAAA;CACC,gBAAgB;AACjB;AACA;CACC,uBAAuB;CACvB,yBAAyB;CACzB,iBAAiB;AAClB;AACA;CACC,uBAAuB;CACvB,kBAAkB;CAClB,YAAY;AACb;AACA;CACC,gBAAgB;CAChB,iBAAiB;AAClB;AACA;CACC,cAAc;AACf;AACA;CACC,gBAAgB;AACjB;AACA;CACC,aAAa;CACb,cAAc;AACf;AACA;CACC,kBAAkB;AACnB;AACA;CACC,aAAa;CACb,sBAAsB;CACtB,iBAAiB;CACjB,uBAAuB;CACvB,YAAY;AACb;AACA;CACC,aAAa;AACd;AACA;CACC,iBAAiB;AAClB;AACA;CACC,YAAY;AACb","sourcesContent":[".container {\n\tmargin-top: 16px;\n}\n#output-table{\n\tborder: 1px solid black;\n\tborder-collapse: collapse;\n\tmargin-left: 16px;\n}\ntd, th {\n\tborder: 1px solid black;\n\ttext-align: center;\n\tpadding: 4px;\n}\n#chart {\n\tmax-width: 800px;\n\tmax-height: 400px;\n}\nlabel {\n\tdisplay: block;\n}\ntextarea {\n\tmin-width: 450px;\n}\n.form-container {\n\tdisplay: flex;\n\tflex-flow: row;\n}\n.form-element {\n\tmargin-right: 16px;\n}\n.full-width {\n\tdisplay: flex;\n\tflex-flow: column wrap;\n\tmax-height: 400px;\n\tborder: 1px solid black;\n\tpadding: 4px;\n}\ndd {\n\tdisplay: flex;\n}\ndt {\n\tfont-weight: bold;\n}\n.sidebar {\n\twidth: 800px;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".container {\r\n\tmargin-top: 16px;\r\n}\r\n#output-table{\r\n\tborder: 1px solid black;\r\n\tborder-collapse: collapse;\r\n\tmargin-left: 16px;\r\n}\r\ntd, th {\r\n\tborder: 1px solid black;\r\n\ttext-align: center;\r\n\tpadding: 4px;\r\n}\r\n#chart {\r\n\tmax-width: 800px;\r\n\tmax-height: 400px;\r\n}\r\nlabel {\r\n\tdisplay: block;\r\n}\r\ntextarea {\r\n\tmin-width: 450px;\r\n}\r\n.form-container {\r\n\tdisplay: flex;\r\n\tflex-flow: row;\r\n}\r\n.form-element {\r\n\tmargin-right: 16px;\r\n}\r\n.full-width {\r\n\tdisplay: flex;\r\n\tflex-flow: column wrap;\r\n\tmax-height: 400px;\r\n\tborder: 1px solid black;\r\n\tpadding: 4px;\r\n}\r\ndd {\r\n\tdisplay: flex;\r\n}\r\ndt {\r\n\tfont-weight: bold;\r\n}\r\n.sidebar {\r\n\twidth: 800px;\r\n}", "",{"version":3,"sources":["webpack://./src/css/main.css"],"names":[],"mappings":"AAAA;CACC,gBAAgB;AACjB;AACA;CACC,uBAAuB;CACvB,yBAAyB;CACzB,iBAAiB;AAClB;AACA;CACC,uBAAuB;CACvB,kBAAkB;CAClB,YAAY;AACb;AACA;CACC,gBAAgB;CAChB,iBAAiB;AAClB;AACA;CACC,cAAc;AACf;AACA;CACC,gBAAgB;AACjB;AACA;CACC,aAAa;CACb,cAAc;AACf;AACA;CACC,kBAAkB;AACnB;AACA;CACC,aAAa;CACb,sBAAsB;CACtB,iBAAiB;CACjB,uBAAuB;CACvB,YAAY;AACb;AACA;CACC,aAAa;AACd;AACA;CACC,iBAAiB;AAClB;AACA;CACC,YAAY;AACb","sourcesContent":[".container {\r\n\tmargin-top: 16px;\r\n}\r\n#output-table{\r\n\tborder: 1px solid black;\r\n\tborder-collapse: collapse;\r\n\tmargin-left: 16px;\r\n}\r\ntd, th {\r\n\tborder: 1px solid black;\r\n\ttext-align: center;\r\n\tpadding: 4px;\r\n}\r\n#chart {\r\n\tmax-width: 800px;\r\n\tmax-height: 400px;\r\n}\r\nlabel {\r\n\tdisplay: block;\r\n}\r\ntextarea {\r\n\tmin-width: 450px;\r\n}\r\n.form-container {\r\n\tdisplay: flex;\r\n\tflex-flow: row;\r\n}\r\n.form-element {\r\n\tmargin-right: 16px;\r\n}\r\n.full-width {\r\n\tdisplay: flex;\r\n\tflex-flow: column wrap;\r\n\tmax-height: 400px;\r\n\tborder: 1px solid black;\r\n\tpadding: 4px;\r\n}\r\ndd {\r\n\tdisplay: flex;\r\n}\r\ndt {\r\n\tfont-weight: bold;\r\n}\r\n.sidebar {\r\n\twidth: 800px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -13745,11 +13745,12 @@ class Cleric {
     strModifiers = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5];
     presets() {
         return [
-            ['cleric_sf_nr', { name: 'Cleric (Sacred Flame only, Blessed Strikes)', obj: this, type: 'bs', resources: null }],
-            ['cleric_sf_sw100', { name: 'Cleric (BS, Sacred Flame + Sacred Weapon, 100% uptime)', obj: this, type: 'bs', resources: { uptime: 1.0, proc: 0 } }],
-            ['cleric_sfps_nr', { name: 'Cleric (Sacred Flame only, Potent Spellcasting)', obj: this, type: 'ps', resources: null }],
-            ['cleric_sfps_sw100', { name: 'Cleric (PS, Sacred Flame + Sacred Weapon, 100% uptime)', obj: this, type: 'ps', resources: { uptime: 1.0, proc: 0 } }],
-            ['cleric_bbps_50proc', { name: 'Cleric (PS, BB, 50% proc)', obj: this, type: 'ps-bb', resources: { uptime: 0.0, proc: 0.5 } }],
+            ['cleric_sf_nr', { name: 'Cleric (Sacred Flame only, Blessed Strikes)', obj: this, type: 'bs', resources: null, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8, cantripSave: 'DEX' } }],
+            ['cleric_sf_sw100', { name: 'Cleric (BS, Sacred Flame + Sacred Weapon, 100% uptime)', obj: this, type: 'bs', resources: { uptime: 1.0, proc: 0 }, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8, cantripSave: 'DEX' } }],
+            ['cleric_sfps_nr', { name: 'Cleric (Sacred Flame only, Potent Spellcasting)', obj: this, type: 'ps', resources: null, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8, cantripSave: 'DEX' } }],
+            ['cleric_sfps_sw100', { name: 'Cleric (PS, Sacred Flame + Sacred Weapon, 100% uptime)', obj: this, type: 'ps', resources: { uptime: 1.0, proc: 0 }, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8, cantripSave: 'DEX' } }],
+            ['cleric_bbps_50proc', { name: 'Cleric (PS, BB, 50% proc)', obj: this, type: 'ps-bb', resources: { uptime: 0.0, proc: 0.5 }, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8, cantripSave: 'AC' } }],
+            ['cleric_ttdps_nr', { name: 'Cleric (TTD only, Potent Spellcasting)', obj: this, type: 'ps', resources: null, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d12, cantripSave: 'WIS' } }],
         ];
     }
     calculate(type, level, provider, mode, resources, options) {
@@ -13758,7 +13759,7 @@ class Cleric {
             sfDamage = this.boomingBlade(level, provider, mode, resources?.proc ?? 0);
         }
         else {
-            sfDamage = this.sacredFlame(type, level, provider, mode);
+            sfDamage = this.regularCantrip(type, level, provider, mode, options?.cantripDie, options?.cantripSave);
         }
         if (resources) {
             let swDamage = this.sacredWeapon(resources.uptime, level, provider, mode);
@@ -13766,8 +13767,8 @@ class Cleric {
         }
         return sfDamage;
     }
-    boomingBlade(level, provider, mode, procRate) {
-        let modifier = this.wisModifiers[level - 1];
+    boomingBlade(level, provider, mode, procRate, useStr = true) {
+        let modifier = useStr ? this.strModifiers[level - 1] : this.wisModifiers[level - 1];
         let dmg = _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8 + modifier;
         let { hit, crit } = provider.vsAC(level, mode, modifier, 0, 'flat');
         let extraNormal;
@@ -13797,7 +13798,7 @@ class Cleric {
         let output = _utility_util__WEBPACK_IMPORTED_MODULE_0__["default"].getDamageWithCrits(1, hitDamate, critDamage, hit, crit);
         return { damage: output, accuracy: hit };
     }
-    sacredFlame(type, level, provider, mode) {
+    regularCantrip(type, level, provider, mode, die, targeting) {
         let modifier = this.wisModifiers[level - 1];
         let extra = 0;
         if (type == 'bs' && level > 8) {
@@ -13806,9 +13807,9 @@ class Cleric {
         else if (type == 'ps' && level > 8) {
             extra = modifier;
         }
-        let { fail } = provider.vsDex(level, mode, modifier, 'flat');
+        let { fail } = provider.vsSave(level, mode, modifier, 'flat', targeting);
         let dice = this.cantripDice(level);
-        let baseDamage = dice * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8 + extra;
+        let baseDamage = dice * die + extra;
         return { damage: fail * baseDamage, accuracy: fail };
     }
     sacredWeapon(uptime, level, provider, mode) {
@@ -14180,7 +14181,7 @@ class Monk {
         }
         let modifier = this.modifiers[level - 1];
         let die = this.martialArtsDie(level);
-        let { fail } = provider.vsDex(level, mode, modifier, 'flat');
+        let { fail } = provider.vsSave(level, mode, modifier, 'flat', 'DEX');
         let { hit, crit } = provider.vsAC(level, mode, modifier, 0, 'flat');
         let armsDamage = targets * fail * 2 * die;
         if (level < 11) {
@@ -14436,6 +14437,11 @@ class DMG {
         halfLevel: [1, 2, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 2, 2, 2, 2, 3],
         onLevel: [2, 1, 2, 2, 2, 2, 3, 2, 2, 3, 4, 2, 3, 4, 3, 6, 5, 5, 5, 6]
     };
+    _wisSave = {
+        boss: [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 5, 7, 9, 6, 8, 8, 11, 11, 12],
+        halfLevel: [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4],
+        onLevel: [0, 1, 1, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 5, 7, 9, 6, 8, 8]
+    };
     armorForLevel(level, mode) {
         switch (mode) {
             case 'boss':
@@ -14450,14 +14456,15 @@ class DMG {
                 throw new Error('invalid mode: ' + mode);
         }
     }
-    saveForLevel(level, mode) {
+    saveForLevel(level, mode, save) {
+        let source = save == 'DEX' ? this._dexSave : this._wisSave;
         switch (mode) {
             case 'boss':
-                return this._dexSave.boss[level - 1];
+                return source.boss[level - 1];
             case 'half':
-                return this._dexSave.halfLevel[level - 1];
+                return source.halfLevel[level - 1];
             case 'equal':
-                return this._dexSave.onLevel[level - 1];
+                return source.onLevel[level - 1];
             case 'ignore':
                 return -10000;
             default:
@@ -14517,9 +14524,9 @@ class D20AccuracyProvider {
             crit
         };
     }
-    vsDex(level, mode, modifier, rollType) {
+    vsSave(level, mode, modifier, rollType, save = 'DEX') {
         let dc = 8 + modifier + proficiency[level - 1];
-        let saveBonus = this._armorSource.saveForLevel(level, mode);
+        let saveBonus = this._armorSource.saveForLevel(level, mode, save);
         let success = 0;
         if (mode == "ignore") { }
         else if (rollType == 'flat') {
