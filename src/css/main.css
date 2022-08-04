@@ -29,11 +29,20 @@ textarea {
 	margin-right: 16px;
 }
 .full-width {
-	display: flex;
-	flex-flow: column wrap;
 	max-height: 400px;
 	border: 1px solid black;
 	padding: 4px;
+	max-width: 1200px;
+	overflow-y: auto;
+}
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	row-gap: 16px;
+}
+.grid > div {
+	max-height: 200px;
+	overflow-y: auto;
 }
 dd {
 	display: flex;
