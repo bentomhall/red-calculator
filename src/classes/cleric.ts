@@ -12,7 +12,7 @@ class Cleric implements PresetProvider {
 			['cleric_sf_sw100', { name: 'Cleric (BS, Sacred Flame + Sacred Weapon, 100% uptime)', obj: this, type: 'bs', resources: { uptime: 1.0, proc: 0 }, options: {cantripDie: Dice.d8, cantripSave: 'DEX'} }],
 			['cleric_sfps_nr', { name: 'Cleric (Sacred Flame only, Potent Spellcasting)', obj: this, type: 'ps', resources: null, options: {cantripDie: Dice.d8, cantripSave: 'DEX'} }],
 			['cleric_sfps_sw100', { name: 'Cleric (PS, Sacred Flame + Sacred Weapon, 100% uptime)', obj: this, type: 'ps', resources: { uptime: 1.0, proc: 0 }, options: {cantripDie: Dice.d8, cantripSave: 'DEX'} }],
-			['cleric_bbps_50proc', { name: 'Cleric (PS, BB, 50% proc)', obj: this, type: 'ps-bb', resources: { uptime: 0.0, proc: 0.5 }, options: {cantripDie: Dice.d8, cantripSave: 'AC'} }],
+			['cleric_bbps_50proc', { name: 'Cleric (PS, BB, 50% proc, no advantage)', obj: this, type: 'ps-bb', resources: { uptime: 0.0, proc: 0.5 }, options: {cantripDie: Dice.d8, cantripSave: 'AC'} }],
 			['cleric_ttdps_nr', { name: 'Cleric (TTD only, Potent Spellcasting)', obj: this, type: 'ps', resources: null, options: {cantripDie: Dice.d12, cantripSave: 'WIS'} }],
 		] as [string, Preset][]
 	}
@@ -57,7 +57,7 @@ class Cleric implements PresetProvider {
 			extraCrit = 2*extraNormal - procRate*4*Dice.d8
 		}
 		let hitDamate = dmg + extraNormal
-		let critDamage = 2*Dice.d8 + modifier + 2*extraCrit
+		let critDamage = 2*Dice.d8 + modifier + extraCrit
 		let output = Util.getDamageWithCrits(1, hitDamate, critDamage, hit, crit);
 		return {damage: output, accuracy: hit};
 	}
