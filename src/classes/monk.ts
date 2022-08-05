@@ -1,6 +1,7 @@
 import Util from "../utility/util";
 import Dice from "../utility/dice";
 import { AccuracyMode, AccuracyProvider, Preset, PresetProvider } from "../utility/types";
+import { AttackSource } from "../utility/attacks";
 class Monk implements PresetProvider {
 	public readonly name = 'Monk';
 	modifiers = [3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
@@ -65,7 +66,7 @@ class Monk implements PresetProvider {
 		let unarmedDamage = unarmedDie + modifier;
 		let weaponCrit = 2 * weaponDie + modifier;
 		let unarmedCrit = 2 * unarmedDie + modifier;
-		return { damage: Util.getDamageWithCrits(weapon, weaponDamage, weaponCrit, hit, crit) + Util.getDamageWithCrits(unarmed, unarmedDamage, unarmedCrit, hit, crit), accuracy: hit };
+		return { damage: AttackSource.getDamageWithCrits(weapon, weaponDamage, weaponCrit, hit, crit) + AttackSource.getDamageWithCrits(unarmed, unarmedDamage, unarmedCrit, hit, crit), accuracy: hit };
 	}
 
 	private unarmedStrike(level: number, provider: AccuracyProvider, mode: AccuracyMode) {
@@ -75,7 +76,7 @@ class Monk implements PresetProvider {
 		let baseDamage = dieSize + modifier;
 		let critDamage = 2 * dieSize + modifier;
 		let attacks = this.attacks(level, false).unarmed;
-		return { damage: Util.getDamageWithCrits(attacks, baseDamage, critDamage, hit, crit), accuracy: hit };
+		return { damage: AttackSource.getDamageWithCrits(attacks, baseDamage, critDamage, hit, crit), accuracy: hit };
 	}
 
 	private attacks(level: number, useWeapon: boolean): {unarmed: number, weapon: number} {
@@ -96,7 +97,7 @@ class Monk implements PresetProvider {
 		let baseDamage = dieSize + modifier;
 		let critDamage = 2 * dieSize + modifier;
 		let attacks = rounds;
-		return Util.getDamageWithCrits(attacks, baseDamage, critDamage, hit, crit);
+		return AttackSource.getDamageWithCrits(attacks, baseDamage, critDamage, hit, crit);
 	}
 
 	private martialArtsDie(level: number) {
@@ -127,7 +128,7 @@ class Monk implements PresetProvider {
 			return (armsDamage + hit * die * flurryRounds) / rounds;
 		} else if (Math.max(rounds, level) >= flurryRounds + 4) {
 			armsDamage += hit * die * (flurryRounds);
-			return (armsDamage / rounds) + Util.getDamageWithCrits(1, die + modifier, 2 * die + modifier, hit, crit);
+			return (armsDamage / rounds) + AttackSource.getDamageWithCrits(1, die + modifier, 2 * die + modifier, hit, crit);
 		}
 		return 0;
 	}

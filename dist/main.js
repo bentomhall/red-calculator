@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".container {\r\n\tmargin-top: 16px;\r\n}\r\n#output-table{\r\n\tborder: 1px solid black;\r\n\tborder-collapse: collapse;\r\n\tmargin-left: 16px;\r\n}\r\ntd, th {\r\n\tborder: 1px solid black;\r\n\ttext-align: center;\r\n\tpadding: 4px;\r\n}\r\n#chart {\r\n\tmax-width: 800px;\r\n\tmax-height: 400px;\r\n}\r\nlabel {\r\n\tdisplay: block;\r\n}\r\ntextarea {\r\n\tmin-width: 450px;\r\n}\r\n.form-container {\r\n\tdisplay: flex;\r\n\tflex-flow: row;\r\n}\r\n.form-element {\r\n\tmargin-right: 16px;\r\n}\r\n.full-width {\r\n\tmax-height: 400px;\r\n\tborder: 1px solid black;\r\n\tpadding: 4px;\r\n\tmax-width: 1200px;\r\n\toverflow-y: auto;\r\n}\r\n.grid {\r\n\tdisplay: grid;\r\n\tgrid-template-columns: repeat(3, 1fr);\r\n\trow-gap: 16px;\r\n}\r\n.grid > div {\r\n\tmax-height: 200px;\r\n\toverflow-y: auto;\r\n\tpadding: 4px;\r\n}\r\ndd {\r\n\tdisplay: flex;\r\n\tmargin-left: 1em;\r\n}\r\ndt {\r\n\tfont-weight: bold;\r\n}\r\n.sidebar {\r\n\twidth: 800px;\r\n}", "",{"version":3,"sources":["webpack://./src/css/main.css"],"names":[],"mappings":"AAAA;CACC,gBAAgB;AACjB;AACA;CACC,uBAAuB;CACvB,yBAAyB;CACzB,iBAAiB;AAClB;AACA;CACC,uBAAuB;CACvB,kBAAkB;CAClB,YAAY;AACb;AACA;CACC,gBAAgB;CAChB,iBAAiB;AAClB;AACA;CACC,cAAc;AACf;AACA;CACC,gBAAgB;AACjB;AACA;CACC,aAAa;CACb,cAAc;AACf;AACA;CACC,kBAAkB;AACnB;AACA;CACC,iBAAiB;CACjB,uBAAuB;CACvB,YAAY;CACZ,iBAAiB;CACjB,gBAAgB;AACjB;AACA;CACC,aAAa;CACb,qCAAqC;CACrC,aAAa;AACd;AACA;CACC,iBAAiB;CACjB,gBAAgB;CAChB,YAAY;AACb;AACA;CACC,aAAa;CACb,gBAAgB;AACjB;AACA;CACC,iBAAiB;AAClB;AACA;CACC,YAAY;AACb","sourcesContent":[".container {\r\n\tmargin-top: 16px;\r\n}\r\n#output-table{\r\n\tborder: 1px solid black;\r\n\tborder-collapse: collapse;\r\n\tmargin-left: 16px;\r\n}\r\ntd, th {\r\n\tborder: 1px solid black;\r\n\ttext-align: center;\r\n\tpadding: 4px;\r\n}\r\n#chart {\r\n\tmax-width: 800px;\r\n\tmax-height: 400px;\r\n}\r\nlabel {\r\n\tdisplay: block;\r\n}\r\ntextarea {\r\n\tmin-width: 450px;\r\n}\r\n.form-container {\r\n\tdisplay: flex;\r\n\tflex-flow: row;\r\n}\r\n.form-element {\r\n\tmargin-right: 16px;\r\n}\r\n.full-width {\r\n\tmax-height: 400px;\r\n\tborder: 1px solid black;\r\n\tpadding: 4px;\r\n\tmax-width: 1200px;\r\n\toverflow-y: auto;\r\n}\r\n.grid {\r\n\tdisplay: grid;\r\n\tgrid-template-columns: repeat(3, 1fr);\r\n\trow-gap: 16px;\r\n}\r\n.grid > div {\r\n\tmax-height: 200px;\r\n\toverflow-y: auto;\r\n\tpadding: 4px;\r\n}\r\ndd {\r\n\tdisplay: flex;\r\n\tmargin-left: 1em;\r\n}\r\ndt {\r\n\tfont-weight: bold;\r\n}\r\n.sidebar {\r\n\twidth: 800px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".container {\n\tmargin-top: 16px;\n}\n#output-table{\n\tborder: 1px solid black;\n\tborder-collapse: collapse;\n\tmargin-left: 16px;\n}\ntd, th {\n\tborder: 1px solid black;\n\ttext-align: center;\n\tpadding: 4px;\n}\n#chart {\n\tmax-width: 800px;\n\tmax-height: 400px;\n}\nlabel {\n\tdisplay: block;\n}\ntextarea {\n\tmin-width: 450px;\n}\n.form-container {\n\tdisplay: flex;\n\tflex-flow: row;\n}\n.form-element {\n\tmargin-right: 16px;\n}\n.full-width {\n\tmax-height: 400px;\n\tborder: 1px solid black;\n\tpadding: 4px;\n\tmax-width: 1200px;\n\toverflow-y: auto;\n}\n.grid {\n\tdisplay: grid;\n\tgrid-template-columns: repeat(3, 1fr);\n\trow-gap: 16px;\n}\n.grid > div {\n\tmax-height: 200px;\n\toverflow-y: auto;\n\tpadding: 4px;\n}\ndd {\n\tdisplay: flex;\n\tmargin-left: 1em;\n}\ndt {\n\tfont-weight: bold;\n}\n.sidebar {\n\twidth: 800px;\n}", "",{"version":3,"sources":["webpack://./src/css/main.css"],"names":[],"mappings":"AAAA;CACC,gBAAgB;AACjB;AACA;CACC,uBAAuB;CACvB,yBAAyB;CACzB,iBAAiB;AAClB;AACA;CACC,uBAAuB;CACvB,kBAAkB;CAClB,YAAY;AACb;AACA;CACC,gBAAgB;CAChB,iBAAiB;AAClB;AACA;CACC,cAAc;AACf;AACA;CACC,gBAAgB;AACjB;AACA;CACC,aAAa;CACb,cAAc;AACf;AACA;CACC,kBAAkB;AACnB;AACA;CACC,iBAAiB;CACjB,uBAAuB;CACvB,YAAY;CACZ,iBAAiB;CACjB,gBAAgB;AACjB;AACA;CACC,aAAa;CACb,qCAAqC;CACrC,aAAa;AACd;AACA;CACC,iBAAiB;CACjB,gBAAgB;CAChB,YAAY;AACb;AACA;CACC,aAAa;CACb,gBAAgB;AACjB;AACA;CACC,iBAAiB;AAClB;AACA;CACC,YAAY;AACb","sourcesContent":[".container {\n\tmargin-top: 16px;\n}\n#output-table{\n\tborder: 1px solid black;\n\tborder-collapse: collapse;\n\tmargin-left: 16px;\n}\ntd, th {\n\tborder: 1px solid black;\n\ttext-align: center;\n\tpadding: 4px;\n}\n#chart {\n\tmax-width: 800px;\n\tmax-height: 400px;\n}\nlabel {\n\tdisplay: block;\n}\ntextarea {\n\tmin-width: 450px;\n}\n.form-container {\n\tdisplay: flex;\n\tflex-flow: row;\n}\n.form-element {\n\tmargin-right: 16px;\n}\n.full-width {\n\tmax-height: 400px;\n\tborder: 1px solid black;\n\tpadding: 4px;\n\tmax-width: 1200px;\n\toverflow-y: auto;\n}\n.grid {\n\tdisplay: grid;\n\tgrid-template-columns: repeat(3, 1fr);\n\trow-gap: 16px;\n}\n.grid > div {\n\tmax-height: 200px;\n\toverflow-y: auto;\n\tpadding: 4px;\n}\ndd {\n\tdisplay: flex;\n\tmargin-left: 1em;\n}\ndt {\n\tfont-weight: bold;\n}\n.sidebar {\n\twidth: 800px;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -13616,21 +13616,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Barbarian": () => (/* binding */ Barbarian)
 /* harmony export */ });
-/* harmony import */ var _utility_dice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utility/dice */ "./src/utility/dice.js");
-/* harmony import */ var _utility_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utility/util */ "./src/utility/util.js");
+/* harmony import */ var _utility_attacks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utility/attacks */ "./src/utility/attacks.js");
+/* harmony import */ var _utility_dice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utility/dice */ "./src/utility/dice.js");
 
 
 class Barbarian {
     name = 'Barbarian';
     presets() {
         return [
-            ['barbarian_no_rage', { name: 'Barbarian (no rage or reckless)', obj: this, resources: { useRage: false, roundsPerLR: 1, recklessPercent: 0, combats: 1 }, type: 'no-sub', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12, gWMProcRate: 0 } }],
-            ['barbarian_100_rage', { name: 'Barbarian (100% rage)', obj: this, resources: { useRage: true, roundsPerLR: 1, recklessPercent: 0, combats: 1 }, type: 'no-sub', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12, gWMProcRate: 0 } }],
-            ['barbarian_100_rage_reckless', { name: 'Barbarian (100% rage and reckless)', obj: this, resources: { useRage: true, roundsPerLR: 1, recklessPercent: 1, combats: 1 }, type: 'no-sub', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12, gWMProcRate: 0 } }],
-            ['barbarian_rage_5_lr', { name: 'Barbarian (no reckless, 5 fights per day)', obj: this, resources: { useRage: false, roundsPerLR: 15, recklessPercent: 0, combats: 5 }, type: 'no-sub', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12, gWMProcRate: 0, weaponDieNumber: 1 } }],
-            ['barbarian_frenzy_5_lr', { name: 'Barbarian (frenzy 1/day, no reckless, 5 fights per day)', obj: this, resources: { useRage: true, roundsPerLR: 15, recklessPercent: 0, combats: 5 }, type: 'frenzy', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12, gWMProcRate: 0, weaponDieNumber: 1 } }],
-            ['barbarian_gwm_rage_reckless', { name: 'Barbarian w/GWM (100% rage and reckless)', obj: this, resources: { useRage: true, roundsPerLR: 1, recklessPercent: 1, combats: 1 }, type: 'gwm', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12, gWMProcRate: 0.1, weaponDieNumber: 1 } }],
-            ['barbarian_100_reckless', { name: 'Barbarian (100% reckless, no rage)', obj: this, resources: { useRage: false, roundsPerLR: 1, recklessPercent: 1, combats: 1 }, type: 'no-sub', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12, gWMProcRate: 0 } }],
+            ['barbarian_no_rage', { name: 'Barbarian (no rage or reckless)', obj: this, resources: { useRage: false, roundsPerLR: 1, recklessPercent: 0, combats: 1 }, type: 'no-sub', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d12, gWMProcRate: 0 } }],
+            ['barbarian_100_rage', { name: 'Barbarian (100% rage)', obj: this, resources: { useRage: true, roundsPerLR: 1, recklessPercent: 0, combats: 1 }, type: 'no-sub', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d12, gWMProcRate: 0 } }],
+            ['barbarian_100_rage_reckless', { name: 'Barbarian (100% rage and reckless)', obj: this, resources: { useRage: true, roundsPerLR: 1, recklessPercent: 1, combats: 1 }, type: 'no-sub', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d12, gWMProcRate: 0 } }],
+            ['barbarian_rage_5_lr', { name: 'Barbarian (no reckless, 5 fights per day)', obj: this, resources: { useRage: false, roundsPerLR: 15, recklessPercent: 0, combats: 5 }, type: 'no-sub', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d12, gWMProcRate: 0, weaponDieNumber: 1 } }],
+            ['barbarian_frenzy_5_lr', { name: 'Barbarian (frenzy 1/day, no reckless, 5 fights per day)', obj: this, resources: { useRage: true, roundsPerLR: 15, recklessPercent: 0, combats: 5 }, type: 'frenzy', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d12, gWMProcRate: 0, weaponDieNumber: 1 } }],
+            ['barbarian_gwm_rage_reckless', { name: 'Barbarian w/GWM (100% rage and reckless)', obj: this, resources: { useRage: true, roundsPerLR: 1, recklessPercent: 1, combats: 1 }, type: 'gwm', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d12, gWMProcRate: 0.1, weaponDieNumber: 1 } }],
+            ['barbarian_100_reckless', { name: 'Barbarian (100% reckless, no rage)', obj: this, resources: { useRage: false, roundsPerLR: 1, recklessPercent: 1, combats: 1 }, type: 'no-sub', options: { weaponDieSize: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d12, gWMProcRate: 0 } }],
         ];
     }
     calculate(type, level, accuracyProvider, accuracyMode, resources, options) {
@@ -13638,7 +13638,7 @@ class Barbarian {
         let { hit, crit } = accuracyProvider.vsAC(level, accuracyMode, modifier, 0, 'flat');
         let advantage = accuracyProvider.vsAC(level, accuracyMode, modifier, 0, 'advantage');
         let fractionRaging = resources.useRage ? this.percentRaging(level, resources.combats) : 0;
-        let weaponDice = (options?.weaponDieSize ?? _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12);
+        let weaponDice = (options?.weaponDieSize ?? _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d12);
         let numberOfDice = options?.weaponDieNumber ?? 1;
         let reckless = level > 1 ? resources.recklessPercent : 0;
         let hitDamage = numberOfDice * weaponDice + modifier + fractionRaging * this.rageBonus(level);
@@ -13647,8 +13647,8 @@ class Barbarian {
         if (type == 'frenzy' && level >= 3) {
             let roundsFrenzied = Math.floor(resources.roundsPerLR / resources.combats) - 1;
             let regular = resources.roundsPerLR - roundsFrenzied;
-            let regularDamage = (1 - reckless) * _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(this.attacks(level), hitDamage, critDamage, hit, crit) + reckless * _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(this.attacks(level), hitDamage, critDamage, advantage.hit, advantage.crit);
-            let frenziedDamage = (1 - reckless) * _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(this.attacks(level) + 1, hitDamage, critDamage, hit, crit) + reckless * _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(this.attacks(level) + 1, hitDamage, critDamage, advantage.hit, advantage.crit);
+            let regularDamage = (1 - reckless) * _utility_attacks__WEBPACK_IMPORTED_MODULE_0__.AttackSource.getDamageWithCrits(this.attacks(level), hitDamage, critDamage, hit, crit) + reckless * _utility_attacks__WEBPACK_IMPORTED_MODULE_0__.AttackSource.getDamageWithCrits(this.attacks(level), hitDamage, critDamage, advantage.hit, advantage.crit);
+            let frenziedDamage = (1 - reckless) * _utility_attacks__WEBPACK_IMPORTED_MODULE_0__.AttackSource.getDamageWithCrits(this.attacks(level) + 1, hitDamage, critDamage, hit, crit) + reckless * _utility_attacks__WEBPACK_IMPORTED_MODULE_0__.AttackSource.getDamageWithCrits(this.attacks(level) + 1, hitDamage, critDamage, advantage.hit, advantage.crit);
             total = (regular * regularDamage + frenziedDamage * roundsFrenzied) / resources.roundsPerLR;
         }
         else if (type == 'gwm') {
@@ -13656,10 +13656,10 @@ class Barbarian {
             let adjustedAdvantage = accuracyProvider.vsAC(level, accuracyMode, modifier - 5, 0, 'advantage');
             hitDamage += 10;
             critDamage += 10;
-            total = (1 - reckless) * _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(this.attacks(level), hitDamage, critDamage, adjustedFlat.hit, adjustedFlat.crit) + reckless * _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(this.attacks(level), hitDamage, critDamage, adjustedAdvantage.hit, adjustedAdvantage.crit);
+            total = (1 - reckless) * _utility_attacks__WEBPACK_IMPORTED_MODULE_0__.AttackSource.getDamageWithCrits(this.attacks(level), hitDamage, critDamage, adjustedFlat.hit, adjustedFlat.crit) + reckless * _utility_attacks__WEBPACK_IMPORTED_MODULE_0__.AttackSource.getDamageWithCrits(this.attacks(level), hitDamage, critDamage, adjustedAdvantage.hit, adjustedAdvantage.crit);
         }
         else {
-            total = (1 - reckless) * _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(this.attacks(level), hitDamage, critDamage, hit, crit) + reckless * _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(this.attacks(level), hitDamage, critDamage, advantage.hit, advantage.crit);
+            total = (1 - reckless) * _utility_attacks__WEBPACK_IMPORTED_MODULE_0__.AttackSource.getDamageWithCrits(this.attacks(level), hitDamage, critDamage, hit, crit) + reckless * _utility_attacks__WEBPACK_IMPORTED_MODULE_0__.AttackSource.getDamageWithCrits(this.attacks(level), hitDamage, critDamage, advantage.hit, advantage.crit);
         }
         return { damage: total, accuracy: hit };
     }
@@ -13735,8 +13735,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _utility_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utility/util */ "./src/utility/util.js");
-/* harmony import */ var _utility_dice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utility/dice */ "./src/utility/dice.js");
+/* harmony import */ var _utility_dice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utility/dice */ "./src/utility/dice.js");
+/* harmony import */ var _utility_attacks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utility/attacks */ "./src/utility/attacks.js");
 
 
 class Cleric {
@@ -13745,18 +13745,18 @@ class Cleric {
     strModifiers = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5];
     presets() {
         return [
-            ['cleric_sf_nr', { name: 'Cleric (Sacred Flame only, Blessed Strikes)', obj: this, type: 'bs', resources: null, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8, cantripSave: 'DEX' } }],
-            ['cleric_sf_sw100', { name: 'Cleric (BS, Sacred Flame + Sacred Weapon, 100% uptime)', obj: this, type: 'bs', resources: { uptime: 1.0, proc: 0 }, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8, cantripSave: 'DEX' } }],
-            ['cleric_sfps_nr', { name: 'Cleric (Sacred Flame only, Potent Spellcasting)', obj: this, type: 'ps', resources: null, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8, cantripSave: 'DEX' } }],
-            ['cleric_sfps_sw100', { name: 'Cleric (PS, Sacred Flame + Sacred Weapon, 100% uptime)', obj: this, type: 'ps', resources: { uptime: 1.0, proc: 0 }, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8, cantripSave: 'DEX' } }],
-            ['cleric_bbps_50proc', { name: 'Cleric (PS, BB, 50% proc, no advantage)', obj: this, type: 'ps-bb', resources: { uptime: 0.0, proc: 0.5 }, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8, cantripSave: 'AC' } }],
-            ['cleric_ttdps_nr', { name: 'Cleric (TTD only, Potent Spellcasting)', obj: this, type: 'ps', resources: null, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d12, cantripSave: 'WIS' } }],
+            ['cleric_sf_nr', { name: 'Cleric (Sacred Flame only, Blessed Strikes)', obj: this, type: 'bs', resources: null, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8, cantripSave: 'DEX' } }],
+            ['cleric_sf_sw100', { name: 'Cleric (BS, Sacred Flame + Sacred Weapon, 100% uptime)', obj: this, type: 'bs', resources: { uptime: 1.0, proc: 0 }, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8, cantripSave: 'DEX' } }],
+            ['cleric_sfps_nr', { name: 'Cleric (Sacred Flame only, Potent Spellcasting)', obj: this, type: 'ps', resources: null, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8, cantripSave: 'DEX' } }],
+            ['cleric_sfps_sw100', { name: 'Cleric (PS, Sacred Flame + Sacred Weapon, 100% uptime)', obj: this, type: 'ps', resources: { uptime: 1.0, proc: 0 }, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8, cantripSave: 'DEX' } }],
+            ['cleric_bbps_50proc', { name: 'Cleric (PS, BB, 50% proc, no advantage)', obj: this, type: 'ps-bb', resources: { uptime: 0.0, proc: 0.5 }, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8, cantripSave: 'AC' } }],
+            ['cleric_ttdps_nr', { name: 'Cleric (TTD only, Potent Spellcasting)', obj: this, type: 'ps', resources: null, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d12, cantripSave: 'WIS' } }],
         ];
     }
     calculate(type, level, provider, mode, resources, options) {
         let sfDamage = { damage: 0, accuracy: 0 };
         if (type == 'ps-bb') {
-            sfDamage = this.boomingBlade(level, provider, mode, resources?.proc ?? 0);
+            sfDamage = this.boomingBlade(level, resources?.proc ?? 0, this.strModifiers[level - 1], _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8, provider, mode);
         }
         else {
             sfDamage = this.regularCantrip(type, level, provider, mode, options?.cantripDie, options?.cantripSave);
@@ -13767,50 +13767,17 @@ class Cleric {
         }
         return sfDamage;
     }
-    boomingBlade(level, provider, mode, procRate, useStr = true) {
-        let modifier = useStr ? this.strModifiers[level - 1] : this.wisModifiers[level - 1];
-        let dmg = _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8 + modifier;
-        let { hit, crit } = provider.vsAC(level, mode, modifier, 0, 'flat');
-        let extraNormal;
-        let extraCrit;
-        if (level < 5) {
-            extraNormal = procRate * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8;
-            extraCrit = 0;
-        }
-        else if (level < 9) {
-            extraNormal = _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8 + procRate * 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8;
-            extraCrit = 2 * extraNormal - procRate * 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8;
-        }
-        else if (level < 11) {
-            extraNormal = 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8 + procRate * 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8;
-            extraCrit = 2 * extraNormal - procRate * 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8;
-        }
-        else if (level < 17) {
-            extraNormal = 3 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8 + procRate * 3 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8;
-            extraCrit = 2 * extraNormal - procRate * 3 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8;
-        }
-        else {
-            extraNormal = 4 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8 + procRate * 4 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8;
-            extraCrit = 2 * extraNormal - procRate * 4 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8;
-        }
-        let hitDamate = dmg + extraNormal;
-        let critDamage = 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8 + modifier + extraCrit;
-        let output = _utility_util__WEBPACK_IMPORTED_MODULE_0__["default"].getDamageWithCrits(1, hitDamate, critDamage, hit, crit);
-        return { damage: output, accuracy: hit };
-    }
     regularCantrip(type, level, provider, mode, die, targeting) {
+        let source = new _utility_attacks__WEBPACK_IMPORTED_MODULE_1__.AttackSource(provider, mode, 0, 0);
         let modifier = this.wisModifiers[level - 1];
         let extra = 0;
         if (type == 'bs' && level > 8) {
-            extra = _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8;
+            extra = _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8;
         }
         else if (type == 'ps' && level > 8) {
             extra = modifier;
         }
-        let { fail } = provider.vsSave(level, mode, modifier, 'flat', targeting);
-        let dice = this.cantripDice(level);
-        let baseDamage = dice * die + extra;
-        return { damage: fail * baseDamage, accuracy: fail };
+        return source.saveCantrip(level, targeting, die, extra, modifier);
     }
     sacredWeapon(uptime, level, provider, mode) {
         if (level < 3) {
@@ -13818,21 +13785,13 @@ class Cleric {
         }
         let modifier = this.wisModifiers[level - 1];
         let { hit, crit } = provider.vsAC(level, mode, modifier, 0, 'flat');
-        let baseDamage = _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8 + modifier;
-        let critDamage = 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8 + modifier;
-        return { damage: _utility_util__WEBPACK_IMPORTED_MODULE_0__["default"].getDamageWithCrits(1, baseDamage, critDamage, hit, crit) * uptime, accuracy: hit };
+        let baseDamage = _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8 + modifier;
+        let critDamage = 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8 + modifier;
+        return { damage: _utility_attacks__WEBPACK_IMPORTED_MODULE_1__.AttackSource.getDamageWithCrits(1, baseDamage, critDamage, hit, crit) * uptime, accuracy: hit };
     }
-    cantripDice(level) {
-        if (level < 5) {
-            return 1;
-        }
-        else if (level < 11) {
-            return 2;
-        }
-        else if (level < 17) {
-            return 3;
-        }
-        return 4;
+    boomingBlade(level, procRate, modifier, weaponDie, provider, mode) {
+        let attacks = new _utility_attacks__WEBPACK_IMPORTED_MODULE_1__.AttackSource(provider, mode, 0, 0);
+        return attacks.boomingBlade(level, procRate, modifier, weaponDie);
     }
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Cleric);
@@ -13873,8 +13832,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _utility_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utility/util */ "./src/utility/util.js");
-/* harmony import */ var _utility_dice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utility/dice */ "./src/utility/dice.js");
+/* harmony import */ var _utility_dice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utility/dice */ "./src/utility/dice.js");
+/* harmony import */ var _utility_attacks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utility/attacks */ "./src/utility/attacks.js");
 
 
 class Druid {
@@ -13899,7 +13858,7 @@ class Druid {
         let dice = this.produceFlameDice[level - 1];
         let modifier = this.modifiers[level - 1];
         let { hit, crit } = provider.vsAC(level, mode, modifier, 0, 'flat');
-        return { damage: _utility_util__WEBPACK_IMPORTED_MODULE_0__["default"].getDamageWithCrits(1, dice * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8, 2 * dice * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8, hit, crit), accuracy: hit };
+        return { damage: _utility_attacks__WEBPACK_IMPORTED_MODULE_1__.AttackSource.getDamageWithCrits(1, dice * _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8, 2 * dice * _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8, hit, crit), accuracy: hit };
     }
     bearForm(level, provider, mode) {
         let modifier = 6;
@@ -13909,7 +13868,7 @@ class Druid {
             damageMod = 5;
         }
         let { hit, crit } = provider.vsAC(level, mode, modifier, 0, 'flat-unproficient');
-        let damage = _utility_util__WEBPACK_IMPORTED_MODULE_0__["default"].getDamageWithCrits(1, _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8 + damageMod, 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8 + damageMod, hit, crit) + _utility_util__WEBPACK_IMPORTED_MODULE_0__["default"].getDamageWithCrits(1, 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d6 + 4, 4 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d6 + 4, hit, crit);
+        let damage = _utility_attacks__WEBPACK_IMPORTED_MODULE_1__.AttackSource.getDamageWithCrits(1, _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8 + damageMod, 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8 + damageMod, hit, crit) + _utility_attacks__WEBPACK_IMPORTED_MODULE_1__.AttackSource.getDamageWithCrits(1, 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d6 + 4, 4 * _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d6 + 4, hit, crit);
         return { damage, accuracy: hit };
     }
 }
@@ -13928,8 +13887,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _utility_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utility/util */ "./src/utility/util.js");
-/* harmony import */ var _utility_dice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utility/dice */ "./src/utility/dice.js");
+/* harmony import */ var _utility_dice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utility/dice */ "./src/utility/dice.js");
+/* harmony import */ var _utility_attacks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utility/attacks */ "./src/utility/attacks.js");
 
 
 class Fighter {
@@ -13937,11 +13896,11 @@ class Fighter {
     baseModifiers = [3, 3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
     featAt4Modifiers = [3, 3, 3, 3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
     _damage = new Map([
-        ['snb', { base: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8, crit: 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8, extra: 2 }],
-        ['gs', { base: 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d6, crit: 4 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d6, extra: 1.33 }],
-        ['gs_pa', { base: 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d6, crit: 4 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d6, extra: 1.33 }],
-        ['gwm_pam', { base: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d10, crit: 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d10, extra: 0.9 }],
-        ['pam', { base: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d10, crit: 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d10, extra: 0.9 }]
+        ['snb', { base: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8, crit: 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8, extra: 2 }],
+        ['gs', { base: 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d6, crit: 4 * _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d6, extra: 1.33 }],
+        ['gs_pa', { base: 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d6, crit: 4 * _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d6, extra: 1.33 }],
+        ['gwm_pam', { base: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10, crit: 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10, extra: 0.9 }],
+        ['pam', { base: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10, crit: 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10, extra: 0.9 }]
     ]);
     presets() {
         return [
@@ -13987,17 +13946,17 @@ class Fighter {
         let damagePerCrit = params.crit + modifier + extraPerHit;
         if (type == 'gwm_pam') {
             if (level >= 4) {
-                bonusDamage = _utility_util__WEBPACK_IMPORTED_MODULE_0__["default"].getDamageWithCrits(1, _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d4 + modifier + 10.75, 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d4 + modifier + 10.75, hit, crit);
+                bonusDamage = _utility_attacks__WEBPACK_IMPORTED_MODULE_1__.AttackSource.getDamageWithCrits(1, _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d4 + modifier + 10.75, 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d4 + modifier + 10.75, hit, crit);
             }
             else {
-                bonusDamage = _utility_util__WEBPACK_IMPORTED_MODULE_0__["default"].getDamageWithCrits(1, _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d4 + modifier + .75, 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d4 + modifier + 0.75, hit, crit);
+                bonusDamage = _utility_attacks__WEBPACK_IMPORTED_MODULE_1__.AttackSource.getDamageWithCrits(1, _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d4 + modifier + .75, 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d4 + modifier + 0.75, hit, crit);
             }
         }
         else if (type == 'pam') {
-            bonusDamage = _utility_util__WEBPACK_IMPORTED_MODULE_0__["default"].getDamageWithCrits(1, _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d4 + modifier + .75, 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d4 + modifier + 0.75, hit, crit);
+            bonusDamage = _utility_attacks__WEBPACK_IMPORTED_MODULE_1__.AttackSource.getDamageWithCrits(1, _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d4 + modifier + .75, 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d4 + modifier + 0.75, hit, crit);
         }
         let attacks = this.attacks(level);
-        return { damage: (1 + aSUse) * _utility_util__WEBPACK_IMPORTED_MODULE_0__["default"].getDamageWithCrits(attacks, damagePerHit, damagePerCrit, hit, crit) + bonusDamage, accuracy: hit };
+        return { damage: (1 + aSUse) * _utility_attacks__WEBPACK_IMPORTED_MODULE_1__.AttackSource.getDamageWithCrits(attacks, damagePerHit, damagePerCrit, hit, crit) + bonusDamage, accuracy: hit };
     }
     attacks(level) {
         if (level < 5) {
@@ -14045,8 +14004,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _utility_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utility/util */ "./src/utility/util.js");
-/* harmony import */ var _utility_dice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utility/dice */ "./src/utility/dice.js");
+/* harmony import */ var _utility_dice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utility/dice */ "./src/utility/dice.js");
+/* harmony import */ var _utility_attacks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utility/attacks */ "./src/utility/attacks.js");
 
 
 class Monk {
@@ -14106,7 +14065,7 @@ class Monk {
         return { damage: base.damage + flurryDamage + extraDamage, accuracy: base.accuracy };
     }
     quarterstaff(level, provider, mode) {
-        let weaponDie = _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d10;
+        let weaponDie = _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10;
         let unarmedDie = this.martialArtsDie(level);
         let modifier = this.modifiers[level - 1];
         let { hit, crit } = provider.vsAC(level, mode, modifier, 0, 'flat');
@@ -14115,7 +14074,7 @@ class Monk {
         let unarmedDamage = unarmedDie + modifier;
         let weaponCrit = 2 * weaponDie + modifier;
         let unarmedCrit = 2 * unarmedDie + modifier;
-        return { damage: _utility_util__WEBPACK_IMPORTED_MODULE_0__["default"].getDamageWithCrits(weapon, weaponDamage, weaponCrit, hit, crit) + _utility_util__WEBPACK_IMPORTED_MODULE_0__["default"].getDamageWithCrits(unarmed, unarmedDamage, unarmedCrit, hit, crit), accuracy: hit };
+        return { damage: _utility_attacks__WEBPACK_IMPORTED_MODULE_1__.AttackSource.getDamageWithCrits(weapon, weaponDamage, weaponCrit, hit, crit) + _utility_attacks__WEBPACK_IMPORTED_MODULE_1__.AttackSource.getDamageWithCrits(unarmed, unarmedDamage, unarmedCrit, hit, crit), accuracy: hit };
     }
     unarmedStrike(level, provider, mode) {
         let modifier = this.modifiers[level - 1];
@@ -14124,7 +14083,7 @@ class Monk {
         let baseDamage = dieSize + modifier;
         let critDamage = 2 * dieSize + modifier;
         let attacks = this.attacks(level, false).unarmed;
-        return { damage: _utility_util__WEBPACK_IMPORTED_MODULE_0__["default"].getDamageWithCrits(attacks, baseDamage, critDamage, hit, crit), accuracy: hit };
+        return { damage: _utility_attacks__WEBPACK_IMPORTED_MODULE_1__.AttackSource.getDamageWithCrits(attacks, baseDamage, critDamage, hit, crit), accuracy: hit };
     }
     attacks(level, useWeapon) {
         if (!useWeapon) {
@@ -14150,21 +14109,21 @@ class Monk {
         let baseDamage = dieSize + modifier;
         let critDamage = 2 * dieSize + modifier;
         let attacks = rounds;
-        return _utility_util__WEBPACK_IMPORTED_MODULE_0__["default"].getDamageWithCrits(attacks, baseDamage, critDamage, hit, crit);
+        return _utility_attacks__WEBPACK_IMPORTED_MODULE_1__.AttackSource.getDamageWithCrits(attacks, baseDamage, critDamage, hit, crit);
     }
     martialArtsDie(level) {
         let dieSize;
         if (level < 5) {
-            dieSize = _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d4;
+            dieSize = _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d4;
         }
         else if (level < 11) {
-            dieSize = _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d6;
+            dieSize = _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d6;
         }
         else if (level < 17) {
-            dieSize = _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8;
+            dieSize = _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8;
         }
         else {
-            dieSize = _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d10;
+            dieSize = _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10;
         }
         return dieSize;
     }
@@ -14192,7 +14151,7 @@ class Monk {
         }
         else if (Math.max(rounds, level) >= flurryRounds + 4) {
             armsDamage += hit * die * (flurryRounds);
-            return (armsDamage / rounds) + _utility_util__WEBPACK_IMPORTED_MODULE_0__["default"].getDamageWithCrits(1, die + modifier, 2 * die + modifier, hit, crit);
+            return (armsDamage / rounds) + _utility_attacks__WEBPACK_IMPORTED_MODULE_1__.AttackSource.getDamageWithCrits(1, die + modifier, 2 * die + modifier, hit, crit);
         }
         return 0;
     }
@@ -14273,8 +14232,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _utility_dice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utility/dice */ "./src/utility/dice.js");
-/* harmony import */ var _utility_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utility/util */ "./src/utility/util.js");
+/* harmony import */ var _utility_attacks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utility/attacks */ "./src/utility/attacks.js");
+/* harmony import */ var _utility_dice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utility/dice */ "./src/utility/dice.js");
 
 
 class Rogue {
@@ -14312,7 +14271,7 @@ class Rogue {
         }
         else {
             let { hit, crit } = provider.vsAC(level, mode, this.modifiers[index], 0, 'flat');
-            let damage = this.mainHand(index, hit, crit, 0, 0, _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d6) + this.sneakAttackWithAccuracy(index, hit, crit, 1);
+            let damage = this.mainHand(index, hit, crit, 0, 0, _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d6) + this.sneakAttackWithAccuracy(index, hit, crit, 1);
             return { damage, accuracy: hit };
         }
     }
@@ -14323,14 +14282,14 @@ class Rogue {
         let damage = this.mainHand(index, hit, crit) + this.mainHand(index, hit, crit, -1 * modifier, 0) + this.sneakAttackWithAccuracy(index, hit, crit, 2);
         return { damage, accuracy: hit };
     }
-    mainHand(index, hit, crit, extraStatic = 0, extraDice = 0, dieSize = _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d6) {
+    mainHand(index, hit, crit, extraStatic = 0, extraDice = 0, dieSize = _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d6) {
         let modifier = this.modifiers[index];
         let damagePerHit = dieSize + modifier + extraDice + extraStatic;
         let damagePerCrit = 2 * dieSize + modifier + extraDice + extraStatic;
-        return _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(1, damagePerHit, damagePerCrit, hit, crit);
+        return _utility_attacks__WEBPACK_IMPORTED_MODULE_0__.AttackSource.getDamageWithCrits(1, damagePerHit, damagePerCrit, hit, crit);
     }
     sneakAttackWithAccuracy(index, hit, crit, attacks) {
-        let dice = this.sneakAttack[index] * _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d6;
+        let dice = this.sneakAttack[index] * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d6;
         if (attacks == 1) {
             return hit * dice + 2 * crit * dice;
         }
@@ -14354,8 +14313,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Sorcerer": () => (/* binding */ Sorcerer)
 /* harmony export */ });
-/* harmony import */ var _utility_dice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utility/dice */ "./src/utility/dice.js");
-/* harmony import */ var _utility_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utility/util */ "./src/utility/util.js");
+/* harmony import */ var _utility_attacks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utility/attacks */ "./src/utility/attacks.js");
+/* harmony import */ var _utility_dice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utility/dice */ "./src/utility/dice.js");
 
 
 class Sorcerer {
@@ -14363,7 +14322,7 @@ class Sorcerer {
     modifiers = [3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
     calculate(type, level, accuracyProvider, accuracyMode, resources, options) {
         let modifier = this.modifiers[level - 1];
-        let cantripHit = this.cantrip(level, options?.cantripDie ?? _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10);
+        let cantripHit = this.cantrip(level, options?.cantripDie ?? _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d10);
         let cantripCrit = 2 * cantripHit;
         let { hit, crit } = accuracyProvider.vsAC(level, accuracyMode, modifier, 0, 'flat');
         if (options?.matchingElementalAffinity && level >= 6) {
@@ -14371,10 +14330,10 @@ class Sorcerer {
             cantripCrit += modifier;
         }
         if (type == 'cantrip-only') {
-            let damage = _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(1, cantripHit, cantripCrit, hit, crit);
+            let damage = _utility_attacks__WEBPACK_IMPORTED_MODULE_0__.AttackSource.getDamageWithCrits(1, cantripHit, cantripCrit, hit, crit);
             if (options?.useQuicken) {
                 let quickenRounds = level >= 3 ? Math.min(Math.floor(level / 2), resources.roundsPerDay) : 0;
-                damage = (damage * (resources.roundsPerDay - quickenRounds) + quickenRounds * _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(2, cantripHit, cantripCrit, hit, crit)) / resources.roundsPerDay;
+                damage = (damage * (resources.roundsPerDay - quickenRounds) + quickenRounds * _utility_attacks__WEBPACK_IMPORTED_MODULE_0__.AttackSource.getDamageWithCrits(2, cantripHit, cantripCrit, hit, crit)) / resources.roundsPerDay;
             }
             return { damage, accuracy: hit };
         }
@@ -14382,10 +14341,10 @@ class Sorcerer {
     }
     presets() {
         return [
-            ['sorcerer_no_quicken', { name: 'Firebolt sorcerer (no quicken or EA)', type: 'cantrip-only', obj: this, resources: null, options: { useQuicken: false, cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10, matchingElementalAffinity: false } }],
-            ['sorcerer_ea_no_quicken', { name: 'Firebolt sorcerer (EA, no quicken)', type: 'cantrip-only', obj: this, resources: null, options: { useQuicken: false, cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10, matchingElementalAffinity: true } }],
-            ['sorcerer_quicken', { name: 'Firebolt sorcerer (no EA, quicken as much as possible, 15 rounds/day)', type: 'cantrip-only', obj: this, resources: { roundsPerDay: 15 }, options: { useQuicken: true, cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10, matchingElementalAffinity: false } }],
-            ['sorcerer_quicken_ea', { name: 'Firebolt sorcerer (EA, quicken as much as possible, 15 rounds/day)', type: 'cantrip-only', obj: this, resources: { roundsPerDay: 15 }, options: { useQuicken: true, cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10, matchingElementalAffinity: true } }],
+            ['sorcerer_no_quicken', { name: 'Firebolt sorcerer (no quicken or EA)', type: 'cantrip-only', obj: this, resources: null, options: { useQuicken: false, cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d10, matchingElementalAffinity: false } }],
+            ['sorcerer_ea_no_quicken', { name: 'Firebolt sorcerer (EA, no quicken)', type: 'cantrip-only', obj: this, resources: null, options: { useQuicken: false, cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d10, matchingElementalAffinity: true } }],
+            ['sorcerer_quicken', { name: 'Firebolt sorcerer (no EA, quicken as much as possible, 15 rounds/day)', type: 'cantrip-only', obj: this, resources: { roundsPerDay: 15 }, options: { useQuicken: true, cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d10, matchingElementalAffinity: false } }],
+            ['sorcerer_quicken_ea', { name: 'Firebolt sorcerer (EA, quicken as much as possible, 15 rounds/day)', type: 'cantrip-only', obj: this, resources: { roundsPerDay: 15 }, options: { useQuicken: true, cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d10, matchingElementalAffinity: true } }],
         ];
     }
     cantrip(level, dieSize) {
@@ -14419,8 +14378,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _utility_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utility/util */ "./src/utility/util.js");
-/* harmony import */ var _utility_dice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utility/dice */ "./src/utility/dice.js");
+/* harmony import */ var _utility_dice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utility/dice */ "./src/utility/dice.js");
+/* harmony import */ var _utility_attacks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utility/attacks */ "./src/utility/attacks.js");
 
 
 class Warlock {
@@ -14437,10 +14396,10 @@ class Warlock {
         let { slots, spellLevel } = this.getSlots(level);
         let modifier = this.modifiers[level - 1];
         let staticExtra = hasAB && level > 1 ? modifier : 0;
-        let hexDamage = resources ? this.getHexUptime(resources.rounds, spellLevel, resources.duration) * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d6 : 0;
+        let hexDamage = resources ? this.getHexUptime(resources.rounds, spellLevel, resources.duration) * _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d6 : 0;
         let attacks = this.getAttacks(level);
         let { hit, crit } = provider.vsAC(level, mode, modifier, 0, 'flat');
-        return { damage: _utility_util__WEBPACK_IMPORTED_MODULE_0__["default"].getDamageWithCrits(attacks, _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d10 + staticExtra + hexDamage, 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d10 + staticExtra + 2 * hexDamage, hit, crit), accuracy: hit };
+        return { damage: _utility_attacks__WEBPACK_IMPORTED_MODULE_1__.AttackSource.getDamageWithCrits(attacks, _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10 + staticExtra + hexDamage, 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10 + staticExtra + 2 * hexDamage, hit, crit), accuracy: hit };
     }
     getSlots(level) {
         let slotLevel = Math.min(Math.ceil(level / 2), 5);
@@ -14490,48 +14449,61 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Wizard": () => (/* binding */ Wizard)
 /* harmony export */ });
-/* harmony import */ var _utility_dice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utility/dice */ "./src/utility/dice.js");
-/* harmony import */ var _utility_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utility/util */ "./src/utility/util.js");
+/* harmony import */ var _utility_attacks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utility/attacks */ "./src/utility/attacks.js");
+/* harmony import */ var _utility_dice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utility/dice */ "./src/utility/dice.js");
+/* harmony import */ var _utility_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utility/util */ "./src/utility/util.js");
+
 
 
 class Wizard {
     name = 'Wizard';
     modifiers = [3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
+    dexModifier = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5];
     calculate(type, level, accuracyProvider, accuracyMode, resources, options) {
-        let modifier = this.modifiers[level - 1];
         if (type == 'cantrip-only') {
-            let { hit, crit } = accuracyProvider.vsAC(level, accuracyMode, modifier, 0, 'flat');
-            let onHit = this.cantrip(level, options?.cantripDie ?? _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10);
-            let onCrit = 2 * onHit;
-            if (options?.empoweredEvocation && level >= 10) {
-                onHit += modifier;
-                onCrit += modifier;
-            }
-            return { damage: _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(1, onHit, onCrit, hit, crit), accuracy: hit };
+            return this.cantripOnly(level, accuracyProvider, accuracyMode, resources, options);
+        }
+        else if (type == 'bladesinger') {
+            return this.bladesinger(level, accuracyProvider, accuracyMode, resources, options);
         }
         return { damage: NaN, accuracy: NaN };
     }
     presets() {
         return [
-            ['wizard_firebolt', { name: 'Wizard (firebolt only, non-evocation)', obj: this, type: 'cantrip-only', resources: null, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10, empoweredEvocation: false } }],
-            ['wizard_firebolt_ee', { name: 'Wizard (firebolt only, Evocation)', obj: this, type: 'cantrip-only', resources: null, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10, empoweredEvocation: true } }],
+            ['wizard_firebolt', { name: 'Wizard (firebolt only, non-evocation)', obj: this, type: 'cantrip-only', resources: null, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d10, empoweredEvocation: false } }],
+            ['wizard_firebolt_ee', { name: 'Wizard (firebolt only, Evocation)', obj: this, type: 'cantrip-only', resources: null, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d10, empoweredEvocation: true } }],
+            ['wizard_bladesinger_fb_rBB', { name: 'Wizard (bladesinger, firebolt/rapier+BB, 50% proc)', obj: this, type: 'bladesinger', resources: null, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d10, empoweredEvocation: false, preferWeapons: false } }],
+            ['wizard_bladesinger_BB_rBB', { name: 'Wizard (bladesinger, rapier/BB, 50% proc)', obj: this, type: 'bladesinger', resources: null, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d10, empoweredEvocation: false, preferWeapons: true } }],
         ];
     }
-    cantrip(level, dieSize) {
-        let dice = this.cantripDice(level);
-        return dice * dieSize;
+    //firebolt until extra attack, then attack + weapon cantrip.
+    bladesinger(level, accuracyProvider, accuracyMode, resources, options) {
+        let weaponMod = this.dexModifier[level - 1];
+        let spellMod = this.modifiers[level - 1];
+        let attackProvider = new _utility_attacks__WEBPACK_IMPORTED_MODULE_0__.AttackSource(accuracyProvider, accuracyMode, 0, 0);
+        let weaponAccuracy = accuracyProvider.vsAC(level, accuracyMode, weaponMod, 0, 'flat');
+        let spellAccuracy = accuracyProvider.vsAC(level, accuracyMode, spellMod, 0, 'flat');
+        let damage = 0;
+        let accuracy = spellAccuracy.hit;
+        if (level < 6 && options?.preferWeapons == false) {
+            return attackProvider.attackCantrip(level, options?.cantripDie ?? _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d10, 1, 0, spellMod, false);
+        }
+        else if (level < 6) {
+            return attackProvider.boomingBlade(level, 0.5, weaponMod);
+        }
+        else {
+            let weaponDamage = _utility_attacks__WEBPACK_IMPORTED_MODULE_0__.AttackSource.getDamageWithCrits(1, _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8 + weaponMod, 2 * _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d8 + weaponMod, weaponAccuracy.hit, weaponAccuracy.crit);
+            let spellDamage = attackProvider.boomingBlade(level, 0.5, weaponMod);
+            damage = weaponDamage + spellDamage.damage;
+            accuracy = _utility_util__WEBPACK_IMPORTED_MODULE_2__["default"].average([spellAccuracy.hit, spellDamage.accuracy]);
+        }
+        return { damage: damage, accuracy: accuracy };
     }
-    cantripDice(level) {
-        if (level < 5) {
-            return 1;
-        }
-        else if (level < 11) {
-            return 2;
-        }
-        else if (level < 17) {
-            return 3;
-        }
-        return 4;
+    cantripOnly(level, accuracyProvider, accuracyMode, resources, options) {
+        let modifier = this.modifiers[level - 1];
+        let attacks = new _utility_attacks__WEBPACK_IMPORTED_MODULE_0__.AttackSource(accuracyProvider, accuracyMode, 0, 0);
+        let extraDamage = level >= 10 && options?.empoweredEvocation ? modifier : 0;
+        return attacks.attackCantrip(level, options?.cantripDie ?? _utility_dice__WEBPACK_IMPORTED_MODULE_1__["default"].d10, 1, extraDamage, modifier, false);
     }
 }
 
@@ -14670,6 +14642,110 @@ class D20AccuracyProvider {
 
 /***/ }),
 
+/***/ "./src/utility/attacks.js":
+/*!********************************!*\
+  !*** ./src/utility/attacks.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "AttackSource": () => (/* binding */ AttackSource)
+/* harmony export */ });
+/* harmony import */ var _dice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dice */ "./src/utility/dice.js");
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./util */ "./src/utility/util.js");
+
+
+class AttackSource {
+    provider;
+    options;
+    constructor(provider, mode, advantage = 0, disadvantage = 0) {
+        this.provider = provider;
+        if (advantage + disadvantage > 1) {
+            throw new Error('advantage + disadvantage must be <= 1');
+        }
+        this.options = {
+            mode,
+            advantage,
+            disadvantage
+        };
+    }
+    boomingBlade(level, procRate, modifier, weaponDie = _dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8) {
+        let dmg = weaponDie + modifier;
+        let extraNormal;
+        let extraCrit;
+        if (level < 5) {
+            extraNormal = procRate * _dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8;
+            extraCrit = 0;
+        }
+        else if (level < 9) {
+            extraNormal = _dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8 + procRate * 2 * _dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8;
+            extraCrit = 2 * extraNormal - procRate * 2 * _dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8;
+        }
+        else if (level < 11) {
+            extraNormal = 2 * _dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8 + procRate * 2 * _dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8;
+            extraCrit = 2 * extraNormal - procRate * 2 * _dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8;
+        }
+        else if (level < 17) {
+            extraNormal = 3 * _dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8 + procRate * 3 * _dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8;
+            extraCrit = 2 * extraNormal - procRate * 3 * _dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8;
+        }
+        else {
+            extraNormal = 4 * _dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8 + procRate * 4 * _dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8;
+            extraCrit = 2 * extraNormal - procRate * 4 * _dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8;
+        }
+        let hitDamage = dmg + extraNormal;
+        let critDamage = 2 * _dice__WEBPACK_IMPORTED_MODULE_0__["default"].d8 + modifier + extraCrit;
+        return this.damageWithVariableAccuracy(level, 1, hitDamage, critDamage, modifier);
+    }
+    attackCantrip(level, baseDie, attacks, extraPerHit, modifier, multiplyExtraOnCrit) {
+        let cantripDice = this.calculateCantripDice(level);
+        let onHit = cantripDice * baseDie + extraPerHit;
+        let onCrit = 2 * cantripDice * baseDie + (multiplyExtraOnCrit ? 2 * extraPerHit : extraPerHit);
+        return this.damageWithVariableAccuracy(level, attacks, onHit, onCrit, modifier);
+    }
+    saveCantrip(level, targeting, baseDie, extraPerHit, modifier) {
+        let { fail } = this.provider.vsSave(level, this.options.mode, modifier, 'flat', targeting);
+        let dice = this.calculateCantripDice(level);
+        let baseDamage = dice * baseDie + extraPerHit;
+        return { damage: fail * baseDamage, accuracy: fail };
+    }
+    damageWithVariableAccuracy(level, attacks, onHit, onCrit, modifier, extra) {
+        let advantage = this.provider.vsAC(level, this.options.mode, modifier, 0, 'advantage');
+        let disadvantage = this.provider.vsAC(level, this.options.mode, modifier, 0, 'disadvantage');
+        let flat = this.provider.vsAC(level, this.options.mode, modifier, 0, 'flat');
+        let flatChance = (1 - this.options.advantage - this.options.advantage);
+        let advantageDamage = this.options.advantage * (AttackSource.getDamageWithCrits(attacks, onHit, onCrit, advantage.hit, advantage.crit) + extra?.advantage ?? 0);
+        let disadvantageDamage = this.options.advantage * (AttackSource.getDamageWithCrits(attacks, onHit, onCrit, disadvantage.hit, disadvantage.crit) + extra?.disadvantage ?? 0);
+        let flatDamage = flatChance * (AttackSource.getDamageWithCrits(attacks, onHit, onCrit, flat.hit, flat.crit) + extra?.flat ?? 0);
+        let damage = (advantageDamage + disadvantageDamage + flatDamage);
+        let accuracy = _util__WEBPACK_IMPORTED_MODULE_1__["default"].average([this.options.advantage * advantage.hit, this.options.disadvantage * disadvantage.hit, flatChance * flat.hit]);
+        return { damage, accuracy };
+    }
+    calculateCantripDice(level) {
+        let cantripDice = 0;
+        if (level < 5) {
+            cantripDice = 1;
+        }
+        else if (level < 11) {
+            cantripDice = 2;
+        }
+        else if (level < 17) {
+            cantripDice = 3;
+        }
+        else {
+            cantripDice = 4;
+        }
+        return cantripDice;
+    }
+    static getDamageWithCrits(attacks, damagePerHit, damagePerCrit, hitChance, critChance) {
+        return attacks * (damagePerCrit * critChance + damagePerHit * hitChance);
+    }
+}
+
+
+/***/ }),
+
 /***/ "./src/utility/dice.js":
 /*!*****************************!*\
   !*** ./src/utility/dice.js ***!
@@ -14712,9 +14788,6 @@ class Util {
     }
     static getRandomColor() {
         return '#' + Math.floor(Math.random() * 16777215).toString(16);
-    }
-    static getDamageWithCrits(attacks, damagePerHit, damagePerCrit, hitChance, critChance) {
-        return attacks * (damagePerCrit * critChance + damagePerHit * hitChance);
     }
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Util);

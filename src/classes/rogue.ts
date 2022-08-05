@@ -1,3 +1,4 @@
+import { AttackSource } from "../utility/attacks";
 import Dice from "../utility/dice";
 import { AccuracyMode, AccuracyProvider, BaselineProvider, Preset, PresetProvider } from "../utility/types";
 import Util from "../utility/util";
@@ -56,7 +57,7 @@ class Rogue implements PresetProvider, BaselineProvider {
 		let modifier = this.modifiers[index];
 		let damagePerHit = dieSize + modifier + extraDice + extraStatic;
 		let damagePerCrit = 2 * dieSize + modifier + extraDice + extraStatic;
-		return Util.getDamageWithCrits(1, damagePerHit, damagePerCrit, hit, crit);
+		return AttackSource.getDamageWithCrits(1, damagePerHit, damagePerCrit, hit, crit);
 	}
 
 	sneakAttackWithAccuracy(index: number, hit: number, crit: number, attacks: number) {

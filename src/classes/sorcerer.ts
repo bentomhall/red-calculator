@@ -1,3 +1,4 @@
+import { AttackSource } from "../utility/attacks";
 import Dice from "../utility/dice";
 import { PresetProvider, AccuracyProvider, Preset } from "../utility/types";
 import Util from "../utility/util";
@@ -15,10 +16,10 @@ export class Sorcerer implements PresetProvider {
             cantripCrit += modifier;
         }
         if (type == 'cantrip-only') {
-            let damage = Util.getDamageWithCrits(1, cantripHit, cantripCrit, hit, crit);
+            let damage = AttackSource.getDamageWithCrits(1, cantripHit, cantripCrit, hit, crit);
             if (options?.useQuicken) {
                 let quickenRounds = level >= 3 ? Math.min(Math.floor(level/2), resources.roundsPerDay) : 0;
-                damage = (damage * (resources.roundsPerDay - quickenRounds) + quickenRounds*Util.getDamageWithCrits(2, cantripHit, cantripCrit, hit, crit))/resources.roundsPerDay;
+                damage = (damage * (resources.roundsPerDay - quickenRounds) + quickenRounds*AttackSource.getDamageWithCrits(2, cantripHit, cantripCrit, hit, crit))/resources.roundsPerDay;
             }
             return {damage, accuracy: hit}
         }

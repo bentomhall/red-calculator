@@ -1,6 +1,7 @@
 import Util from "../utility/util";
 import Dice from "../utility/dice";
 import { Preset, PresetProvider } from "../utility/types";
+import { AttackSource } from "../utility/attacks";
 
 class Warlock implements PresetProvider {
 	public readonly name = 'Warlock';
@@ -20,7 +21,7 @@ class Warlock implements PresetProvider {
 			let hexDamage = resources ? this.getHexUptime(resources.rounds, spellLevel, resources.duration)*Dice.d6 : 0;
 			let attacks = this.getAttacks(level);
 			let {hit, crit} = provider.vsAC(level, mode, modifier, 0, 'flat');
-			return {damage: Util.getDamageWithCrits(attacks, Dice.d10+staticExtra+hexDamage, 2*Dice.d10+staticExtra+2*hexDamage, hit, crit), accuracy: hit};
+			return {damage: AttackSource.getDamageWithCrits(attacks, Dice.d10+staticExtra+hexDamage, 2*Dice.d10+staticExtra+2*hexDamage, hit, crit), accuracy: hit};
 	}
 
 	getSlots(level) {

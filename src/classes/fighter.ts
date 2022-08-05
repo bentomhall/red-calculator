@@ -1,6 +1,6 @@
-import Util from "../utility/util"
 import Dice from "../utility/dice";
 import { AccuracyMode, AccuracyProvider, Preset, PresetProvider } from "../utility/types";
+import { AttackSource } from "../utility/attacks";
 
 class Fighter implements PresetProvider {
 	public readonly name = 'Fighter';
@@ -56,15 +56,15 @@ class Fighter implements PresetProvider {
 		let damagePerCrit = params.crit + modifier + extraPerHit;
 		if (type == 'gwm_pam') {
 			if (level >= 4) {
-				bonusDamage = Util.getDamageWithCrits(1, Dice.d4 + modifier + 10.75, 2 * Dice.d4 + modifier + 10.75, hit, crit);
+				bonusDamage = AttackSource.getDamageWithCrits(1, Dice.d4 + modifier + 10.75, 2 * Dice.d4 + modifier + 10.75, hit, crit);
 			} else {
-				bonusDamage = Util.getDamageWithCrits(1, Dice.d4 + modifier + .75, 2 * Dice.d4 + modifier + 0.75, hit, crit);
+				bonusDamage = AttackSource.getDamageWithCrits(1, Dice.d4 + modifier + .75, 2 * Dice.d4 + modifier + 0.75, hit, crit);
 			}
 		} else if (type == 'pam') {
-			bonusDamage = Util.getDamageWithCrits(1, Dice.d4 + modifier + .75, 2 * Dice.d4 + modifier + 0.75, hit, crit);
+			bonusDamage = AttackSource.getDamageWithCrits(1, Dice.d4 + modifier + .75, 2 * Dice.d4 + modifier + 0.75, hit, crit);
 		}
 		let attacks = this.attacks(level);
-		return { damage: (1 + aSUse) * Util.getDamageWithCrits(attacks, damagePerHit, damagePerCrit, hit, crit) + bonusDamage, accuracy: hit };
+		return { damage: (1 + aSUse) * AttackSource.getDamageWithCrits(attacks, damagePerHit, damagePerCrit, hit, crit) + bonusDamage, accuracy: hit };
 	}
 
 	attacks(level: number) {
