@@ -34,7 +34,7 @@ class Rogue implements PresetProvider, BaselineProvider {
 			let flat = provider.vsAC(level, mode, mod, 0, 'flat');
 			let aDamage = options.advantage*this.mainHand(index, advantage.hit, advantage.crit, 0, 0) + this.sneakAttackWithAccuracy(index, advantage.hit, advantage.crit, 1);
 			let dDamage = options.disadvantage*this.mainHand(index, disadvantage.hit, disadvantage.crit, 0, 0);
-			let fDamage = (1 - options.advantage - options.disadvantage) * this.mainHand(index, flat.hit, flat.crit, 0, 0) + this.sneakAttackWithAccuracy(index, flat.hit, flat.crit, 1);
+			let fDamage = (1 - options.advantage - options.disadvantage) * (this.mainHand(index, flat.hit, flat.crit, 0, 0) + this.sneakAttackWithAccuracy(index, flat.hit, flat.crit, 1));
 			let averageAccuracy = options.advantage * advantage.hit + options.disadvantage * disadvantage.hit + (1 - options.advantage - options.disadvantage) * flat.hit;
 			return {damage: aDamage + dDamage + fDamage, accuracy: averageAccuracy};
 		} else {
