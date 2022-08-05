@@ -43,9 +43,11 @@ textarea {
 .grid > div {
 	max-height: 200px;
 	overflow-y: auto;
+	padding: 4px;
 }
 dd {
 	display: flex;
+	margin-left: 1em;
 }
 dt {
 	font-weight: bold;

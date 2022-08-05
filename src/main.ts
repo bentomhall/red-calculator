@@ -62,9 +62,11 @@ Chart.register(
 	Tooltip,
 	SubTitle
 );
-import { AccuracyMode, Preset, PresetProvider } from "./utility/types";
+import { AccuracyMode, Preset} from "./utility/types";
 import { Barbarian } from "./classes/barbarian";
 import { CustomData } from "./classes/custom";
+import { Wizard } from "./classes/wizard";
+import { Sorcerer } from "./classes/sorcerer";
 
 function createChart(ctx, datasets) {
 	return new Chart(ctx, {
@@ -230,7 +232,17 @@ document.addEventListener('DOMContentLoaded', function (event) {
 	tableMode = document.getElementById('table-mode') as HTMLInputElement;
 	customEntry = document.getElementById('custom-damage') as HTMLInputElement;
 	doCleanup(chart, table);
-	let classes = [new Rogue(), new Fighter(), new Warlock(), new Cleric(), new Monk(), new Druid(), new Barbarian(), new CustomData()];
+	let classes = [
+		new Rogue(), 
+		new Fighter(), 
+		new Warlock(), 
+		new Cleric(), 
+		new Monk(), 
+		new Druid(), 
+		new Barbarian(),
+		new Wizard(),
+		new Sorcerer(), 
+		new CustomData()];
 	let allPresetInterior = [];
 	for (let cls of classes) {
 		let presets = cls.presets();

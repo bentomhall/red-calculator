@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".container {\n\tmargin-top: 16px;\n}\n#output-table{\n\tborder: 1px solid black;\n\tborder-collapse: collapse;\n\tmargin-left: 16px;\n}\ntd, th {\n\tborder: 1px solid black;\n\ttext-align: center;\n\tpadding: 4px;\n}\n#chart {\n\tmax-width: 800px;\n\tmax-height: 400px;\n}\nlabel {\n\tdisplay: block;\n}\ntextarea {\n\tmin-width: 450px;\n}\n.form-container {\n\tdisplay: flex;\n\tflex-flow: row;\n}\n.form-element {\n\tmargin-right: 16px;\n}\n.full-width {\n\tmax-height: 400px;\n\tborder: 1px solid black;\n\tpadding: 4px;\n\tmax-width: 1200px;\n\toverflow-y: auto;\n}\n.grid {\n\tdisplay: grid;\n\tgrid-template-columns: repeat(3, 1fr);\n\trow-gap: 16px;\n}\n.grid > div {\n\tmax-height: 200px;\n\toverflow-y: auto;\n}\ndd {\n\tdisplay: flex;\n}\ndt {\n\tfont-weight: bold;\n}\n.sidebar {\n\twidth: 800px;\n}", "",{"version":3,"sources":["webpack://./src/css/main.css"],"names":[],"mappings":"AAAA;CACC,gBAAgB;AACjB;AACA;CACC,uBAAuB;CACvB,yBAAyB;CACzB,iBAAiB;AAClB;AACA;CACC,uBAAuB;CACvB,kBAAkB;CAClB,YAAY;AACb;AACA;CACC,gBAAgB;CAChB,iBAAiB;AAClB;AACA;CACC,cAAc;AACf;AACA;CACC,gBAAgB;AACjB;AACA;CACC,aAAa;CACb,cAAc;AACf;AACA;CACC,kBAAkB;AACnB;AACA;CACC,iBAAiB;CACjB,uBAAuB;CACvB,YAAY;CACZ,iBAAiB;CACjB,gBAAgB;AACjB;AACA;CACC,aAAa;CACb,qCAAqC;CACrC,aAAa;AACd;AACA;CACC,iBAAiB;CACjB,gBAAgB;AACjB;AACA;CACC,aAAa;AACd;AACA;CACC,iBAAiB;AAClB;AACA;CACC,YAAY;AACb","sourcesContent":[".container {\n\tmargin-top: 16px;\n}\n#output-table{\n\tborder: 1px solid black;\n\tborder-collapse: collapse;\n\tmargin-left: 16px;\n}\ntd, th {\n\tborder: 1px solid black;\n\ttext-align: center;\n\tpadding: 4px;\n}\n#chart {\n\tmax-width: 800px;\n\tmax-height: 400px;\n}\nlabel {\n\tdisplay: block;\n}\ntextarea {\n\tmin-width: 450px;\n}\n.form-container {\n\tdisplay: flex;\n\tflex-flow: row;\n}\n.form-element {\n\tmargin-right: 16px;\n}\n.full-width {\n\tmax-height: 400px;\n\tborder: 1px solid black;\n\tpadding: 4px;\n\tmax-width: 1200px;\n\toverflow-y: auto;\n}\n.grid {\n\tdisplay: grid;\n\tgrid-template-columns: repeat(3, 1fr);\n\trow-gap: 16px;\n}\n.grid > div {\n\tmax-height: 200px;\n\toverflow-y: auto;\n}\ndd {\n\tdisplay: flex;\n}\ndt {\n\tfont-weight: bold;\n}\n.sidebar {\n\twidth: 800px;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".container {\r\n\tmargin-top: 16px;\r\n}\r\n#output-table{\r\n\tborder: 1px solid black;\r\n\tborder-collapse: collapse;\r\n\tmargin-left: 16px;\r\n}\r\ntd, th {\r\n\tborder: 1px solid black;\r\n\ttext-align: center;\r\n\tpadding: 4px;\r\n}\r\n#chart {\r\n\tmax-width: 800px;\r\n\tmax-height: 400px;\r\n}\r\nlabel {\r\n\tdisplay: block;\r\n}\r\ntextarea {\r\n\tmin-width: 450px;\r\n}\r\n.form-container {\r\n\tdisplay: flex;\r\n\tflex-flow: row;\r\n}\r\n.form-element {\r\n\tmargin-right: 16px;\r\n}\r\n.full-width {\r\n\tmax-height: 400px;\r\n\tborder: 1px solid black;\r\n\tpadding: 4px;\r\n\tmax-width: 1200px;\r\n\toverflow-y: auto;\r\n}\r\n.grid {\r\n\tdisplay: grid;\r\n\tgrid-template-columns: repeat(3, 1fr);\r\n\trow-gap: 16px;\r\n}\r\n.grid > div {\r\n\tmax-height: 200px;\r\n\toverflow-y: auto;\r\n\tpadding: 4px;\r\n}\r\ndd {\r\n\tdisplay: flex;\r\n\tmargin-left: 1em;\r\n}\r\ndt {\r\n\tfont-weight: bold;\r\n}\r\n.sidebar {\r\n\twidth: 800px;\r\n}", "",{"version":3,"sources":["webpack://./src/css/main.css"],"names":[],"mappings":"AAAA;CACC,gBAAgB;AACjB;AACA;CACC,uBAAuB;CACvB,yBAAyB;CACzB,iBAAiB;AAClB;AACA;CACC,uBAAuB;CACvB,kBAAkB;CAClB,YAAY;AACb;AACA;CACC,gBAAgB;CAChB,iBAAiB;AAClB;AACA;CACC,cAAc;AACf;AACA;CACC,gBAAgB;AACjB;AACA;CACC,aAAa;CACb,cAAc;AACf;AACA;CACC,kBAAkB;AACnB;AACA;CACC,iBAAiB;CACjB,uBAAuB;CACvB,YAAY;CACZ,iBAAiB;CACjB,gBAAgB;AACjB;AACA;CACC,aAAa;CACb,qCAAqC;CACrC,aAAa;AACd;AACA;CACC,iBAAiB;CACjB,gBAAgB;CAChB,YAAY;AACb;AACA;CACC,aAAa;CACb,gBAAgB;AACjB;AACA;CACC,iBAAiB;AAClB;AACA;CACC,YAAY;AACb","sourcesContent":[".container {\r\n\tmargin-top: 16px;\r\n}\r\n#output-table{\r\n\tborder: 1px solid black;\r\n\tborder-collapse: collapse;\r\n\tmargin-left: 16px;\r\n}\r\ntd, th {\r\n\tborder: 1px solid black;\r\n\ttext-align: center;\r\n\tpadding: 4px;\r\n}\r\n#chart {\r\n\tmax-width: 800px;\r\n\tmax-height: 400px;\r\n}\r\nlabel {\r\n\tdisplay: block;\r\n}\r\ntextarea {\r\n\tmin-width: 450px;\r\n}\r\n.form-container {\r\n\tdisplay: flex;\r\n\tflex-flow: row;\r\n}\r\n.form-element {\r\n\tmargin-right: 16px;\r\n}\r\n.full-width {\r\n\tmax-height: 400px;\r\n\tborder: 1px solid black;\r\n\tpadding: 4px;\r\n\tmax-width: 1200px;\r\n\toverflow-y: auto;\r\n}\r\n.grid {\r\n\tdisplay: grid;\r\n\tgrid-template-columns: repeat(3, 1fr);\r\n\trow-gap: 16px;\r\n}\r\n.grid > div {\r\n\tmax-height: 200px;\r\n\toverflow-y: auto;\r\n\tpadding: 4px;\r\n}\r\ndd {\r\n\tdisplay: flex;\r\n\tmargin-left: 1em;\r\n}\r\ndt {\r\n\tfont-weight: bold;\r\n}\r\n.sidebar {\r\n\twidth: 800px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -14344,6 +14344,71 @@ class Rogue {
 
 /***/ }),
 
+/***/ "./src/classes/sorcerer.js":
+/*!*********************************!*\
+  !*** ./src/classes/sorcerer.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Sorcerer": () => (/* binding */ Sorcerer)
+/* harmony export */ });
+/* harmony import */ var _utility_dice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utility/dice */ "./src/utility/dice.js");
+/* harmony import */ var _utility_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utility/util */ "./src/utility/util.js");
+
+
+class Sorcerer {
+    name = 'Sorcerer';
+    modifiers = [3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
+    calculate(type, level, accuracyProvider, accuracyMode, resources, options) {
+        let modifier = this.modifiers[level - 1];
+        let cantripHit = this.cantrip(level, options?.cantripDie ?? _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10);
+        let cantripCrit = 2 * cantripHit;
+        let { hit, crit } = accuracyProvider.vsAC(level, accuracyMode, modifier, 0, 'flat');
+        if (options?.matchingElementalAffinity && level >= 6) {
+            cantripHit += modifier;
+            cantripCrit += modifier;
+        }
+        if (type == 'cantrip-only') {
+            let damage = _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(1, cantripHit, cantripCrit, hit, crit);
+            if (options?.useTwin) {
+                let twinRounds = level >= 2 ? Math.min(level, resources.roundsPerDay) : 0;
+                damage = (damage * (resources.roundsPerDay - twinRounds) + resources.roundsPerDay * _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(2, cantripHit, cantripCrit, hit, crit)) / resources.roundsPerDay;
+            }
+            return { damage, accuracy: hit };
+        }
+        return { damage: NaN, accuracy: NaN };
+    }
+    presets() {
+        return [
+            ['sorcerer_no_twin', { name: 'Firebolt sorcerer (no twin or EA)', type: 'cantrip-only', obj: this, resources: null, options: { useTwin: false, cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10, matchingElementalAffinity: false } }],
+            ['sorcerer_ea_no_twin', { name: 'Firebolt sorcerer (EA, no twin)', type: 'cantrip-only', obj: this, resources: null, options: { useTwin: false, cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10, matchingElementalAffinity: true } }],
+            ['sorcerer_twin', { name: 'Firebolt sorcerer (no EA, twin as much as possible, 15 rounds/day)', type: 'cantrip-only', obj: this, resources: { roundsPerDay: 15 }, options: { useTwin: true, cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10, matchingElementalAffinity: false } }],
+            ['sorcerer_twin_ea', { name: 'Firebolt sorcerer (EA, twin as much as possible, 15 rounds/day)', type: 'cantrip-only', obj: this, resources: { roundsPerDay: 15 }, options: { useTwin: true, cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10, matchingElementalAffinity: true } }],
+        ];
+    }
+    cantrip(level, dieSize) {
+        let dice = this.cantripDice(level);
+        return dice * dieSize;
+    }
+    cantripDice(level) {
+        if (level < 5) {
+            return 1;
+        }
+        else if (level < 11) {
+            return 2;
+        }
+        else if (level < 17) {
+            return 3;
+        }
+        return 4;
+    }
+}
+
+
+/***/ }),
+
 /***/ "./src/classes/warlock.js":
 /*!********************************!*\
   !*** ./src/classes/warlock.js ***!
@@ -14411,6 +14476,64 @@ class Warlock {
     }
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Warlock);
+
+
+/***/ }),
+
+/***/ "./src/classes/wizard.js":
+/*!*******************************!*\
+  !*** ./src/classes/wizard.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Wizard": () => (/* binding */ Wizard)
+/* harmony export */ });
+/* harmony import */ var _utility_dice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utility/dice */ "./src/utility/dice.js");
+/* harmony import */ var _utility_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utility/util */ "./src/utility/util.js");
+
+
+class Wizard {
+    name = 'Wizard';
+    modifiers = [3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
+    calculate(type, level, accuracyProvider, accuracyMode, resources, options) {
+        let modifier = this.modifiers[level - 1];
+        if (type == 'cantrip-only') {
+            let { hit, crit } = accuracyProvider.vsAC(level, accuracyMode, modifier, 0, 'flat');
+            let onHit = this.cantrip(level, options?.cantripDie ?? _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10);
+            let onCrit = 2 * onHit;
+            if (options?.empoweredEvocation && level >= 10) {
+                onHit += modifier;
+                onCrit += modifier;
+            }
+            return { damage: _utility_util__WEBPACK_IMPORTED_MODULE_1__["default"].getDamageWithCrits(1, onHit, onCrit, hit, crit), accuracy: hit };
+        }
+        return { damage: NaN, accuracy: NaN };
+    }
+    presets() {
+        return [
+            ['wizard_firebolt', { name: 'Wizard (firebolt only, non-evocation)', obj: this, type: 'cantrip-only', resources: null, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10, empoweredEvocation: false } }],
+            ['wizard_firebolt_ee', { name: 'Wizard (firebolt only, Evocation)', obj: this, type: 'cantrip-only', resources: null, options: { cantripDie: _utility_dice__WEBPACK_IMPORTED_MODULE_0__["default"].d10, empoweredEvocation: true } }],
+        ];
+    }
+    cantrip(level, dieSize) {
+        let dice = this.cantripDice(level);
+        return dice * dieSize;
+    }
+    cantripDice(level) {
+        if (level < 5) {
+            return 1;
+        }
+        else if (level < 11) {
+            return 2;
+        }
+        else if (level < 17) {
+            return 3;
+        }
+        return 4;
+    }
+}
 
 
 /***/ }),
@@ -15052,6 +15175,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/chart.esm.js");
 /* harmony import */ var _classes_barbarian__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./classes/barbarian */ "./src/classes/barbarian.js");
 /* harmony import */ var _classes_custom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./classes/custom */ "./src/classes/custom.js");
+/* harmony import */ var _classes_wizard__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./classes/wizard */ "./src/classes/wizard.js");
+/* harmony import */ var _classes_sorcerer__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./classes/sorcerer */ "./src/classes/sorcerer.js");
 
 
 
@@ -15064,6 +15189,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 chart_js__WEBPACK_IMPORTED_MODULE_10__.Chart.register(chart_js__WEBPACK_IMPORTED_MODULE_10__.ArcElement, chart_js__WEBPACK_IMPORTED_MODULE_10__.LineElement, chart_js__WEBPACK_IMPORTED_MODULE_10__.BarElement, chart_js__WEBPACK_IMPORTED_MODULE_10__.PointElement, chart_js__WEBPACK_IMPORTED_MODULE_10__.BarController, chart_js__WEBPACK_IMPORTED_MODULE_10__.BubbleController, chart_js__WEBPACK_IMPORTED_MODULE_10__.DoughnutController, chart_js__WEBPACK_IMPORTED_MODULE_10__.LineController, chart_js__WEBPACK_IMPORTED_MODULE_10__.PieController, chart_js__WEBPACK_IMPORTED_MODULE_10__.PolarAreaController, chart_js__WEBPACK_IMPORTED_MODULE_10__.RadarController, chart_js__WEBPACK_IMPORTED_MODULE_10__.ScatterController, chart_js__WEBPACK_IMPORTED_MODULE_10__.CategoryScale, chart_js__WEBPACK_IMPORTED_MODULE_10__.LinearScale, chart_js__WEBPACK_IMPORTED_MODULE_10__.LogarithmicScale, chart_js__WEBPACK_IMPORTED_MODULE_10__.RadialLinearScale, chart_js__WEBPACK_IMPORTED_MODULE_10__.TimeScale, chart_js__WEBPACK_IMPORTED_MODULE_10__.TimeSeriesScale, chart_js__WEBPACK_IMPORTED_MODULE_10__.Decimation, chart_js__WEBPACK_IMPORTED_MODULE_10__.Filler, chart_js__WEBPACK_IMPORTED_MODULE_10__.Legend, chart_js__WEBPACK_IMPORTED_MODULE_10__.Title, chart_js__WEBPACK_IMPORTED_MODULE_10__.Tooltip, chart_js__WEBPACK_IMPORTED_MODULE_10__.SubTitle);
+
+
 
 
 function createChart(ctx, datasets) {
@@ -15223,7 +15350,18 @@ document.addEventListener('DOMContentLoaded', function (event) {
     tableMode = document.getElementById('table-mode');
     customEntry = document.getElementById('custom-damage');
     doCleanup(chart, table);
-    let classes = [new _classes_rogue__WEBPACK_IMPORTED_MODULE_3__["default"](), new _classes_fighter__WEBPACK_IMPORTED_MODULE_4__["default"](), new _classes_warlock__WEBPACK_IMPORTED_MODULE_5__["default"](), new _classes_cleric__WEBPACK_IMPORTED_MODULE_6__["default"](), new _classes_monk__WEBPACK_IMPORTED_MODULE_7__["default"](), new _classes_druid__WEBPACK_IMPORTED_MODULE_8__["default"](), new _classes_barbarian__WEBPACK_IMPORTED_MODULE_11__.Barbarian(), new _classes_custom__WEBPACK_IMPORTED_MODULE_12__.CustomData()];
+    let classes = [
+        new _classes_rogue__WEBPACK_IMPORTED_MODULE_3__["default"](),
+        new _classes_fighter__WEBPACK_IMPORTED_MODULE_4__["default"](),
+        new _classes_warlock__WEBPACK_IMPORTED_MODULE_5__["default"](),
+        new _classes_cleric__WEBPACK_IMPORTED_MODULE_6__["default"](),
+        new _classes_monk__WEBPACK_IMPORTED_MODULE_7__["default"](),
+        new _classes_druid__WEBPACK_IMPORTED_MODULE_8__["default"](),
+        new _classes_barbarian__WEBPACK_IMPORTED_MODULE_11__.Barbarian(),
+        new _classes_wizard__WEBPACK_IMPORTED_MODULE_13__.Wizard(),
+        new _classes_sorcerer__WEBPACK_IMPORTED_MODULE_14__.Sorcerer(),
+        new _classes_custom__WEBPACK_IMPORTED_MODULE_12__.CustomData()
+    ];
     let allPresetInterior = [];
     for (let cls of classes) {
         let presets = cls.presets();
