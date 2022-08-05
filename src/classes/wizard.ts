@@ -1,4 +1,4 @@
-import { AttackSource } from "../utility/attacks";
+import { AttackSource, DamageOutput } from "../utility/attacks";
 import Dice from "../utility/dice";
 import { AccuracyMode, AccuracyProvider, Preset, PresetProvider, SaveType } from "../utility/types";
 import Util from "../utility/util";
@@ -25,28 +25,25 @@ export class Wizard implements PresetProvider {
     }
 
 		//firebolt until extra attack, then attack + weapon cantrip.
-		public bladesinger(level: number, accuracyProvider: AccuracyProvider, accuracyMode: AccuracyMode, resources: any, options?: WizardOptions): {damage: number, accuracy: number} {
+		public bladesinger(level: number, accuracyProvider: AccuracyProvider, accuracyMode: AccuracyMode, resources: any, options?: WizardOptions): DamageOutput {
 			let weaponMod = this.dexModifier[level - 1];
 			let spellMod = this.modifiers[level - 1];
 			let attackProvider = new AttackSource(accuracyProvider, accuracyMode, 0, 0);
-			let weaponAccuracy = accuracyProvider.vsAC(level, accuracyMode, weaponMod, 0, 'flat');
-			let spellAccuracy = accuracyProvider.vsAC(level, accuracyMode, spellMod, 0, 'flat');
-			let damage: number = 0
-			let accuracy: number = spellAccuracy.hit;
 			if (level < 6 && options?.preferWeapons == false) {
 				return attackProvider.attackCantrip(level, options?.cantripDie ?? Dice.d10, 1, 0, spellMod, false);
 			} else if (level < 6) {
 				return attackProvider.boomingBlade(level, 0.5, weaponMod);
 			} else {
-				let weaponDamage = AttackSource.getDamageWithCrits(1, Dice.d8 + weaponMod, 2*Dice.d8 + weaponMod, weaponAccuracy.hit, weaponAccuracy.crit);
+				let weaponDamage = attackProvider.weaponAttacks(level, 1, Dice.d8, weaponMod, true);
+				//let weaponDamage = AttackSource.getDamageWithCrits(1, Dice.d8 + weaponMod, 2*Dice.d8 + weaponMod, weaponAccuracy.hit, weaponAccuracy.crit);
 				let spellDamage = attackProvider.boomingBlade(level, 0.5, weaponMod);
-				damage = weaponDamage + spellDamage.damage;
-				accuracy = Util.average([spellAccuracy.hit, spellDamage.accuracy]);
+				let damage = weaponDamage.damage + spellDamage.damage;
+				let accuracy = Util.average([weaponDamage.accuracy, spellDamage.accuracy]);
+				return {damage, accuracy}
 			}
-			return {damage: damage, accuracy: accuracy}
 		}
 
-		private cantripOnly(level: number, accuracyProvider: AccuracyProvider, accuracyMode: AccuracyMode, resources: any, options?: WizardOptions): {damage: number, accuracy: number} {
+		private cantripOnly(level: number, accuracyProvider: AccuracyProvider, accuracyMode: AccuracyMode, resources: any, options?: WizardOptions): DamageOutput {
 			let modifier = this.modifiers[level - 1];
 			let attacks = new AttackSource(accuracyProvider, accuracyMode, 0, 0);
 			let extraDamage = level >= 10 && options?.empoweredEvocation ? modifier : 0;
