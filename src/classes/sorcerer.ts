@@ -16,9 +16,9 @@ export class Sorcerer implements PresetProvider {
         }
         if (type == 'cantrip-only') {
             let damage = Util.getDamageWithCrits(1, cantripHit, cantripCrit, hit, crit);
-            if (options?.useTwin) {
-                let twinRounds = level >= 2 ? Math.min(level, resources.roundsPerDay) : 0;
-                damage = (damage * (resources.roundsPerDay - twinRounds) + resources.roundsPerDay*Util.getDamageWithCrits(2, cantripHit, cantripCrit, hit, crit))/resources.roundsPerDay;
+            if (options?.useQuicken) {
+                let quickenRounds = level >= 3 ? Math.min(Math.floor(level/2), resources.roundsPerDay) : 0;
+                damage = (damage * (resources.roundsPerDay - quickenRounds) + quickenRounds*Util.getDamageWithCrits(2, cantripHit, cantripCrit, hit, crit))/resources.roundsPerDay;
             }
             return {damage, accuracy: hit}
         }
@@ -26,10 +26,10 @@ export class Sorcerer implements PresetProvider {
     }
     public presets(): [string, Preset][] {
         return [
-            ['sorcerer_no_twin', {name: 'Firebolt sorcerer (no twin or EA)', type:'cantrip-only', obj: this, resources: null, options: {useTwin: false, cantripDie: Dice.d10, matchingElementalAffinity: false}}],
-            ['sorcerer_ea_no_twin', {name: 'Firebolt sorcerer (EA, no twin)', type:'cantrip-only', obj: this, resources: null, options: {useTwin: false, cantripDie: Dice.d10, matchingElementalAffinity: true}}],
-            ['sorcerer_twin', {name: 'Firebolt sorcerer (no EA, twin as much as possible, 15 rounds/day)', type:'cantrip-only', obj: this, resources: {roundsPerDay: 15}, options: {useTwin: true, cantripDie: Dice.d10, matchingElementalAffinity: false}}],
-            ['sorcerer_twin_ea', {name: 'Firebolt sorcerer (EA, twin as much as possible, 15 rounds/day)', type:'cantrip-only', obj: this, resources: {roundsPerDay: 15}, options: {useTwin: true, cantripDie: Dice.d10, matchingElementalAffinity: true}}],
+            ['sorcerer_no_quicken', {name: 'Firebolt sorcerer (no quicken or EA)', type:'cantrip-only', obj: this, resources: null, options: {useQuicken: false, cantripDie: Dice.d10, matchingElementalAffinity: false}}],
+            ['sorcerer_ea_no_quicken', {name: 'Firebolt sorcerer (EA, no quicken)', type:'cantrip-only', obj: this, resources: null, options: {useQuicken: false, cantripDie: Dice.d10, matchingElementalAffinity: true}}],
+            ['sorcerer_quicken', {name: 'Firebolt sorcerer (no EA, quicken as much as possible, 15 rounds/day)', type:'cantrip-only', obj: this, resources: {roundsPerDay: 15}, options: {useQuicken: true, cantripDie: Dice.d10, matchingElementalAffinity: false}}],
+            ['sorcerer_quicken_ea', {name: 'Firebolt sorcerer (EA, quicken as much as possible, 15 rounds/day)', type:'cantrip-only', obj: this, resources: {roundsPerDay: 15}, options: {useQuicken: true, cantripDie: Dice.d10, matchingElementalAffinity: true}}],
         ]
     }
 
@@ -47,7 +47,7 @@ export class Sorcerer implements PresetProvider {
 }
 
 type SorcererOptions = {
-    useTwin: boolean;
+    useQuicken: boolean;
     cantripDie: number;
     matchingElementalAffinity: number;
 }
