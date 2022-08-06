@@ -68,15 +68,15 @@ export class AttackSource {
 		let advantage = this.provider.vsAC(level, this.options.mode, modifier, 0, 'advantage');
 		let disadvantage = this.provider.vsAC(level, this.options.mode, modifier, 0, 'disadvantage');
 		let flat = this.provider.vsAC(level, this.options.mode, modifier, 0, 'flat');
-		let flatChance = (1 - this.options.advantage - this.options.advantage);
+		let flatChance = (1 - this.options.advantage - this.options.disadvantage);
 		let extraAdvantage = extra?.advantage ?? 0;
 		let extraDisadvantage = extra?.disadvantage ?? 0;
 		let extraFlat = extra?.flat ?? 0
 		let advantageDamage = this.options.advantage * (AttackSource.getDamageWithCrits(attacks, onHit + extraAdvantage, onCrit + (multiplyExtra ? 2*extraAdvantage: extraAdvantage), advantage.hit, advantage.crit));
-		let disadvantageDamage = this.options.advantage * (AttackSource.getDamageWithCrits(attacks, onHit + extraDisadvantage, onCrit + (multiplyExtra ? 2*extraDisadvantage: extraDisadvantage), disadvantage.hit, disadvantage.crit) );
+		let disadvantageDamage = this.options.disadvantage * (AttackSource.getDamageWithCrits(attacks, onHit + extraDisadvantage, onCrit + (multiplyExtra ? 2*extraDisadvantage: extraDisadvantage), disadvantage.hit, disadvantage.crit) );
 		let flatDamage = flatChance * (AttackSource.getDamageWithCrits(attacks, onHit + extraFlat, onCrit + (multiplyExtra ? 2*extraFlat: extraFlat), flat.hit, flat.crit) );
 		let damage = (advantageDamage + disadvantageDamage + flatDamage);
-		let accuracy = Util.average([this.options.advantage*advantage.hit, this.options.disadvantage*disadvantage.hit, flatChance*flat.hit]);
+		let accuracy = this.options.advantage*advantage.hit + this.options.disadvantage*disadvantage.hit + flatChance*flat.hit;
 		return {damage, accuracy};
 	}
 
