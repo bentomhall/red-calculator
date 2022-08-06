@@ -64,6 +64,23 @@ export class AttackSource {
 		return this.damageWithVariableAccuracy(level, attacks, onHit, onCrit, modifier, extra, multiplyExtra);
 	}
 
+	public chanceToHitAtLeastOnce(level: number, modifier: number, attacks: number, extraCrit: number = 0) : number {
+		let advantage = this.provider.vsAC(level, this.options.mode, modifier, extraCrit, 'advantage');
+		let disadvantage = this.provider.vsAC(level, this.options.mode, modifier, extraCrit, 'disadvantage');
+		let flat = this.provider.vsAC(level, this.options.mode, modifier, extraCrit, 'flat');
+		let pHitAdvantage = advantage.hit + advantage.crit;
+		let pHitDisadvantage = disadvantage.hit + disadvantage.crit;
+		let pHitFlat = flat.hit + flat.crit;
+		return this.options.advantage*this.toHitOnceOrMore(pHitAdvantage, attacks) + this.options.disadvantage*this.toHitOnceOrMore(pHitDisadvantage, attacks) + (1 - this.options.advantage - this.options.disadvantage)*this.toHitOnceOrMore(pHitFlat, attacks);
+	}
+
+	private toHitOnceOrMore(hitOrCrit: number, attacks: number) : number {
+		if (attacks == 1) {
+			return hitOrCrit;
+		}
+		return 1 - Math.pow(1-hitOrCrit, attacks);
+	}
+
 	private damageWithVariableAccuracy(level: number, attacks: number, onHit: number, onCrit: number, modifier: number, extra?: {advantage: number, disadvantage: number, flat: number}, multiplyExtra: boolean = false): DamageOutput {
 		let advantage = this.provider.vsAC(level, this.options.mode, modifier, 0, 'advantage');
 		let disadvantage = this.provider.vsAC(level, this.options.mode, modifier, 0, 'disadvantage');

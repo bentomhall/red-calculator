@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./build.sh",
-    "deploy": "./deploy.sh"
+    "deploy": "./deploy.sh",
+    "build-windows": "tsc & npx webpack"
   },
   "repository": {
     "type": "git",
