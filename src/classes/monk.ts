@@ -97,7 +97,6 @@ class Monk implements PresetProvider {
 		return dieSize;
 	}
 
-  //priority: use this first. 
 	private handOfHarm(level: number, rounds: number, rests: number, source: AttackSource, prioritizeHoH: boolean = true) : {hoh: number, flurry: number} {
 		if (level < 3) { return {hoh: 0, flurry: this.flurry(level, rounds, source)/rounds} }; 
     let modifier = this.modifiers[level - 1];
@@ -106,7 +105,7 @@ class Monk implements PresetProvider {
       if (level*2 >= rounds) {
         //use both
         let p = source.chanceToHitAtLeastOnce(level, modifier, 4);
-        return {hoh: p*(modifier + die), flurry: this.flurry(level, rounds, source)}
+        return {hoh: p*(modifier + die), flurry: this.flurry(level, rounds, source)/rounds}
       } else {
         let extraKi = level - rounds;
         let flurry = 0;
@@ -116,7 +115,7 @@ class Monk implements PresetProvider {
           flurry = extraKi * this.flurry(level, extraKi, source) / rounds;
         } else if (extraKi > 0) {
           p = extraKi*source.chanceToHitAtLeastOnce(level, modifier, 4)/rounds;
-          flurry = this.flurry(level, rounds, source);
+          flurry = this.flurry(level, rounds, source)/rounds;
         } else if (prioritizeHoH) {
           p = level*source.chanceToHitAtLeastOnce(level, modifier, 3)/rounds;
           flurry = 0;
@@ -128,7 +127,7 @@ class Monk implements PresetProvider {
       }
     }
     let p = source.chanceToHitAtLeastOnce(level, modifier, 4);
-    return {hoh: p*(modifier + die), flurry: this.flurry(level, rounds, source)}
+    return {hoh: p*(modifier + die), flurry: this.flurry(level, rounds, source)/rounds}
 	}
 
 	private astralArms(level: number, provider: AccuracyProvider, mode: AccuracyMode, flurryRounds: number, rounds: number, options: MonkOptions, targets: number = 1) {
@@ -146,7 +145,7 @@ class Monk implements PresetProvider {
 			return (armsDamage + chanceToTriggerRoundOne*die + chanceToTrigger*die) / rounds;
 		} else if (Math.max(rounds, level) >= flurryRounds + 4) {
 			let chanceToTriggerRoundOne = source.chanceToHitAtLeastOnce(level, modifier, 3);
-			return (armsDamage + chanceToTriggerRoundOne*die + chanceToTrigger*die) + source.weaponAttacks(level, 1, die, modifier, true).damage;
+			return (armsDamage + chanceToTriggerRoundOne*die + chanceToTrigger*die)/rounds + source.weaponAttacks(level, 1, die, modifier, true).damage;
 		}
 		return 0;
 	}
