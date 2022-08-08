@@ -1,7 +1,6 @@
 import { AttackSource, DamageOutput } from "../utility/attacks";
 import Dice from "../utility/dice";
 import { AccuracyMode, AccuracyProvider, BaselineProvider, Preset, PresetProvider } from "../utility/types";
-import Util from "../utility/util";
 
 class Rogue implements PresetProvider, BaselineProvider {
 	public readonly name = 'Rogue';
@@ -11,9 +10,11 @@ class Rogue implements PresetProvider, BaselineProvider {
 
 	public presets() {
 		return [
-			['red_baseline', { name: 'Baseline Rogue', obj: this, type: 'red', resources: null, options: {advantage: 0, disadvantage: 0, baseDie: Dice.d6} }],
-			['rogue_twf', { name: 'TWF rogue', obj: this, type: 'twf', resources: null, options: {advantage: 0, disadvantage: 0, baseDie: Dice.d6} }],
-			['rogue_advantage', {name: 'Shortbow Rogue with constant advantage', obj: this, type: 'red', resources: null, options: {advantage: 1, disadvantage: 0, baseDie: Dice.d6}}]
+			['red_baseline', { name: 'Baseline Rogue', obj: this, type: 'red', resources: null, options: {advantage: 0, disadvantage: 0, baseDie: Dice.d6, useSneakAttack: true} }],
+			['rogue_twf', { name: 'TWF rogue', obj: this, type: 'twf', resources: null, options: {advantage: 0, disadvantage: 0, baseDie: Dice.d6, useSneakAttack: true} }],
+			['rogue_advantage', {name: 'Shortbow Rogue with constant advantage', obj: this, type: 'red', resources: null, options: {advantage: 1, disadvantage: 0, baseDie: Dice.d6, useSneakAttack: true}}],
+			['rogue_no_sa', {name: 'Shortbow Rogue with no sneak attack', obj: this, type: 'red', resources: null, options: {advantage: 1, disadvantage: 0, baseDie: Dice.d6, useSneakAttack: false}}],
+			['rogue_twf_no_sa', {name: 'TWF Rogue with no sneak attack', obj: this, type: 'twf', resources: null, options: {advantage: 1, disadvantage: 0, baseDie: Dice.d6, useSneakAttack: false}}],
 		] as [string, Preset][]
 	} 
 
@@ -30,12 +31,12 @@ class Rogue implements PresetProvider, BaselineProvider {
 		let modifier = this.modifiers[level - 1];
 		let attackSource = new AttackSource(provider, mode, options.advantage, options.disadvantage);
 		let main = attackSource.weaponAttacks(level, 1, options.baseDie, modifier, true, {advantage: 0, disadvantage: 0, flat: 0}, false);
-		let damage = main.damage + this.sneakAttack(level, modifier, 1, options, provider, mode);
+		let damage = main.damage + (options.useSneakAttack ? this.sneakAttack(level, modifier, 1, options, provider, mode) : 0);
 		return {damage, accuracy: main.accuracy};
 	}
 
 	calculateRED(level: number, provider: AccuracyProvider, mode: AccuracyMode) {
-		return this.shortbow(level, provider, mode, {advantage: 0, disadvantage: 0, baseDie: Dice.d6});
+		return this.shortbow(level, provider, mode, {advantage: 0, disadvantage: 0, baseDie: Dice.d6, useSneakAttack: true});
 	}
 
 	private calculateTWF(level: number, provider: AccuracyProvider, mode: AccuracyMode, options: RogueOptions) {
@@ -43,7 +44,7 @@ class Rogue implements PresetProvider, BaselineProvider {
 		let attackSource = new AttackSource(provider, mode, options.advantage, options.disadvantage);
 		let main = attackSource.weaponAttacks(level, 1, options.baseDie, modifier, true);
 		let off = attackSource.weaponAttacks(level, 1, options.baseDie, modifier, false);
-		let damage = main.damage + off.damage + this.sneakAttack(level, modifier, 2, options, provider, mode);
+		let damage = main.damage + off.damage + (options.useSneakAttack ? this.sneakAttack(level, modifier, 2, options, provider, mode) : 0);
 		return {damage, accuracy: main.accuracy};
 	}
 
@@ -69,4 +70,5 @@ type RogueOptions = {
 	advantage: number;
 	disadvantage: number;
 	baseDie: number;
+	useSneakAttack: boolean
 }

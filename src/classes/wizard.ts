@@ -17,10 +17,12 @@ export class Wizard implements PresetProvider {
     }
     public presets(): [string, Preset][] {
 			return [
-				['wizard_firebolt', {name: 'Wizard (firebolt only, non-evocation)', obj: this, type: 'cantrip-only', resources: null, options: {cantripDie: Dice.d10, empoweredEvocation: false}}],
-				['wizard_firebolt_ee', {name: 'Wizard (firebolt only, Evocation)', obj: this, type: 'cantrip-only', resources: null, options: {cantripDie: Dice.d10, empoweredEvocation: true}}],
-				['wizard_bladesinger_fb_rBB', {name: 'Wizard (bladesinger, firebolt/rapier+BB, 50% proc)', obj: this, type: 'bladesinger', resources: null, options: {cantripDie: Dice.d10, empoweredEvocation: false, preferWeapons: false}}],
-				['wizard_bladesinger_BB_rBB', {name: 'Wizard (bladesinger, rapier/BB, 50% proc)', obj: this, type: 'bladesinger', resources: null, options: {cantripDie: Dice.d10, empoweredEvocation: false, preferWeapons: true}}],
+				['wizard_firebolt', {name: 'Wizard (firebolt only, non-evocation)', obj: this, type: 'cantrip-only', resources: null, options: {cantripDie: Dice.d10, empoweredEvocation: false, proc: 0}}],
+				['wizard_firebolt_ee', {name: 'Wizard (firebolt only, Evocation)', obj: this, type: 'cantrip-only', resources: null, options: {cantripDie: Dice.d10, empoweredEvocation: true, proc: 0}}],
+				['wizard_bladesinger_fb_rBB_1', {name: 'Wizard (bladesinger, prioritize INT, 100% proc)', obj: this, type: 'bladesinger', resources: null, options: {cantripDie: Dice.d10, empoweredEvocation: false, preferWeapons: false, proc: 1}}],
+				['wizard_bladesinger_BB_rBB_1', {name: 'Wizard (bladesinger, prioritize DEX, 100% proc)', obj: this, type: 'bladesinger', resources: null, options: {cantripDie: Dice.d10, empoweredEvocation: false, preferWeapons: true, proc: 1}}],
+				['wizard_bladesinger_fb_rBB_0', {name: 'Wizard (bladesinger, prioritize INT, 0% proc)', obj: this, type: 'bladesinger', resources: null, options: {cantripDie: Dice.d10, empoweredEvocation: false, preferWeapons: false, proc: 0}}],
+				['wizard_bladesinger_BB_rBB_0', {name: 'Wizard (bladesinger, prioritize DEX, 0% proc)', obj: this, type: 'bladesinger', resources: null, options: {cantripDie: Dice.d10, empoweredEvocation: false, preferWeapons: true, proc: 0}}],
 			]
     }
 
@@ -32,10 +34,10 @@ export class Wizard implements PresetProvider {
 			if (level < 6 && options?.preferWeapons == false) {
 				return attackProvider.attackCantrip(level, options?.cantripDie ?? Dice.d10, 1, 0, spellMod, false);
 			} else if (level < 6) {
-				return attackProvider.boomingBlade(level, 0.5, weaponMod);
+				return attackProvider.boomingBlade(level, options.proc, weaponMod);
 			} else {
 				let weaponDamage = attackProvider.weaponAttacks(level, 1, Dice.d8, weaponMod, true);
-				let spellDamage = attackProvider.boomingBlade(level, 0.5, weaponMod);
+				let spellDamage = attackProvider.boomingBlade(level, options.proc, weaponMod);
 				let damage = weaponDamage.damage + spellDamage.damage;
 				let accuracy = Util.average([weaponDamage.accuracy, spellDamage.accuracy]);
 				return {damage, accuracy}
@@ -53,5 +55,6 @@ export class Wizard implements PresetProvider {
 type WizardOptions = {
     cantripDie: number,
     empoweredEvocation: boolean,
-		preferWeapons: boolean
+		preferWeapons: boolean,
+		proc: number
 }

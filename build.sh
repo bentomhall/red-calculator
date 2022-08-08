@@ -1,5 +1,5 @@
 #!/bin/zsh
-./node_modules/typescript/bin/tsc & npx webpack
+./node_modules/typescript/bin/tsc && npx webpack
 if [ $0 ]; then
 	now=$(echo $(date +%d.%m.%y-%H:%M:%S) | md5)
 	echo $now > ./dist/version.txt
