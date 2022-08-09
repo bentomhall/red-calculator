@@ -58,10 +58,10 @@ export class AttackSource {
 		return {damage: fail*baseDamage, accuracy: fail};
 	}
 
-	public weaponAttacks(level: number, attacks: number, base: number, modifier: number, addsModifier: boolean = true, extra?: {advantage: number, disadvantage: number, flat: number}, multiplyExtra: boolean = false): DamageOutput {
+	public weaponAttacks(level: number, attacks: number, base: number, modifier: number, addsModifier: boolean = true, extra?: {advantage: number, disadvantage: number, flat: number}, multiplyExtra: boolean = false, extraCrit: number = 0): DamageOutput {
 		let onHit = base + (addsModifier ? modifier : 0);
 		let onCrit = 2*base + (addsModifier ? modifier : 0);
-		return this.damageWithVariableAccuracy(level, attacks, onHit, onCrit, modifier, extra, multiplyExtra);
+		return this.damageWithVariableAccuracy(level, attacks, onHit, onCrit, modifier, extra, multiplyExtra, extraCrit);
 	}
 
 	public chanceToHitAtLeastOnce(level: number, modifier: number, attacks: number, extraCrit: number = 0) : number {
@@ -81,10 +81,10 @@ export class AttackSource {
 		return 1 - Math.pow(1-hitOrCrit, attacks);
 	}
 
-	private damageWithVariableAccuracy(level: number, attacks: number, onHit: number, onCrit: number, modifier: number, extra?: {advantage: number, disadvantage: number, flat: number}, multiplyExtra: boolean = false): DamageOutput {
-		let advantage = this.provider.vsAC(level, this.options.mode, modifier, 0, 'advantage');
-		let disadvantage = this.provider.vsAC(level, this.options.mode, modifier, 0, 'disadvantage');
-		let flat = this.provider.vsAC(level, this.options.mode, modifier, 0, 'flat');
+	private damageWithVariableAccuracy(level: number, attacks: number, onHit: number, onCrit: number, modifier: number, extra?: {advantage: number, disadvantage: number, flat: number}, multiplyExtra: boolean = false, extraCrit: number = 0): DamageOutput {
+		let advantage = this.provider.vsAC(level, this.options.mode, modifier, extraCrit, 'advantage');
+		let disadvantage = this.provider.vsAC(level, this.options.mode, modifier, extraCrit, 'disadvantage');
+		let flat = this.provider.vsAC(level, this.options.mode, modifier, extraCrit, 'flat');
 		let flatChance = (1 - this.options.advantage - this.options.disadvantage);
 		let extraAdvantage = extra?.advantage ?? 0;
 		let extraDisadvantage = extra?.disadvantage ?? 0;
