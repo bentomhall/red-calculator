@@ -18,21 +18,20 @@ class Druid implements PresetProvider{
 		return this.bearForm(level, provider, mode);
 	}
 
-	private produceFlameDice = [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4];
 	private produceFlame(level: number, provider: AccuracyProvider, mode: AccuracyMode) {
-		let dice = this.produceFlameDice[level -1];
 		let modifier = this.modifiers[level - 1];
-		let {hit, crit} = provider.vsAC(level, mode, modifier, 0, 'flat');
-		return {damage: AttackSource.getDamageWithCrits(1, dice*Dice.d8, 2*dice*Dice.d8, hit, crit), accuracy: hit};
+		let source = new AttackSource(provider, mode, 0, 0);
+		return source.attackCantrip(level, Dice.d8, 1, 0, modifier, false);
 	}
 
 	private bearForm(level: number, provider: AccuracyProvider, mode: AccuracyMode) {
 		let modifier = 6;
 		let damageMod = 4;
 		if (level >= 6) { modifier = 7; damageMod = 5;}
-		let {hit, crit} = provider.vsAC(level, mode, modifier, 0, 'flat-unproficient');
-		let damage = AttackSource.getDamageWithCrits(1, Dice.d8 + damageMod, 2*Dice.d8 + damageMod, hit, crit) + AttackSource.getDamageWithCrits(1, 2*Dice.d6+4, 4*Dice.d6+4, hit, crit);
-		return {damage, accuracy: hit};
+		let source = new AttackSource(provider, mode, 0, 0);
+		let bite = source.weaponAttacks(level, 1, Dice.d8, modifier, false, {advantage: damageMod, disadvantage: damageMod, flat: damageMod}, false, 0, false);
+		let claws = source.weaponAttacks(level, 1, 2*Dice.d6, modifier, false, {advantage: damageMod, disadvantage: damageMod, flat: damageMod}, false, 0, false);
+		return {damage: bite.damage + claws.damage, accuracy: Util.average([bite.accuracy, claws.accuracy])};
 	}
 }
 

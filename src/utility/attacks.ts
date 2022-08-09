@@ -58,16 +58,16 @@ export class AttackSource {
 		return {damage: fail*baseDamage, accuracy: fail};
 	}
 
-	public weaponAttacks(level: number, attacks: number, base: number, modifier: number, addsModifier: boolean = true, extra?: {advantage: number, disadvantage: number, flat: number}, multiplyExtra: boolean = false, extraCrit: number = 0): DamageOutput {
+	public weaponAttacks(level: number, attacks: number, base: number, modifier: number, addsModifier: boolean = true, extra?: {advantage: number, disadvantage: number, flat: number}, multiplyExtra: boolean = false, extraCrit: number = 0, includesProficiency: boolean = true): DamageOutput {
 		let onHit = base + (addsModifier ? modifier : 0);
 		let onCrit = 2*base + (addsModifier ? modifier : 0);
-		return this.damageWithVariableAccuracy(level, attacks, onHit, onCrit, modifier, extra, multiplyExtra, extraCrit);
+		return this.damageWithVariableAccuracy(level, attacks, onHit, onCrit, modifier, extra, multiplyExtra, extraCrit, includesProficiency);
 	}
 
-	public chanceToHitAtLeastOnce(level: number, modifier: number, attacks: number, extraCrit: number = 0) : number {
+	public chanceToHitAtLeastOnce(level: number, modifier: number, attacks: number, extraCrit: number = 0, includeProficiency: boolean = true) : number {
 		let advantage = this.provider.vsAC(level, this.options.mode, modifier, extraCrit, 'advantage');
 		let disadvantage = this.provider.vsAC(level, this.options.mode, modifier, extraCrit, 'disadvantage');
-		let flat = this.provider.vsAC(level, this.options.mode, modifier, extraCrit, 'flat');
+		let flat = this.provider.vsAC(level, this.options.mode, modifier, extraCrit, includeProficiency ? 'flat' : 'flat-unproficient');
 		let pHitAdvantage = advantage.hit + advantage.crit;
 		let pHitDisadvantage = disadvantage.hit + disadvantage.crit;
 		let pHitFlat = flat.hit + flat.crit;
@@ -81,10 +81,10 @@ export class AttackSource {
 		return 1 - Math.pow(1-hitOrCrit, attacks);
 	}
 
-	private damageWithVariableAccuracy(level: number, attacks: number, onHit: number, onCrit: number, modifier: number, extra?: {advantage: number, disadvantage: number, flat: number}, multiplyExtra: boolean = false, extraCrit: number = 0): DamageOutput {
+	private damageWithVariableAccuracy(level: number, attacks: number, onHit: number, onCrit: number, modifier: number, extra?: {advantage: number, disadvantage: number, flat: number}, multiplyExtra: boolean = false, extraCrit: number = 0, includeProficiency: boolean = true): DamageOutput {
 		let advantage = this.provider.vsAC(level, this.options.mode, modifier, extraCrit, 'advantage');
 		let disadvantage = this.provider.vsAC(level, this.options.mode, modifier, extraCrit, 'disadvantage');
-		let flat = this.provider.vsAC(level, this.options.mode, modifier, extraCrit, 'flat');
+		let flat = this.provider.vsAC(level, this.options.mode, modifier, extraCrit, includeProficiency ? 'flat' : 'flat-unproficient');
 		let flatChance = (1 - this.options.advantage - this.options.disadvantage);
 		let extraAdvantage = extra?.advantage ?? 0;
 		let extraDisadvantage = extra?.disadvantage ?? 0;
