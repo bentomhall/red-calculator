@@ -1,6 +1,6 @@
 import Dice from "../utility/dice";
 import { AccuracyMode, AccuracyProvider, Preset, PresetProvider } from "../utility/types";
-import { AttackSource, DamageOutput } from "../utility/attacks";
+import { AttackDamageOptions, AttackSource, DamageOutput } from "../utility/attacks";
 
 class Fighter implements PresetProvider {
 	public readonly name = 'Fighter';
@@ -80,11 +80,13 @@ class Fighter implements PresetProvider {
 		let extraCrit = this.extraCrit(level);
 		let accuracyMod = level >= options.gWMStart ? modifier - 5 : modifier;
 		let extraDamage = level >= options.gWMStart ? modifier + 10 + this.greatWeaponFighting(options.weaponType) : modifier + this.greatWeaponFighting(options.weaponType);
-		let primary =  source.weaponAttacks(level, attacks, options.weaponDie, accuracyMod, false, {advantage: extraDamage, disadvantage: extraDamage, flat: extraDamage}, false, extraCrit);
+		let primaryOpt = new AttackDamageOptions(options.weaponDie, extraDamage, 0, 0, extraCrit, true, true);
+		let primary =  source.weaponAttacks(level, attacks, accuracyMod, primaryOpt);
 		let pamAttack: DamageOutput | null = null;
 		if (options.pAMStart && level >= options.pAMStart) {
-			let pamExtra = this.greatWeaponFighting('pam') + (level >= options.gWMStart ? modifier + 10 : modifier)
-			pamAttack = source.weaponAttacks(level, 1, Dice.d4, accuracyMod, false, {advantage: pamExtra, disadvantage: pamExtra, flat: pamExtra}, false, extraCrit);
+			let pamExtra = this.greatWeaponFighting('pam') + (level >= options.gWMStart ? modifier + 10 : modifier);
+			let pamOpt = new AttackDamageOptions(Dice.d4, pamExtra, 0, 0, extraCrit);
+			pamAttack = source.weaponAttacks(level, 1, accuracyMod, pamOpt);
 		}
 		return {damage: (1 + actionSurgeRate) * primary.damage + (pamAttack?.damage ?? 0), accuracy: primary.accuracy}
 	}
@@ -94,7 +96,8 @@ class Fighter implements PresetProvider {
 		let modifier = this.baseModifiers[level - 1];
 		let extra = 2;
 		let extraCrit = this.extraCrit(level);
-		let primary = source.weaponAttacks(level, attacks, options.weaponDie, modifier, true, {advantage: extra, disadvantage: extra, flat: extra}, false, extraCrit);
+		let primaryOpt = new AttackDamageOptions(options.weaponDie, extra, 0, 0, extraCrit, true, true);
+		let primary = source.weaponAttacks(level, attacks, modifier, primaryOpt);
 		return {damage: (1 + actionSurgeRate)*primary.damage, accuracy: primary.accuracy};
 	}
 
@@ -102,9 +105,12 @@ class Fighter implements PresetProvider {
 		let attacks = this.attacks(level);
 		let modifier = this.baseModifiers[level - 1];
 		let extra = this.greatWeaponFighting(options.weaponType);
+		let extraPam = this.greatWeaponFighting('pam');
 		let extraCrit = this.extraCrit(level);
-		let primary = source.weaponAttacks(level, attacks, options.weaponDie, modifier, true, {advantage: extra, disadvantage: extra, flat: extra}, false, extraCrit);
-		let pam = source.weaponAttacks(level, 1, Dice.d4, modifier, true, {advantage: extra, disadvantage: extra, flat: extra}, false, extraCrit);
+		let primaryOpt = new AttackDamageOptions(options.weaponDie, extra, 0, 0, extraCrit, true, true);
+		let pamOpt = new AttackDamageOptions(Dice.d4, extraPam, 0, 0, extraCrit, true, true);
+		let primary = source.weaponAttacks(level, attacks, modifier, primaryOpt);
+		let pam = source.weaponAttacks(level, 1, modifier, pamOpt);
 		return {damage: (1+actionSurgeRate)*primary.damage + pam.damage, accuracy: primary.accuracy}
 	}
 

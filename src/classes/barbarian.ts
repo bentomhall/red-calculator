@@ -1,4 +1,4 @@
-import { AttackSource } from "../utility/attacks";
+import { AttackSource, DamageOutput } from "../utility/attacks";
 import Dice from "../utility/dice";
 import { AccuracyProvider, Preset, PresetProvider } from "../utility/types";
 
@@ -43,6 +43,17 @@ export class Barbarian implements PresetProvider{
 			total = (1-reckless)*AttackSource.getDamageWithCrits(this.attacks(level), hitDamage, critDamage, hit, crit)+reckless*AttackSource.getDamageWithCrits(this.attacks(level), hitDamage, critDamage, advantage.hit, advantage.crit);
 		}
 		return {damage: total, accuracy: hit}
+	}
+
+	private frenzy(level: number, reckless: number, base: number, extra: number, extraMultiplied: number, roundsFrenzied: number, roundsPerLR: number, source: AttackSource): DamageOutput {
+		let regularRounds = roundsPerLR - roundsFrenzied;
+		let attacks = this.attacks(level);
+		let modifier = this.modifiers[level -1 ];
+		return {damage: NaN, accuracy: NaN};
+	}
+
+	private greatWeaponMaster(level: number, reckless: number, base: number, extra: number, extraMultiplied: number, source: AttackSource) : DamageOutput {
+		return {damage: NaN, accuracy: NaN};
 	}
 
 	private modifiers = [3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 7];

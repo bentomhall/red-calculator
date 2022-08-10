@@ -1,7 +1,7 @@
 import Util from "../utility/util";
 import Dice from "../utility/dice";
 import { AccuracyMode, AccuracyProvider, Preset, PresetProvider } from "../utility/types";
-import { AttackSource } from "../utility/attacks";
+import { AttackDamageOptions, AttackSource } from "../utility/attacks";
 
 class Warlock implements PresetProvider {
 	public readonly name = 'Warlock';
@@ -20,7 +20,8 @@ class Warlock implements PresetProvider {
 		let hexDamage = type == 'hex' ? this.getHexUptime(resources.rounds, spellLevel, resources.duration)*Dice.d6 : 0;
 		let attacks = this.getAttacks(level);
 		let source = new AttackSource(provider, mode, 0, 0);
-		let damage = source.weaponAttacks(level, attacks, Dice.d10, modifier, options.hasAB && level > 1, {advantage: hexDamage, disadvantage: hexDamage, flat: hexDamage}, true);
+		let attackOptions = new AttackDamageOptions(Dice.d10, 0, hexDamage, 0, 0, true, options.hasAB && level > 1);
+		let damage = source.weaponAttacks(level, attacks, modifier, attackOptions);
 		return damage
 	}
 

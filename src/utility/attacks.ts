@@ -16,39 +16,36 @@ export class AttackSource {
 		}
 	}
 	public boomingBlade(level: number, procRate: number, modifier: number, weaponDie: number = Dice.d8) : {damage: number, accuracy: number} {
-		let dmg = weaponDie + modifier;
-		let extraNormal: number;
-		let extraCrit: number;
+		// let dmg = weaponDie + modifier;
+		let extraDice = 0;
+		let extraStatic = 0;
 		if (level < 5) {
-			extraNormal = procRate*Dice.d8
-			extraCrit = 0
+			extraStatic = procRate*Dice.d8
+			extraDice = 0
 		}
 		else if (level < 9) {
-			extraNormal = Dice.d8 + procRate*2*Dice.d8
-			extraCrit = 2*extraNormal - procRate*2*Dice.d8
+			extraStatic = procRate*2*Dice.d8
+			extraDice = Dice.d8
 		}
 		else if (level < 11) {
-			extraNormal = 2*Dice.d8 + procRate*2*Dice.d8
-			extraCrit = 2*extraNormal - procRate*2*Dice.d8
+			extraStatic = procRate*2*Dice.d8
+			extraDice = 2*Dice.d8
 		}
 		else if (level < 17) {
-			extraNormal = 3*Dice.d8 + procRate*3*Dice.d8
-			extraCrit = 2*extraNormal - procRate*3*Dice.d8
+			extraStatic = procRate*3*Dice.d8
+			extraDice = 3*Dice.d8
 		}
 		else {
-			extraNormal = 4*Dice.d8 + procRate*4*Dice.d8
-			extraCrit = 2*extraNormal - procRate*4*Dice.d8
+			extraStatic = procRate*4*Dice.d8
+			extraDice = 4*Dice.d8
 		}
-		let hitDamage = dmg + extraNormal
-		let critDamage = 2*Dice.d8 + modifier + extraCrit
-		return this.damageWithVariableAccuracy(level, 1, hitDamage, critDamage, modifier);
+		
+		let options = new AttackDamageOptions(weaponDie, extraStatic, extraDice, 0, 0, true, true );
+		return this.damageWithVariableAccuracy(level, 1, modifier, options);
 	}
 
-	public attackCantrip(level:number, baseDie: number, attacks: number, extraPerHit:number, modifier: number, multiplyExtraOnCrit: boolean) : {damage: number, accuracy: number} {
-		let cantripDice = this.calculateCantripDice(level);
-		let onHit = cantripDice*baseDie + extraPerHit;
-		let onCrit = 2*cantripDice*baseDie + (multiplyExtraOnCrit ? 2*extraPerHit : extraPerHit);
-		return this.damageWithVariableAccuracy(level, attacks, onHit, onCrit, modifier);
+	public attackCantrip(level:number, attacks: number, modifier: number, options: AttackDamageOptions) : DamageOutput {
+		return this.damageWithVariableAccuracy(level, attacks, modifier, options);
 	}
 
 	public saveCantrip(level: number, targeting: SaveType, baseDie: number, extraPerHit: number, modifier: number) : DamageOutput {
@@ -58,10 +55,8 @@ export class AttackSource {
 		return {damage: fail*baseDamage, accuracy: fail};
 	}
 
-	public weaponAttacks(level: number, attacks: number, base: number, modifier: number, addsModifier: boolean = true, extra?: {advantage: number, disadvantage: number, flat: number}, multiplyExtra: boolean = false, extraCrit: number = 0, includesProficiency: boolean = true): DamageOutput {
-		let onHit = base + (addsModifier ? modifier : 0);
-		let onCrit = 2*base + (addsModifier ? modifier : 0);
-		return this.damageWithVariableAccuracy(level, attacks, onHit, onCrit, modifier, extra, multiplyExtra, extraCrit, includesProficiency);
+	public weaponAttacks(level: number, attacks: number, modifier: number, options: AttackDamageOptions): DamageOutput {
+		return this.damageWithVariableAccuracy(level, attacks, modifier, options);
 	}
 
 	public chanceToHitAtLeastOnce(level: number, modifier: number, attacks: number, extraCrit: number = 0, includeProficiency: boolean = true) : number {
@@ -81,17 +76,16 @@ export class AttackSource {
 		return 1 - Math.pow(1-hitOrCrit, attacks);
 	}
 
-	private damageWithVariableAccuracy(level: number, attacks: number, onHit: number, onCrit: number, modifier: number, extra?: {advantage: number, disadvantage: number, flat: number}, multiplyExtra: boolean = false, extraCrit: number = 0, includeProficiency: boolean = true): DamageOutput {
-		let advantage = this.provider.vsAC(level, this.options.mode, modifier, extraCrit, 'advantage');
-		let disadvantage = this.provider.vsAC(level, this.options.mode, modifier, extraCrit, 'disadvantage');
-		let flat = this.provider.vsAC(level, this.options.mode, modifier, extraCrit, includeProficiency ? 'flat' : 'flat-unproficient');
+	private damageWithVariableAccuracy(level: number, attacks: number, modifier: number, options: AttackDamageOptions): DamageOutput {
+		let advantage = this.provider.vsAC(level, this.options.mode, modifier, options.extraCritChance, 'advantage');
+		let disadvantage = this.provider.vsAC(level, this.options.mode, modifier, options.extraCritChance, 'disadvantage');
+		let flat = this.provider.vsAC(level, this.options.mode, modifier, options.extraCritChance, options.isProficient ? 'flat' : 'flat-unproficient');
 		let flatChance = (1 - this.options.advantage - this.options.disadvantage);
-		let extraAdvantage = extra?.advantage ?? 0;
-		let extraDisadvantage = extra?.disadvantage ?? 0;
-		let extraFlat = extra?.flat ?? 0
-		let advantageDamage = this.options.advantage * (AttackSource.getDamageWithCrits(attacks, onHit + extraAdvantage, onCrit + (multiplyExtra ? 2*extraAdvantage: extraAdvantage), advantage.hit, advantage.crit));
-		let disadvantageDamage = this.options.disadvantage * (AttackSource.getDamageWithCrits(attacks, onHit + extraDisadvantage, onCrit + (multiplyExtra ? 2*extraDisadvantage: extraDisadvantage), disadvantage.hit, disadvantage.crit) );
-		let flatDamage = flatChance * (AttackSource.getDamageWithCrits(attacks, onHit + extraFlat, onCrit + (multiplyExtra ? 2*extraFlat: extraFlat), flat.hit, flat.crit) );
+		let onHit = options.onHit(modifier);
+		let onCrit = options.onCrit(modifier);
+		let advantageDamage = this.options.advantage * (AttackSource.getDamageWithCrits(attacks, onHit, onCrit, advantage.hit, advantage.crit));
+		let disadvantageDamage = this.options.disadvantage * (AttackSource.getDamageWithCrits(attacks, onHit , onCrit, disadvantage.hit, disadvantage.crit) );
+		let flatDamage = flatChance * (AttackSource.getDamageWithCrits(attacks, onHit, onCrit, flat.hit, flat.crit) );
 		let damage = (advantageDamage + disadvantageDamage + flatDamage);
 		let accuracy = this.options.advantage*advantage.hit + this.options.disadvantage*disadvantage.hit + flatChance*flat.hit;
 		return {damage, accuracy};
@@ -125,4 +119,63 @@ export type AccuracyOptions = {
 export type DamageOutput = {
 	damage: number,
 	accuracy: number
+}
+
+
+
+export class AttackDamageOptions {
+	baseDice: number = 0
+	staticDamage: number = 0
+	extraDice: number = 0
+	extraDiceOnCrit: number = 0
+	extraCritChance: number = 0
+	isProficient: boolean = true
+	addsModifier: boolean = true
+
+	constructor(base: number, staticDamage :number = 0, extraDamageDice: number = 0, extraCritDice: number = 0, extraCritChance: number = 0, isProficient: boolean = true, addsModifier: boolean = true) {
+		this.baseDice = base;
+		this.staticDamage = staticDamage;
+		this.extraCritChance = extraCritChance;
+		this.extraDice = extraDamageDice;
+		this.extraDiceOnCrit = extraCritDice;
+		this.isProficient = isProficient;
+		this.addsModifier = addsModifier;
+	}
+
+	static regularCantrip(level: number, baseDie: number, extraStatic: number = 0, extraDice: number = 0) : AttackDamageOptions {
+		let base = AttackDamageOptions.calculateCantripDice(level)*baseDie;
+		return new AttackDamageOptions(base, extraStatic, extraDice, 0, 0, true, false)
+	}
+
+	onHit(modifier: number) : number {
+		let damage = this.baseDice;
+		if (this.addsModifier) {
+			damage += modifier
+		}
+		damage += this.staticDamage;
+		damage += this.extraDice;
+		return damage;
+	}
+
+	onCrit(modifier: number) : number {
+		let damage = 2*(this.baseDice + this.extraDice);
+		if (this.addsModifier) { damage += modifier; }
+		damage += this.staticDamage;
+		damage += this.extraDiceOnCrit;
+		return damage;
+	}
+
+	private static calculateCantripDice(level: number) : number {
+		let cantripDice = 0
+		if (level < 5) {
+			cantripDice = 1;
+		} else if (level < 11) {
+			cantripDice = 2;
+		} else if (level < 17) {
+			cantripDice = 3
+		} else {
+			cantripDice = 4;
+		}
+		return cantripDice
+	}
 }

@@ -1,7 +1,7 @@
 import Util from "../utility/util";
 import Dice from "../utility/dice";
 import { AccuracyMode, AccuracyProvider, Preset, PresetProvider } from "../utility/types";
-import { AttackSource, DamageOutput } from "../utility/attacks";
+import { AttackDamageOptions, AttackSource, DamageOutput } from "../utility/attacks";
 class Monk implements PresetProvider {
 	public readonly name = 'Monk';
 	modifiers = [3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
@@ -55,8 +55,10 @@ class Monk implements PresetProvider {
 		let modifier = this.modifiers[level - 1];
 		let { weapon, unarmed } = this.attacks(level, true);
     let source = new AttackSource(provider, mode, options.advantage, options.disadvantage);
-    let qsDamage = source.weaponAttacks(level, weapon, weaponDie, modifier, true);
-    let unarmedDamage = source.weaponAttacks(level, unarmed, unarmedDie, modifier, true);
+		let qsOptions = new AttackDamageOptions(weaponDie);
+		let unarmedOptions = new AttackDamageOptions(unarmedDie);
+    let qsDamage = source.weaponAttacks(level, weapon, modifier, qsOptions);
+    let unarmedDamage = source.weaponAttacks(level, unarmed,  modifier, unarmedOptions);
     return {
       damage: qsDamage.damage + unarmedDamage.damage,
       accuracy: qsDamage.accuracy
@@ -67,8 +69,9 @@ class Monk implements PresetProvider {
 		let modifier = this.modifiers[level - 1];
     let dieSize = this.martialArtsDie(level);
     let unarmedAttacks = this.attacks(level, false).unarmed;
-		let source = new AttackSource(provider, mode, options.advantage, options.disadvantage)
-    return source.weaponAttacks(level, unarmedAttacks, dieSize, modifier, true);
+		let source = new AttackSource(provider, mode, options.advantage, options.disadvantage);
+		let attackOptions = new AttackDamageOptions(dieSize);
+    return source.weaponAttacks(level, unarmedAttacks, modifier, attackOptions);
 	}
 
 	private attacks(level: number, useWeapon: boolean): {unarmed: number, weapon: number} {
@@ -85,7 +88,8 @@ class Monk implements PresetProvider {
 		if (level == 1) { return 0; }
 		let modifier = this.modifiers[level - 1];
 		let dieSize = this.martialArtsDie(level);
-    return source.weaponAttacks(level, rounds, dieSize, modifier, true).damage
+		let opt = new AttackDamageOptions(dieSize);
+    return source.weaponAttacks(level, rounds, modifier, opt).damage
 	}
 
 	private martialArtsDie(level: number) {
@@ -145,7 +149,8 @@ class Monk implements PresetProvider {
 			return (armsDamage + chanceToTriggerRoundOne*die + chanceToTrigger*die) / rounds;
 		} else if (Math.max(rounds, level) >= flurryRounds + 4) {
 			let chanceToTriggerRoundOne = source.chanceToHitAtLeastOnce(level, modifier, 3);
-			return (armsDamage + chanceToTriggerRoundOne*die + chanceToTrigger*die)/rounds + source.weaponAttacks(level, 1, die, modifier, true).damage;
+			let opt = new AttackDamageOptions(die);
+			return (armsDamage + chanceToTriggerRoundOne*die + chanceToTrigger*die)/rounds + source.weaponAttacks(level, 1, modifier, opt).damage;
 		}
 		return 0;
 	}

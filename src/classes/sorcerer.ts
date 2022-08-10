@@ -1,4 +1,4 @@
-import { AttackSource } from "../utility/attacks";
+import { AttackDamageOptions, AttackSource } from "../utility/attacks";
 import Dice from "../utility/dice";
 import { PresetProvider, AccuracyProvider, Preset, AccuracyMode } from "../utility/types";
 
@@ -9,8 +9,9 @@ export class Sorcerer implements PresetProvider {
     let modifier = this.modifiers[level - 1];
     let source = new AttackSource(accuracyProvider, accuracyMode, 0, 0);
     let extra = options?.matchingElementalAffinity && level >= 6 ? modifier : 0;
-    let regular = source.attackCantrip(level, options?.cantripDie ?? Dice.d10, 1, extra, modifier, false);
-    let quicken = source.attackCantrip(level, options?.cantripDie ?? Dice.d10, 2, extra, modifier, false);
+		let opt = AttackDamageOptions.regularCantrip(level, options?.cantripDie ?? Dice.d10, extra, 0);
+    let regular = source.attackCantrip(level, 1, modifier, opt);
+    let quicken = source.attackCantrip(level, 2, modifier, opt);
     if (type == 'cantrip-only') {
       let damage = regular.damage;
       if (options?.useQuicken) {
