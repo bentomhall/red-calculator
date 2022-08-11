@@ -67,6 +67,7 @@ import { Barbarian } from "./classes/barbarian";
 import { CustomData } from "./classes/custom";
 import { Wizard } from "./classes/wizard";
 import { Sorcerer } from "./classes/sorcerer";
+import { Paladin } from "./classes/paladin";
 
 function createChart(ctx, datasets) {
 	return new Chart(ctx, {
@@ -241,7 +242,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
 		new Druid(), 
 		new Barbarian(),
 		new Wizard(),
-		new Sorcerer(), 
+		new Sorcerer(),
+		new Paladin(), 
 		new CustomData()];
 	let allPresetInterior = [];
 	for (let cls of classes) {

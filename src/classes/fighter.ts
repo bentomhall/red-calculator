@@ -6,13 +6,6 @@ class Fighter implements PresetProvider {
 	public readonly name = 'Fighter';
 	private baseModifiers = [3, 3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
 	private featAt4Modifiers = [3, 3, 3, 3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
-	private _damage = new Map([
-		['snb', { base: Dice.d8, crit: 2 * Dice.d8, extra: 2 }],
-		['gs', { base: 2 * Dice.d6, crit: 4 * Dice.d6, extra: 1.33 }],
-		['gs_pa', { base: 2 * Dice.d6, crit: 4 * Dice.d6, extra: 1.33 }],
-		['gwm_pam', { base: Dice.d10, crit: 2 * Dice.d10, extra: 0.9 }],
-		['pam', { base: Dice.d10, crit: 2 * Dice.d10, extra: 0.9 }]
-	]);
 
 	presets() {
 		return [
@@ -26,7 +19,7 @@ class Fighter implements PresetProvider {
 			['champion_gs_6', { name: 'GS Champion Fighter (1 SR / 6 rounds)', obj: this, type: 'gs', resources: { rounds: 6, rests: 0 }, options: {weaponDie: 2*Dice.d6, weaponType: 'greatsword'} }],
 			['champion_gs_9', { name: 'GS Champion Fighter (1 SR / 9 rounds)', obj: this, type: 'gs', resources: { rounds: 9, rests: 0 }, options: {weaponDie: 2*Dice.d6, weaponType: 'greatsword'} }],
 			['champion_gs_4', { name: 'GS Champion Fighter (1 SR / 4 rounds)', obj: this, type: 'gs', resources: { rounds: 4, rests: 0 }, options: {weaponDie: 2*Dice.d6, weaponType: 'greatsword'} }],
-			['champion_gs_pa_9', { name: 'GWF (GS) Champion Fighter (Always Power Attack, 1 SR / 9 rounds)', obj: this, type: 'gs_pa', resources: { rounds: 9, rests: 0 }, options: {weaponDie: 2*Dice.d6, weaponType: 'greatsword', gWMStart: 1, gWMProc: 0} }],
+			['champion_gs_pa_9', { name: 'GWF (GS) Champion Fighter (Always Power Attack, 1 SR / 9 rounds)', obj: this, type: 'gs_pa', resources: { rounds: 9, rests: 0 }, options: {weaponDie: 2*Dice.d6, weaponType: 'greatsword', gWMStart: 1, gWMProc: 0, pAMStart: null} }],
 			['champion_gwm_pam_9', { name: 'GWF (glaive) Champion Fighter (PAM at 1, Always Power Attack from 4, 1 SR / 9 rounds)', obj: this, type: 'gwm_pam', resources: { rounds: 9, rests: 0 }, options: {weaponDie: Dice.d10, weaponType: 'glaive', gWMStart: 4, pAMStart: 1, gWMProc: 0} }],
 			['champion_pam_9', { name: 'GWF (glaive) Champion Fighter (PAM at 1, no GWM, 1 SR / 9 rounds)', obj: this, type: 'pam', resources: { rounds: 9, rests: 0 }, options: {weaponDie: Dice.d10, weaponType: 'polearm'} }],
 		] as [string, Preset][]
@@ -42,7 +35,7 @@ class Fighter implements PresetProvider {
 			case 'snb':
 				return this.dueling(level, aSUse, options, source);
 			case 'gs':
-				return this.greatWeaponMaster(level, aSUse, {weaponDie: options.weaponDie, weaponType: options.weaponType, gWMProc: 0, gWMStart: 21, pAMStart: 21, advantage: options.advantage, disadvantage: options.disadvantage}, source);
+				return this.greatWeaponMaster(level, aSUse, {weaponDie: options.weaponDie, weaponType: options.weaponType, gWMProc: 0, gWMStart: null, pAMStart: null}, source);
 			case 'gs_pa':
 				return this.greatWeaponMaster(level, aSUse, options, source);
 			case 'gwm_pam':
@@ -78,8 +71,8 @@ class Fighter implements PresetProvider {
 			modifier = this.featAt4Modifiers[level - 1];
 		}
 		let extraCrit = this.extraCrit(level);
-		let accuracyMod = level >= options.gWMStart ? modifier - 5 : modifier;
-		let extraDamage = level >= options.gWMStart ? modifier + 10 + this.greatWeaponFighting(options.weaponType) : modifier + this.greatWeaponFighting(options.weaponType);
+		let accuracyMod = options.gWMStart && level >= options.gWMStart ? modifier - 5 : modifier;
+		let extraDamage = options.gWMStart && level >= options.gWMStart ? 15 + this.greatWeaponFighting(options.weaponType) : this.greatWeaponFighting(options.weaponType);
 		let primaryOpt = new AttackDamageOptions(options.weaponDie, extraDamage, 0, 0, extraCrit, true, true);
 		let primary =  source.weaponAttacks(level, attacks, accuracyMod, primaryOpt);
 		let pamAttack: DamageOutput | null = null;
