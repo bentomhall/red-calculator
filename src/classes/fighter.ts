@@ -1,6 +1,7 @@
 import Dice from "../utility/dice";
 import { AccuracyMode, AccuracyProvider, Preset, PresetProvider } from "../utility/types";
 import { AttackDamageOptions, AttackSource, DamageOutput } from "../utility/attacks";
+import { AttackModifier, Feat, FightingStyleHandler, WeaponDie } from "../utility/features";
 
 class Fighter implements PresetProvider {
 	public readonly name = 'Fighter';
@@ -71,23 +72,25 @@ class Fighter implements PresetProvider {
 			modifier = this.featAt4Modifiers[level - 1];
 		}
 		let extraCrit = this.extraCrit(level);
-		let accuracyMod = options.gWMStart && level >= options.gWMStart ? modifier - 5 : modifier;
-		let extraDamage = options.gWMStart && level >= options.gWMStart ? 15 + this.greatWeaponFighting(options.weaponType) : this.greatWeaponFighting(options.weaponType);
+		let gwm = Feat.powerAttack();
+		let gwfs = FightingStyleHandler.greatWeapon(options.weaponType);
+		let accuracyMod = options.gWMStart && level >= options.gWMStart ? modifier + gwm.accuracy : modifier;
+		let extraDamage = options.gWMStart && level >= options.gWMStart ? gwm.flatDamage + modifier + gwfs.flatDamage : gwfs.flatDamage;
 		let primaryOpt = new AttackDamageOptions(options.weaponDie, extraDamage, 0, 0, extraCrit, true, true);
 		let primary =  source.weaponAttacks(level, attacks, accuracyMod, primaryOpt);
-		let pamAttack: DamageOutput | null = null;
+		let pamAttack: AttackModifier | null = null;
 		if (options.pAMStart && level >= options.pAMStart) {
-			let pamExtra = this.greatWeaponFighting('pam') + (level >= options.gWMStart ? modifier + 10 : modifier);
-			let pamOpt = new AttackDamageOptions(Dice.d4, pamExtra, 0, 0, extraCrit);
-			pamAttack = source.weaponAttacks(level, 1, accuracyMod, pamOpt);
+			let pamExtra = FightingStyleHandler.greatWeapon(WeaponDie.d4).flatDamage + (level >= options.gWMStart ?  gwm.flatDamage : 0);
+			let pamOpt = new AttackDamageOptions(Dice.d4, pamExtra, 0, 0, extraCrit, true, true);
+			pamAttack = Feat.poleArmMaster(level, accuracyMod, pamOpt, source);
 		}
-		return {damage: (1 + actionSurgeRate) * primary.damage + (pamAttack?.damage ?? 0), accuracy: primary.accuracy}
+		return {damage: (1 + actionSurgeRate) * primary.damage + (pamAttack?.flatDamage ?? 0), accuracy: primary.accuracy}
 	}
 
 	private dueling(level: number, actionSurgeRate: number, options: FighterOptions, source: AttackSource) : DamageOutput {
 		let attacks = this.attacks(level);
 		let modifier = this.baseModifiers[level - 1];
-		let extra = 2;
+		let extra = FightingStyleHandler.dueling().flatDamage;
 		let extraCrit = this.extraCrit(level);
 		let primaryOpt = new AttackDamageOptions(options.weaponDie, extra, 0, 0, extraCrit, true, true);
 		let primary = source.weaponAttacks(level, attacks, modifier, primaryOpt);
@@ -97,27 +100,14 @@ class Fighter implements PresetProvider {
 	private polearmMasterOnly(level: number, actionSurgeRate: number, options: FighterOptions, source: AttackSource) : DamageOutput {
 		let attacks = this.attacks(level);
 		let modifier = this.baseModifiers[level - 1];
-		let extra = this.greatWeaponFighting(options.weaponType);
-		let extraPam = this.greatWeaponFighting('pam');
+		let extra = FightingStyleHandler.greatWeapon(options.weaponType).flatDamage;
+		let extraPam = FightingStyleHandler.greatWeapon(WeaponDie.d4).flatDamage;
 		let extraCrit = this.extraCrit(level);
 		let primaryOpt = new AttackDamageOptions(options.weaponDie, extra, 0, 0, extraCrit, true, true);
 		let pamOpt = new AttackDamageOptions(Dice.d4, extraPam, 0, 0, extraCrit, true, true);
 		let primary = source.weaponAttacks(level, attacks, modifier, primaryOpt);
-		let pam = source.weaponAttacks(level, 1, modifier, pamOpt);
-		return {damage: (1+actionSurgeRate)*primary.damage + pam.damage, accuracy: primary.accuracy}
-	}
-
-	private greatWeaponFighting(type: 'greatsword' | 'glaive' | 'longsword' | 'pam'): number {
-		switch(type) {
-			case 'glaive':
-				return 0.9;
-			case 'greatsword':
-				return 1.33;
-			case 'longsword':
-				return 0;
-			case 'pam':
-				return 0.75;
-		}
+		let pam = Feat.poleArmMaster(level, modifier, pamOpt, source);
+		return {damage: (1+actionSurgeRate)*primary.damage + pam.flatDamage, accuracy: primary.accuracy}
 	}
 }
 
@@ -125,7 +115,7 @@ export default Fighter;
 
 type FighterOptions = {
 	weaponDie: number;
-	weaponType: 'greatsword' | 'glaive' | 'longsword' | 'pam'
+	weaponType: WeaponDie
 	gWMStart?: number | null;
 	pAMStart?: number | null;
 	gWMProc?: number;
