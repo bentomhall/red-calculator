@@ -1,4 +1,4 @@
-import { AttackSource, DamageOutput } from "../utility/attacks";
+import { AttackDamageOptions, AttackSource, DamageOutput } from "../utility/attacks";
 import Dice from "../utility/dice";
 import { AccuracyMode, AccuracyProvider, BaselineProvider, Preset, PresetProvider } from "../utility/types";
 
@@ -30,7 +30,8 @@ class Rogue implements PresetProvider, BaselineProvider {
 	private shortbow(level: number, provider: AccuracyProvider, mode: AccuracyMode, options: RogueOptions) : DamageOutput {
 		let modifier = this.modifiers[level - 1];
 		let attackSource = new AttackSource(provider, mode, options.advantage, options.disadvantage);
-		let main = attackSource.weaponAttacks(level, 1, options.baseDie, modifier, true, {advantage: 0, disadvantage: 0, flat: 0}, false);
+		let attackOptions = new AttackDamageOptions(options.baseDie, 0, 0, 0, 0, true, true);
+		let main = attackSource.weaponAttacks(level, 1, modifier, attackOptions);
 		let damage = main.damage + (options.useSneakAttack ? this.sneakAttack(level, modifier, 1, options, provider, mode) : 0);
 		return {damage, accuracy: main.accuracy};
 	}
@@ -42,8 +43,10 @@ class Rogue implements PresetProvider, BaselineProvider {
 	private calculateTWF(level: number, provider: AccuracyProvider, mode: AccuracyMode, options: RogueOptions) {
 		let modifier = this.modifiers[level - 1];
 		let attackSource = new AttackSource(provider, mode, options.advantage, options.disadvantage);
-		let main = attackSource.weaponAttacks(level, 1, options.baseDie, modifier, true);
-		let off = attackSource.weaponAttacks(level, 1, options.baseDie, modifier, false);
+		let mainAttackOptions = new AttackDamageOptions(options.baseDie, 0, 0, 0, 0, true, true);
+		let offAttackOptions = new AttackDamageOptions(options.baseDie, 0, 0, 0, 0, true, false);
+		let main = attackSource.weaponAttacks(level, 1, modifier, mainAttackOptions);
+		let off = attackSource.weaponAttacks(level, 1, modifier, offAttackOptions);
 		let damage = main.damage + off.damage + (options.useSneakAttack ? this.sneakAttack(level, modifier, 2, options, provider, mode) : 0);
 		return {damage, accuracy: main.accuracy};
 	}

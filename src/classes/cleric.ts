@@ -1,7 +1,7 @@
 import Util from "../utility/util";
 import Dice from "../utility/dice";
 import {AccuracyMode, AccuracyProvider, Preset, PresetProvider, SaveType} from "../utility/types"
-import { AttackSource, DamageOutput } from "../utility/attacks";
+import { AttackDamageOptions, AttackSource, DamageOutput } from "../utility/attacks";
 
 class Cleric implements PresetProvider {
 	public readonly name = 'Cleric';
@@ -43,10 +43,9 @@ class Cleric implements PresetProvider {
 	private sacredWeapon(uptime: number, level: number, provider: AccuracyProvider, mode: AccuracyMode): DamageOutput {
 		if (level < 3) { return {damage: 0.0, accuracy: -1};}
 		let modifier = this.wisModifiers[level - 1];
-		let {hit, crit} = provider.vsAC(level, mode, modifier, 0, 'flat');
-		let baseDamage = Dice.d8 + modifier;
-		let critDamage = 2*Dice.d8 + modifier;
-		return {damage: AttackSource.getDamageWithCrits(1, baseDamage, critDamage, hit, crit) * uptime, accuracy: hit};
+		let source = new AttackSource(provider, mode, 0, 0);
+		let output = source.weaponAttacks(level, 1, modifier, new AttackDamageOptions(Dice.d8));
+		return {damage: output.damage*uptime, accuracy: output.accuracy};
 	}
 
 	private boomingBlade(level: number, procRate: number, modifier: number, weaponDie: number, provider: AccuracyProvider, mode: AccuracyMode) {

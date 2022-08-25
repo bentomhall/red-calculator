@@ -1,4 +1,4 @@
-import { AttackSource, DamageOutput } from "../utility/attacks";
+import { AttackDamageOptions, AttackSource, DamageOutput } from "../utility/attacks";
 import Dice from "../utility/dice";
 import { AccuracyMode, AccuracyProvider, Preset, PresetProvider, SaveType } from "../utility/types";
 import Util from "../utility/util";
@@ -32,11 +32,13 @@ export class Wizard implements PresetProvider {
 			let spellMod = options?.preferWeapons ? this.dexModifier[level-1] : this.modifiers[level - 1];
 			let attackProvider = new AttackSource(accuracyProvider, accuracyMode, 0, 0);
 			if (level < 6 && options?.preferWeapons == false) {
-				return attackProvider.attackCantrip(level, options?.cantripDie ?? Dice.d10, 1, 0, spellMod, false);
+				let attackOptions = AttackDamageOptions.regularCantrip(level, options.cantripDie, 0, 0);
+				return attackProvider.attackCantrip(level, options?.cantripDie ?? Dice.d10, spellMod, attackOptions);
 			} else if (level < 6) {
 				return attackProvider.boomingBlade(level, options.proc, weaponMod);
 			} else {
-				let weaponDamage = attackProvider.weaponAttacks(level, 1, Dice.d8, weaponMod, true);
+				let attackOptions = new AttackDamageOptions(Dice.d8, 0, 0, 0, 0, true, true);
+				let weaponDamage = attackProvider.weaponAttacks(level, 1, weaponMod, attackOptions);
 				let spellDamage = attackProvider.boomingBlade(level, options.proc, weaponMod);
 				let damage = weaponDamage.damage + spellDamage.damage;
 				let accuracy = Util.average([weaponDamage.accuracy, spellDamage.accuracy]);
@@ -48,7 +50,8 @@ export class Wizard implements PresetProvider {
 			let modifier = this.modifiers[level - 1];
 			let attacks = new AttackSource(accuracyProvider, accuracyMode, 0, 0);
 			let extraDamage = level >= 10 && options?.empoweredEvocation ? modifier : 0;
-			return attacks.attackCantrip(level, options?.cantripDie ?? Dice.d10, 1, extraDamage, modifier, false);
+			let attackOptions = AttackDamageOptions.regularCantrip(level, options.cantripDie, extraDamage, 0);
+			return attacks.attackCantrip(level, 1, modifier, attackOptions);
 		}
 }
 
