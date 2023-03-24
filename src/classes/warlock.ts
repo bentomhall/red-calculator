@@ -8,8 +8,8 @@ class Warlock implements PresetProvider {
 	modifiers = [3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
 	presets() {
 		return [
-			['warlock_ab_nr', { name: 'Warlock (EB/AB, no hex)', obj: this, type: 'nr', resources: null, options: {hasAB: false} }],
-			['warlock_no_ab_nr', { name: 'Warlock (EB, no AB, no hex)', obj: this, type: 'nr', resources: null, options: {hasAB: true} }],
+			['warlock_ab_nr', { name: 'Warlock (EB/AB, no hex)', obj: this, type: 'nr', resources: null, options: {hasAB: true} }],
+			['warlock_no_ab_nr', { name: 'Warlock (EB, no AB, no hex)', obj: this, type: 'nr', resources: null, options: {hasAB: false} }],
 			['warlock_ab_hex', { name: 'Warlock (EB/AB, unlimited hex)', obj: this, type: 'hex', resources: { rounds: 1, duration: 100 }, options: {hasAB: true} }],
 		] as [string, Preset][]
 	}
