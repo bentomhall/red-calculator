@@ -3,7 +3,7 @@ import { AccuracyProvider, AccuracyMode } from "./types";
 
 class Util {
 	static average(data: number[]):number {
-			return data.reduce((p,c)=>p+c,0)/data.length;
+			return Util.sum(data)/data.length;
 	}
 	
 	static round(value:number, decimals = 2):number {
@@ -12,6 +12,9 @@ class Util {
 	}
 	static getRandomColor():string {
 			return '#'+Math.floor(Math.random()*16777215).toString(16);
+	}
+	static sum(data: number[]):number {
+		return data.reduce((p,c)=>p+c,0);
 	}
 }
 
